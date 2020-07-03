@@ -1,5 +1,3 @@
-// TODO: error messages (consistent content, contact email)
-
 module.exports = {
   api: {
     baseUrl: 'https://kimono-server.herokuapp.com',
