@@ -21,10 +21,25 @@ const reducer = (state = initialState, action) => {
         }
       })
     }
+    case types.SAVE_FINISHED_IMAGE: {
+      return update(state, {
+        design: {
+          imageData: { $set: action.imageData }
+        }
+      })
+    }
+    case types.USER_FINISHED_DESIGNING: {
+      return update(state, {
+        design: {
+          step: { $set: config.designSteps.SIGNING }
+        }
+      })
+    }
     case types.USER_LEFT_DESIGN_PAGE: {
       return update(state, {
         design: {
           error: { $set: false },
+          imageData: { $set: null },
           step: { $set: config.designSteps.EMPTY },
           userImage: { $set: null }
         }

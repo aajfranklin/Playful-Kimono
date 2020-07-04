@@ -15,7 +15,7 @@ function UploadOverlay({ userUploadedImage }) {
       if (e.dataTransfer.files[0].type.indexOf('image/') !== 0) return;
       handleFileInput({ target: { files: e.dataTransfer.files } });
     };
-  }, []);
+  });
   
   const handleFileInput = (e) => {
     let reader = new FileReader();

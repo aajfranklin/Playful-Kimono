@@ -17,7 +17,16 @@ export const getKimonosSuccess = (kimonos) => ({
   kimonos
 });
 
-export const userLeftDesignPage = (image) => ({
+export const saveFinishedImage = (imageData) => ({
+  type: types.SAVE_FINISHED_IMAGE,
+  imageData
+});
+
+export const userFinishedDesigning = () => ({
+  type: types.USER_FINISHED_DESIGNING
+});
+
+export const userLeftDesignPage = () => ({
   type: types.USER_LEFT_DESIGN_PAGE
 });
 
