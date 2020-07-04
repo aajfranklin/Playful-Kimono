@@ -100,9 +100,8 @@ function Canvas ({ step, userImage, saveFinishedImage }) {
     canvasRef.current.renderAll();
   };
   
-  return(
-    <React.Fragment>
-      <canvas id="canvas"/>
+  const ZoomControls = () => {
+    return(
       <div id="zoom">
         <span>ZOOM</span>
         <div id="zoom-controls">
@@ -111,7 +110,15 @@ function Canvas ({ step, userImage, saveFinishedImage }) {
           <button onClick={zoomIn} type="button" className="zoom-button">+</button>
         </div>
       </div>
-    </React.Fragment>)
+    )
+  };
+  
+  return(
+    <React.Fragment>
+      <canvas id="canvas"/>
+      { step === config.designSteps.EMPTY || step === config.designSteps.EDITING ? <ZoomControls/> : null }
+    </React.Fragment>
+  )
 }
 
 const mapStateToProps = (state) => {

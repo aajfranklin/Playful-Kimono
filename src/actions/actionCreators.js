@@ -17,6 +17,10 @@ export const getKimonosSuccess = (kimonos) => ({
   kimonos
 });
 
+export const kimonoSubmitted = () => ({
+  type: types.KIMONO_SUBMITTED
+});
+
 export const saveFinishedImage = (imageData) => ({
   type: types.SAVE_FINISHED_IMAGE,
   imageData
@@ -49,6 +53,16 @@ export const userUploadedImage = (image) => ({
   type: types.USER_UPLOADED_IMAGE,
   image
 });
+
+/*
+------------------------------------------------------------------------------------------------------------------------
+DESIGN ACTIONS
+------------------------------------------------------------------------------------------------------------------------
+ */
+
+export const uploadKimono = () => dispatch => {
+  dispatch(kimonoSubmitted());
+};
 
 /*
 ------------------------------------------------------------------------------------------------------------------------

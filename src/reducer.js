@@ -5,33 +5,6 @@ import config from './config';
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case types.UPDATE_HANDLE: {
-      return update(state, {
-        design: {
-          form: {
-            handle: { $set: action.handle }
-          }
-        }
-      })
-    }
-    case types.UPDATE_NAME: {
-      return update(state, {
-        design: {
-          form: {
-            name: { $set: action.name }
-          }
-        }
-      })
-    }
-    case types.UPDATE_TITLE: {
-      return update(state, {
-        design: {
-          form: {
-            title: { $set: action.title }
-          }
-        }
-      })
-    }
     case types.GET_KIMONOS_FAILURE: {
       return update(state, {
         gallery: {
@@ -45,6 +18,13 @@ const reducer = (state = initialState, action) => {
         gallery: {
           kimonos: { $set: action.kimonos },
           loaded: { $set: true }
+        }
+      })
+    }
+    case types.KIMONO_SUBMITTED: {
+      return update(state, {
+        design: {
+          step: { $set: config.designSteps.SUBMITTED }
         }
       })
     }
@@ -82,6 +62,33 @@ const reducer = (state = initialState, action) => {
         design: {
           userImage: { $set: action.image },
           step: { $set: config.designSteps.EDITING }
+        }
+      })
+    }
+    case types.UPDATE_HANDLE: {
+      return update(state, {
+        design: {
+          form: {
+            handle: { $set: action.handle }
+          }
+        }
+      })
+    }
+    case types.UPDATE_NAME: {
+      return update(state, {
+        design: {
+          form: {
+            name: { $set: action.name }
+          }
+        }
+      })
+    }
+    case types.UPDATE_TITLE: {
+      return update(state, {
+        design: {
+          form: {
+            title: { $set: action.title }
+          }
         }
       })
     }

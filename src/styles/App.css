@@ -94,6 +94,10 @@ button {
     padding: 0;
 }
 
+#go-to-gallery {
+    padding-top: 1em;
+}
+
 input[type="text"],
 select.form-control {
     background: transparent;

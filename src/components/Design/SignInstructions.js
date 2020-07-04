@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { updateHandle, updateName, updateTitle } from '../../actions/actionCreators';
+import { updateHandle, updateName, updateTitle, uploadKimono } from '../../actions/actionCreators';
 
 // POST IMAGE TO S3 AND POST KIMONO TO STRAPI
 // CHANGE STEP
 
-function SignInstructions({ handle, name, title, updateHandle, updateName, updateTitle }) {
+function SignInstructions({ handle, name, title, updateHandle, updateName, updateTitle, uploadKimono }) {
   
   const handleHandleChange  = (e) => updateHandle(e.target.value);
   const handleNameChange    = (e) => updateName(e.target.value);
@@ -13,7 +13,7 @@ function SignInstructions({ handle, name, title, updateHandle, updateName, updat
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('submit!');
+    uploadKimono();
   }
   
   const isButtonAvailable = name && name.length > 0 && title && title.length > 0;
@@ -59,7 +59,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     updateHandle: (handle) => dispatch(updateHandle(handle)),
     updateName: (name) => dispatch(updateName(name)),
-    updateTitle: (title) => dispatch(updateTitle(title))
+    updateTitle: (title) => dispatch(updateTitle(title)),
+    uploadKimono: () => dispatch(uploadKimono())
   };
 }
 
