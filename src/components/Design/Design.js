@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import Canvas from './Canvas';
 import config from '../../config';
-import { userUploadedImage } from "../../actions/actionCreators";
+import { userLeftDesignPage, userUploadedImage } from "../../actions/actionCreators";
 
-function Design({ step, userImage, userUploadedImage }) {
+function Design({ step, userImage, userLeftDesignPage, userUploadedImage }) {
+  
+  useEffect(() => {
+    return () => userLeftDesignPage();
+  }, [])
   
   const handleFileInput = (e) => {
     let reader = new FileReader();
@@ -49,6 +53,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    userLeftDesignPage: () => dispatch(userLeftDesignPage()),
     userUploadedImage: (image) => dispatch(userUploadedImage(image))
   }
 }

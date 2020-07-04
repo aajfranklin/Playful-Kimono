@@ -21,6 +21,15 @@ const reducer = (state = initialState, action) => {
         }
       })
     }
+    case types.USER_LEFT_DESIGN_PAGE: {
+      return update(state, {
+        design: {
+          error: { $set: false },
+          step: { $set: config.designSteps.EMPTY },
+          userImage: { $set: null }
+        }
+      })
+    }
     case types.USER_UPLOADED_IMAGE: {
       return update(state, {
         design: {
