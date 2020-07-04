@@ -43,7 +43,7 @@ function Canvas () {
         quality: 1
       });
       
-      window.open(window.URL.createObjectURL(dataURItoBlob(dataUrl)));
+      // window.open(window.URL.createObjectURL(dataURItoBlob(dataUrl)));
   
       canvas.dispose();
     }

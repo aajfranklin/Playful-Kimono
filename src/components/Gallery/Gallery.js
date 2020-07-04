@@ -18,10 +18,10 @@ function Gallery ({ error, kimonos, loaded, getKimonos }) {
         { kimonos.map(kimono => {
           return(
             <li key={kimono.uuid}>
+              <img alt={kimono.title} src={kimono.url}/>
               <p>{kimono.title}</p>
-              <p>{kimono.name}</p>
+              <p>by {kimono.name}</p>
               <p>{kimono.handle}</p>
-              <img src={kimono.url} alt={'kimono'}/>
             </li>
           )
         })}

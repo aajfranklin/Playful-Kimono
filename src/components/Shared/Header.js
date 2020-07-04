@@ -1,16 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function Header() {
   return(
     <header>
-      <nav>
-        <Link to="/">PLAYFUL KIMONO</Link>
-        <Link to="/design">DESIGN A KIMONO</Link>
-        <Link to="/gallery">GALLERY</Link>
-        <Link to="/news">NEWS</Link>
-        <Link to="/about">ABOUT</Link>
-        <Link to="/contact">CONTACT</Link>
+      <nav id="header-nav">
+        <NavLink to="/home" id="home-link">PLAYFUL KIMONO</NavLink>
+        <div id="column-links">
+          <NavLink to="/design">DESIGN A KIMONO</NavLink>
+          <NavLink to="/gallery">GALLERY</NavLink>
+          <NavLink to="/about">ABOUT • CONTACT</NavLink>
+        </div>
       </nav>
     </header>
   )
