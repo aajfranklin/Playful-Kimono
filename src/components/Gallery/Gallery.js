@@ -12,7 +12,7 @@ function Gallery ({ error, kimonos, loaded, getKimonos }) {
   }, [error, loaded, getKimonos])
   
   return(
-    <main>
+    <main id="gallery">
       <ConditionalError showError={error} message={config.errors.getKimonos}/>
       <ul>
         { kimonos.map(kimono => {
