@@ -99,6 +99,7 @@ footer {
 }
 
 #design {
+    height: fit-content;
     position: relative;
 }
 
