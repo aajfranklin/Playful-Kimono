@@ -84,9 +84,9 @@ function Canvas ({ userImage }) {
       <div id="zoom">
         <span>ZOOM</span>
         <div id="zoom-controls">
-          <button onClick={zoomOut} type="button">-</button>
+          <button onClick={zoomOut} type="button" className="zoom-button">-</button>
           <input onChange={handleSliderChange} ref={slider} type="range" className="zoom-slider"/>
-          <button onClick={zoomIn} type="button">+</button>
+          <button onClick={zoomIn} type="button" className="zoom-button">+</button>
         </div>
       </div>
     </React.Fragment>)

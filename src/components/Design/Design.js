@@ -11,15 +11,35 @@ function Design({ step, userImage, userLeftDesignPage }) {
     return () => userLeftDesignPage();
   }, [])
   
+  const DesignInstructions = () => {
+    return(
+      <section id="instructions">
+        <h1>TO DESIGN:</h1>
+        <ol>
+          <li>Place image in the template</li>
+          <li>You can click and drag to reposition the image and zoom in and out using the key below</li>
+          <li>Click FINISH to finalise to complete.</li>
+        </ol>
+        <button type="button" className={`action-button ${ step === config.designSteps.EDITING ? 'available' : '' }`}>FINISH</button>
+      </section>
+    )
+  };
+  
+  const SignInstructions = () => {
+  
+  };
+  
+  const SubmittedInstructions = () => {
+  
+  };
+  
   return(
-    <main>
-      <section id="design">
+    <main id="design">
+      <section id="design-tool">
         <Canvas userImage={userImage}/>
         { step === config.designSteps.EMPTY ? <UploadOverlay/> : null }
       </section>
-      <section id="instructions">
-        Temp
-      </section>
+      { step === config.designSteps.EMPTY || step === config.designSteps.EDITING ? <DesignInstructions/> : null }
     </main>
   )
 }

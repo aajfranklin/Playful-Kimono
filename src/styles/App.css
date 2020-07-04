@@ -93,13 +93,18 @@ footer {
 }
 
 /* Design styles */
+
+#design > * {
+    max-width: 500px;
+}
+
 #image-input {
     height: 0;
     visibility: hidden;
     width: 0;
 }
 
-#design {
+#design-tool {
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -149,7 +154,35 @@ button {
     font-size: 30px;
     outline: inherit;
     padding: 0;
+}
+
+.zoom-button {
     width: 50px;
+}
+
+.action-button {
+    border: white solid 1px;
+    border-radius: 50px;
+    font-size: 16px;
+    margin-left: calc(50% - 50px);
+    margin-top: 5em;
+    pointer-events: none;
+    height: 100px;
+    width: 100px;
+}
+
+.action-button.available {
+    color: black;
+    background: white;
+    pointer-events: all;
+}
+
+ol {
+    padding-inline-start: 1em;
+}
+
+ol > li {
+    padding-left: 1.5em;
 }
 
 /* Slider styles generated with Daniel Stern's range.css tool (http://danielstern.ca/range.css/?ref=css-tricks#/) */
@@ -252,7 +285,7 @@ ul {
     width: 100%;
 }
 
-li {
+ul li {
     align-items: center;
     display: flex;
     flex-direction: column;
