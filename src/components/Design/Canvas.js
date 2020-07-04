@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { fabric } from 'fabric';
 
 function Canvas ({ userImage }) {
   
   let canvas;
+  let slider = useRef(null);
   
   /*
     Modified from stack overflow user Matthew's answer for 'How to convert dataURL to file object in Javascript':
@@ -40,6 +41,7 @@ function Canvas ({ userImage }) {
         img.scaleToWidth(canvas.getWidth());
         canvas.add(img);
         canvas.item(0).hasControls = canvas.item(0).hasBorders = false;
+        slider.current.value = 100 * canvas.item(0).scaleX;
       }
     });
     
@@ -56,26 +58,34 @@ function Canvas ({ userImage }) {
   const zoomIn = () => {
     if (!userImage) return;
     const img = canvas.item(0);
-    img.scaleX = Math.min(img.scaleX + 0.1, 1);
-    img.scaleY = Math.min(img.scaleY + 0.1, 1);
+    img.scaleX = img.scaleY = Math.min(img.scaleX + 0.1, 1);
+    slider.current.value = 100 * img.scaleX;
     canvas.renderAll();
-  }
+  };
   
   const zoomOut = () => {
     if (!userImage) return;
     const img = canvas.item(0);
-    img.scaleX = Math.max(img.scaleX - 0.1, 0.1);
-    img.scaleY = Math.max(img.scaleY - 0.1, 0.1);
+    img.scaleX = img.scaleY = Math.max(img.scaleX - 0.1, 0.001); // fabricjs treats scale 0 as unscaled aka scale 1, so stop just before 0
+    slider.current.value = 100 * img.scaleX;
     canvas.renderAll();
-  }
+  };
+  
+  const handleSliderChange = () => {
+    if (!userImage) return;
+    const img = canvas.item(0);
+    img.scaleX = img.scaleY = Math.max(slider.current.value / 100, 0.001); // fabricjs treats scale 0 as unscaled aka scale 1, so stop just before 0
+    canvas.renderAll();
+  };
   
   return(
     <React.Fragment>
       <canvas id="canvas"/>
       <div id="zoom">
         <span>ZOOM</span>
-        <div id="zoom controls">
+        <div id="zoom-controls">
           <button onClick={zoomOut} type="button">-</button>
+          <input onChange={handleSliderChange} ref={slider} type="range" className="zoom-slider"/>
           <button onClick={zoomIn} type="button">+</button>
         </div>
       </div>
