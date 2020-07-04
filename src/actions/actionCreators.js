@@ -22,6 +22,21 @@ export const saveFinishedImage = (imageData) => ({
   imageData
 });
 
+export const updateHandle = (handle) => ({
+  type: types.UPDATE_HANDLE,
+  handle
+});
+
+export const updateName = (name) => ({
+  type: types.UPDATE_NAME,
+  name
+});
+
+export const updateTitle = (title) => ({
+  type: types.UPDATE_TITLE,
+  title
+});
+
 export const userFinishedDesigning = () => ({
   type: types.USER_FINISHED_DESIGNING
 });
@@ -29,7 +44,6 @@ export const userFinishedDesigning = () => ({
 export const userLeftDesignPage = () => ({
   type: types.USER_LEFT_DESIGN_PAGE
 });
-
 
 export const userUploadedImage = (image) => ({
   type: types.USER_UPLOADED_IMAGE,

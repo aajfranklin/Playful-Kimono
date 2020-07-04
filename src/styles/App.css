@@ -94,6 +94,35 @@ button {
     padding: 0;
 }
 
+input[type="text"],
+select.form-control {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid white;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-radius: 0;
+    color: white;
+    font-family: 'Inter', sans-serif;
+}
+
+input:focus {
+    outline: none;
+}
+
+.text-input-label-pair {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2em;
+}
+
+#instagram-input {
+    margin-bottom: 1.5em;
+}
+#instagram-at {
+    margin-right: 1em;
+}
+
 footer {
     position: absolute;
     bottom: 0;
