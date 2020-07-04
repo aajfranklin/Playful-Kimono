@@ -4,7 +4,7 @@ import Header from './Shared/Header';
 import Footer from './Shared/Footer';
 import About from './About/About';
 import Contact from './Contact/Contact';
-import Design from './Design/Design';
+import Design from './Design/Canvas';
 import Gallery from './Gallery/Gallery';
 import Home from './Home/Home';
 import News from './News/News';

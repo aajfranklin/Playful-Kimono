@@ -1,7 +1,8 @@
 import React from 'react';
+import Canvas from './Canvas';
 
-function Design () {
-  return(<h1>Design</h1>)
+function Design() {
+  return(<Canvas/>)
 }
 
 export default Design;
