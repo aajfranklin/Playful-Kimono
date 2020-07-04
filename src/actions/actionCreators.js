@@ -17,6 +17,11 @@ export const getKimonosSuccess = (kimonos) => ({
   kimonos
 });
 
+export const userUploadedImage = (image) => ({
+  type: types.USER_UPLOADED_IMAGE,
+  image
+});
+
 /*
 ------------------------------------------------------------------------------------------------------------------------
 GALLERY ACTIONS

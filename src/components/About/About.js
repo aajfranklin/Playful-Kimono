@@ -2,7 +2,7 @@ import React from 'react';
 
 function About () {
   return(
-    <div id="about">
+    <main id="about">
       <figure>
       
       </figure>
@@ -30,10 +30,11 @@ function About () {
         </section>
         <section>
           <h1>CONTACT</h1>
-          <p>info@playfulkimono.com<br/>instagram @playful_kimono</p>
+          <p className='margin-bottom-zero'>info@playfulkimono.com</p>
+          <p className='margin-top-zero'>instagram @playful_kimono</p>
         </section>
       </div>
-    </div>
+    </main>
 )
 }
 

@@ -12,7 +12,7 @@ function Gallery ({ error, kimonos, loaded, getKimonos }) {
   }, [error, loaded, getKimonos])
   
   return(
-    <React.Fragment>
+    <main>
       <ConditionalError showError={error} message={config.errors.getKimonos}/>
       <ul>
         { kimonos.map(kimono => {
@@ -26,7 +26,7 @@ function Gallery ({ error, kimonos, loaded, getKimonos }) {
           )
         })}
       </ul>
-    </React.Fragment>
+    </main>
   )
 }
 

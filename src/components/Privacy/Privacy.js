@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Privacy () {
-  return(<h1>Privacy</h1>)
+  return(<main><h1>Privacy</h1></main>)
 }
 
 export default Privacy;

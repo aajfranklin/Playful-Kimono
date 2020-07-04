@@ -1,6 +1,7 @@
 import update from 'immutability-helper';
 import { default as initialState } from './model';
 import * as types from './actions/actionTypes';
+import config from './config';
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -17,6 +18,14 @@ const reducer = (state = initialState, action) => {
         gallery: {
           kimonos: { $set: action.kimonos },
           loaded: { $set: true }
+        }
+      })
+    }
+    case types.USER_UPLOADED_IMAGE: {
+      return update(state, {
+        design: {
+          userImage: { $set: action.image },
+          step: { $set: config.designSteps.EDITING }
         }
       })
     }

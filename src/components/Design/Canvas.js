@@ -1,9 +1,13 @@
 import React, { useEffect } from 'react';
 import { fabric } from 'fabric';
 
-function Canvas () {
+function Canvas ({ userImage }) {
   
-  // https://stackoverflow.com/a/12300351
+  /*
+    Modified from stack overflow user Matthew's answer for 'How to convert dataURL to file object in Javascript':
+    https://stackoverflow.com/questions/6850276/how-to-convert-dataurl-to-file-object-in-javascript
+    Licensed under CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0/legalcode)
+   */
   function dataURItoBlob(dataURI) {
     let byteString = atob(dataURI.split(',')[1]);
     let mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0]
@@ -24,18 +28,18 @@ function Canvas () {
     });
   
     let overlaySrc = '/assets/Kimono_Template.png';
-    let imgSrc = '/assets/placeholder.jpg';
     
     canvas.setOverlayImage(overlaySrc, () => {
       canvas.overlayImage && canvas.overlayImage.scaleToWidth(500)
       canvas.renderAll();
     });
-  
-    fabric.Image.fromURL(imgSrc, function(img){
+    
+    if (userImage) {
+      let img = new fabric.Image(userImage);
       img.scaleToWidth(canvas.getWidth());
       canvas.add(img);
       canvas.item(0).hasControls = canvas.item(0).hasBorders = false;
-    });
+    }
     
     return () => {
       let dataUrl = canvas.toDataURL({
@@ -43,15 +47,11 @@ function Canvas () {
         quality: 1
       });
       
-      // window.open(window.URL.createObjectURL(dataURItoBlob(dataUrl)));
-  
       canvas.dispose();
     }
-  }, []);
+  }, [userImage]);
   
-  return(
-    <canvas id="canvas" height="500" width="500"/>
-  )
+  return(<canvas id="canvas"/>)
 }
 
 export default Canvas;
