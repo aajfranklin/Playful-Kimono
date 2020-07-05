@@ -133,8 +133,11 @@ button {
 /* About styles*/
 
 #about > * {
-    max-width: 740px;
-    width: 40%;
+    max-width: 500px;
+}
+
+#about > section img {
+    max-width: 500px;
 }
 
 #about > section section {
@@ -421,5 +424,13 @@ input[type=range]:focus::-ms-fill-upper {
 
     .kimono {
         margin: 0 0 2em 0;
+    }
+
+    #about > * {
+        max-width: 360px;
+    }
+
+    #about > section img {
+        max-width: 360px;
     }
 }

@@ -8,9 +8,9 @@ function About () {
   
   return(
     <main id="about">
-      <figure>
-      
-      </figure>
+      <section>
+        <img src="assets/Forest_Path.png" alt="Forest path Kimono design."/>
+      </section>
       <section>
         <section>
           <h1>ABOUT PLAYFUL KIMONO</h1>
