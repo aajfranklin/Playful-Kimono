@@ -137,7 +137,7 @@ button {
 }
 
 #about > section img {
-    max-width: 100%;
+    width: 100%;
 }
 
 #about-text > section {
