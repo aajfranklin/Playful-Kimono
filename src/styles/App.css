@@ -386,7 +386,9 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .infinite-scroll-status-area {
-    height: 40px;
+    display: flex;
+    justify-content: center;
+    width: 80vw;
 }
 
 /* Narrow screen styles */

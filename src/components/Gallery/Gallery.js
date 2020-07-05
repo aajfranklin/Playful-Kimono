@@ -37,8 +37,8 @@ function Gallery ({ error, kimonos, loadedAll, loadedAny, loadingMore, start, ge
         ? <Kimonos/>
         : <div className="lds-dual-ring"/>
       }
-      { loadedAny && loadingMore ? <div className="lds-dual-ring infinite-scroll-status-area"/> : null }
-      { loadedAll ? <p className="infinite-scroll-status-area">Check back for more kimonos soon!</p> : null }
+      { loadedAny && loadingMore ? <div className="infinite-scroll-status-area"><div className="lds-dual-ring"/></div>: null }
+      { loadedAll ? <p className="infinite-scroll-status-area">All kimonos loaded. Check back for more soon!</p> : null }
     </main>
   )
 }
