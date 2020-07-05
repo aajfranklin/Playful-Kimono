@@ -13,7 +13,7 @@ function Gallery ({ error, kimonos, loadedAll, loadedAny, loadingMore, start, ge
     document.title = `${error ? 'Error - ': ''}Playful Kimono - Gallery`;
     const canLoadMoreWithinScreenDimensions = loadedAny && !loadedAll && mainRef.current.offsetHeight === mainRef.current.scrollHeight;
     if (!loadedAny || canLoadMoreWithinScreenDimensions) getKimonos(start);
-  }, [error, loadedAny, getKimonos, start]);
+  }, [error, loadedAny, loadedAll, getKimonos, start]);
   
   const handleScroll = (e) => {
     const isNearBottom = e.target.offsetHeight + e.target.scrollTop + 20 > e.target.scrollHeight;
