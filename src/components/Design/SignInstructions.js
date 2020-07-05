@@ -5,7 +5,7 @@ import { updateHandle, updateName, updateTitle, uploadKimono } from '../../actio
 // POST IMAGE TO S3 AND POST KIMONO TO STRAPI
 // CHANGE STEP
 
-function SignInstructions({ handle, name, title, updateHandle, updateName, updateTitle, uploadKimono }) {
+function SignInstructions({ handle, name, title, imageData, updateHandle, updateName, updateTitle, uploadKimono }) {
   
   const handleHandleChange  = (e) => updateHandle(e.target.value);
   const handleNameChange    = (e) => updateName(e.target.value);
@@ -13,7 +13,12 @@ function SignInstructions({ handle, name, title, updateHandle, updateName, updat
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    uploadKimono();
+    uploadKimono({
+      handle,
+      name,
+      title,
+      imageData
+    });
   }
   
   const isButtonAvailable = name && name.length > 0 && title && title.length > 0;
@@ -51,7 +56,8 @@ const mapStateToProps = (state) => {
   return {
     handle: state.design.form.handle,
     name: state.design.form.name,
-    title: state.design.form.title
+    title: state.design.form.title,
+    imageData: state.design.imageData
   };
 }
 
@@ -60,7 +66,7 @@ const mapDispatchToProps = (dispatch) => {
     updateHandle: (handle) => dispatch(updateHandle(handle)),
     updateName: (name) => dispatch(updateName(name)),
     updateTitle: (title) => dispatch(updateTitle(title)),
-    uploadKimono: () => dispatch(uploadKimono())
+    uploadKimono: (data) => dispatch(uploadKimono(data))
   };
 }
 

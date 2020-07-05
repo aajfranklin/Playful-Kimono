@@ -2,7 +2,8 @@ module.exports = {
   api: {
     baseUrl: 'http://localhost:1337',
     endpoints: {
-      kimonos: '/kimonos'
+      kimonos: '/kimonos',
+      presignedUrl: '/presignedUrl'
     }
   },
   errors: {

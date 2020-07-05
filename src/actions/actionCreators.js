@@ -1,4 +1,6 @@
-import { GET } from '../utils';
+import { v4 as uuidv4 } from 'uuid';
+import moment from 'moment';
+import { GET, POST, S3PUT } from '../utils';
 import * as types from './actionTypes';
 import config from '../config';
 
@@ -60,8 +62,33 @@ DESIGN ACTIONS
 ------------------------------------------------------------------------------------------------------------------------
  */
 
-export const uploadKimono = () => dispatch => {
-  dispatch(kimonoSubmitted());
+export const uploadKimono = (data) => dispatch => {
+  let id;
+  
+  GET(config.api.endpoints.presignedUrl)
+    .then(res => {
+      id = res.id;
+      return S3PUT(res.url, new File([data.imageData], 'temp.png'));
+    })
+    .then(() => {
+      const kimono = {
+        handle: data.handle || '-',
+        name: data.name,
+        title: data.title,
+        url: `https://kimono.s3-eu-west-1.amazonaws.com/${id}.png`,
+        uuid: uuidv4(),
+        created: moment.now()
+      };
+      
+      return POST(config.api.endpoints.kimonos, JSON.stringify(kimono));
+    })
+    .then(() => {
+      dispatch(kimonoSubmitted());
+    })
+    .catch(err => {
+      console.log(err);
+      throw(err);
+    });
 };
 
 /*
