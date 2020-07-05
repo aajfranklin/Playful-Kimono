@@ -11,6 +11,10 @@ import { userLeftDesignPage } from "../../actions/actionCreators";
 function Design({ step, userLeftDesignPage }) {
   
   useEffect(() => {
+    document.title = 'Playful Kimono - Design A Kimono'
+  }, [])
+  
+  useEffect(() => {
     return () => userLeftDesignPage();
   }, [userLeftDesignPage])
   
