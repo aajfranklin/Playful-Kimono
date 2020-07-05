@@ -55,11 +55,11 @@ main {
     margin: auto;
     justify-content: space-around;
     overflow: auto;
+    width: 100%;
 }
 
 section {
     height: fit-content;
-    margin: 2em 0;
 }
 
 h1 {
@@ -146,6 +146,10 @@ button {
     width: 40%;
 }
 
+#about > section section {
+    margin-bottom: 2em;
+}
+
 /* Design styles */
 
 #design > * {
@@ -203,6 +207,10 @@ canvas {
 
 .zoom-button {
     width: 50px;
+}
+
+#instructions {
+    margin-top: 2em;
 }
 
 .action-button {
