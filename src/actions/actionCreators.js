@@ -33,6 +33,10 @@ export const submittingKimono = () => ({
   type: types.SUBMITTING_KIMONO
 });
 
+export const submitKimonoFailure = () => ({
+  type: types.SUBMIT_KIMONO_FAILURE
+});
+
 export const submitKimonoSuccess = () => ({
   type: types.SUBMIT_KIMONO_SUCCESS
 });
@@ -92,13 +96,8 @@ export const uploadKimono = (data) => dispatch => {
       
       return POST(config.api.endpoints.kimonos, JSON.stringify(kimono));
     })
-    .then(() => {
-      dispatch(submitKimonoSuccess());
-    })
-    .catch(err => {
-      console.log(err);
-      throw(err);
-    });
+    .then(() => dispatch(submitKimonoSuccess()))
+    .catch(() => dispatch(submitKimonoFailure()));
 };
 
 /*

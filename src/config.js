@@ -7,7 +7,8 @@ module.exports = {
     }
   },
   errors: {
-    getKimonos: 'There was a problem loading the gallery. Please refresh the page. If the problem persists, please contact info@playfulkimono.com'
+    getKimonos: 'There was a problem loading the gallery. Please refresh the page. If the problem persists, please contact info@playfulkimono.com.',
+    submitKimono: 'There was a problem uploading your kimono. Please refresh the page and try again. If the problem persists, please contact info@playfulkimono.com.'
   },
   designSteps: {
     EMPTY: 'empty',

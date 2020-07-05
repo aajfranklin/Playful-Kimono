@@ -5,10 +5,11 @@ import UploadOverlay from './UploadOverlay';
 import DesignInstructions from './DesignInstructions';
 import SignInstructions from './SignInstructions';
 import SubmittedInstructions from './SubmittedInstructions';
+import ConditionalError from '../Shared/ConditionalError';
 import config from '../../config';
 import { userLeftDesignPage } from "../../actions/actionCreators";
 
-function Design({ step, userLeftDesignPage }) {
+function Design({ error, step, userLeftDesignPage }) {
   
   useEffect(() => {
     document.title = 'Playful Kimono - Design A Kimono'
@@ -26,13 +27,14 @@ function Design({ step, userLeftDesignPage }) {
       </section>
       { step === config.designSteps.EMPTY || step === config.designSteps.EDITING ? <DesignInstructions/> : null }
       { step === config.designSteps.SIGNING || step === config.designSteps.SUBMITTING ? <SignInstructions/> : null }
-      { step === config.designSteps.SUBMITTED ? <SubmittedInstructions/> : null }
+      { step === config.designSteps.SUBMITTED ? (error ? <ConditionalError showError={true} message={config.errors.submitKimono}/> : <SubmittedInstructions/>) : null }
     </main>
   )
 }
 
 const mapStateToProps = (state) => {
   return {
+    error: state.design.error,
     step: state.design.step
   }
 }

@@ -42,6 +42,14 @@ const reducer = (state = initialState, action) => {
         }
       })
     }
+    case types.SUBMIT_KIMONO_FAILURE: {
+      return update(state, {
+        design: {
+          error: { $set: true },
+          step: { $set: config.designSteps.SUBMITTED }
+        }
+      })
+    }
     case types.SUBMIT_KIMONO_SUCCESS: {
       return update(state, {
         design: {
