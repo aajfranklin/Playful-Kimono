@@ -64,11 +64,19 @@ function Canvas ({ maxScale, step, userImage, saveFinishedImage, setMaxScale }) 
   };
   
   const saveImageDataToState = () => {
+    const scaleRatio = 1080 / getCanvasWidth();
+    canvasRef.current.setDimensions({ width: 1080, height: 1080});
+    canvasRef.current.setZoom(scaleRatio);
+    
     let dataUrl = canvasRef.current.toDataURL({
       format: 'png',
       quality: 1
     });
-    
+  
+    canvasRef.current.setZoom(1);
+    canvasRef.current.setDimensions({ width: getCanvasWidth(), height: getCanvasWidth()});
+    canvasRef.current.renderAll();
+  
     saveFinishedImage(dataURItoBlob(dataUrl));
   }
   
