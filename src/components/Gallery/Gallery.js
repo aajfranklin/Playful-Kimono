@@ -12,12 +12,21 @@ function Gallery ({ error, kimonos, loaded, getKimonos }) {
     if (!loaded) getKimonos();
   }, [error, loaded, getKimonos])
   
-  return(
-    <main id="gallery">
-      <ConditionalError showError={error} message={config.errors.getKimonos}/>
+  const Kimonos = () => {
+    return(
       <section id="kimonos">
         { kimonos.filter(kimono => kimono.approved).map(kimono => <Kimono key={kimono.uuid} kimono={kimono}/>) }
       </section>
+    )
+  }
+  
+  return(
+    <main id="gallery">
+      <ConditionalError showError={error} message={config.errors.getKimonos}/>
+      { loaded
+        ? <Kimonos/>
+        : <div className="lds-dual-ring"/>
+      }
     </main>
   )
 }
