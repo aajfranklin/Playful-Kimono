@@ -12,21 +12,21 @@ function Gallery ({ error, kimonos, loaded, getKimonos }) {
   }, [error, loaded, getKimonos])
   
   return(
-    <React.Fragment>
+    <main id="gallery">
       <ConditionalError showError={error} message={config.errors.getKimonos}/>
       <ul>
-        { kimonos.map(kimono => {
+        { kimonos.filter(kimono => kimono.approved).map(kimono => {
           return(
             <li key={kimono.uuid}>
+              <img alt={kimono.title} src={kimono.url}/>
               <p>{kimono.title}</p>
-              <p>{kimono.name}</p>
-              <p>{kimono.handle}</p>
-              <img src={kimono.url} alt={'kimono'}/>
+              <p>by {kimono.name}</p>
+              <p>@{kimono.handle}</p>
             </li>
           )
         })}
       </ul>
-    </React.Fragment>
+    </main>
   )
 }
 

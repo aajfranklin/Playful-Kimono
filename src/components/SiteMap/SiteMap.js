@@ -1,7 +1,7 @@
 import React from 'react';
 
 function SiteMap () {
-  return(<h1>SiteMap</h1>)
+  return(<main><h1>SiteMap</h1></main>)
 }
 
 export default SiteMap;
