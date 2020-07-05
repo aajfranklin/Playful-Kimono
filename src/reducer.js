@@ -5,20 +5,38 @@ import config from './config';
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case types.GETTING_MORE_KIMONOS: {
+      return update(state, {
+        gallery: {
+          loadingMore: { $set: true }
+        }
+      })
+    }
     case types.GET_KIMONOS_FAILURE: {
       return update(state, {
         gallery: {
           error: { $set: true },
-          loaded: { $set: true }
+          loadedAll: { $set: true },
+          loadedAny: { $set: true },
+          loadingMore: { $set: false }
         }
       })
     }
     case types.GET_KIMONOS_SUCCESS: {
       return update(state, {
         gallery: {
-          kimonos: { $set: action.kimonos },
-          loaded: { $set: true },
+          kimonos: { $push: action.kimonos },
+          loadedAny: { $set: true },
+          loadingMore: { $set: false },
           start: { $set: action.start }
+        }
+      })
+    }
+    case types.GOT_ALL_KIMONOS: {
+      return update(state, {
+        gallery: {
+          loadedAll: { $set: true },
+          loadingMore: { $set: false }
         }
       })
     }

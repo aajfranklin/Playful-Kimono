@@ -10,6 +10,10 @@ ACTIONS
 ------------------------------------------------------------------------------------------------------------------------
  */
 
+export const gettingMoreKimonos = () => ({
+  type: types.GETTING_MORE_KIMONOS
+});
+
 export const getKimonosFailure = () => ({
   type: types.GET_KIMONOS_FAILURE
 });
@@ -18,6 +22,10 @@ export const getKimonosSuccess = (kimonos, start) => ({
   type: types.GET_KIMONOS_SUCCESS,
   kimonos,
   start
+});
+
+export const gotAllKimonos = () => ({
+  type: types.GOT_ALL_KIMONOS,
 });
 
 export const saveFinishedImage = (imageData) => ({
@@ -108,7 +116,12 @@ GALLERY ACTIONS
  */
 
 export const getKimonos = (start) => dispatch => {
+  if (start > 0) dispatch(gettingMoreKimonos());
+  
   GET(config.api.endpoints.kimonos, `?_start=${start}&_limit=${config.kimonosPerPage}&_sort=created:DESC`)
-    .then(kimonos => dispatch(getKimonosSuccess(kimonos, start + config.kimonosPerPage)))
+    .then(kimonos => {
+      if (kimonos.length === 0) return dispatch(gotAllKimonos());
+      dispatch(getKimonosSuccess(kimonos, start + config.kimonosPerPage))
+    })
     .catch(() => dispatch(getKimonosFailure()));
 };

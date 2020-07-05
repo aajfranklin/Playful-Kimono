@@ -385,6 +385,10 @@ input[type=range]:focus::-ms-fill-upper {
     margin: 0;
 }
 
+.infinite-scroll-status-area {
+    height: 40px;
+}
+
 /* Narrow screen styles */
 
 @media only screen and (max-width: 500px) {

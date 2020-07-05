@@ -17,5 +17,5 @@ module.exports = {
     SUBMITTING: 'submitting',
     SUBMITTED: 'submitted'
   },
-  kimonosPerPage: 6
+  kimonosPerPage: 30
 }
