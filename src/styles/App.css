@@ -395,14 +395,14 @@ input[type=range]:focus::-ms-fill-upper {
     flex-wrap: wrap;
     justify-content: center;
     margin: auto;
-    max-width: 1080px;
+    max-width: 1440px;
 }
 
 .kimono {
     align-items: center;
     display: flex;
     flex-direction: column;
-    margin-bottom: 2em;
+    margin: 0 2em 2em 2em;
     width: 360px;
 }
 
