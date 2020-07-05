@@ -11,7 +11,8 @@ const s3Headers = {
 }
 
 export const GET = (endpoint, queryString) => {
-  return fetch(config.api.baseUrl + endpoint + queryString, { method: 'GET', headers: kimonoHeaders})
+  const url = config.api.baseUrl + endpoint + (queryString === undefined ? '' : queryString);
+  return fetch(url, { method: 'GET', headers: kimonoHeaders})
     .then(res => resolveApiResponse(res));
 }
 
