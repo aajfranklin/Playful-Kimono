@@ -11,7 +11,7 @@ function About () {
       <section>
         <img src="assets/Forest_Path.png" alt="Forest path Kimono design."/>
       </section>
-      <section>
+      <section id="about-text">
         <section>
           <h1>ABOUT PLAYFUL KIMONO</h1>
           <p>

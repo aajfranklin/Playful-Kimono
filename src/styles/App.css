@@ -137,10 +137,10 @@ button {
 }
 
 #about > section img {
-    max-width: 500px;
+    max-width: 100%;
 }
 
-#about > section section {
+#about-text > section {
     margin-bottom: 2em;
 }
 
@@ -397,7 +397,7 @@ input[type=range]:focus::-ms-fill-upper {
 /* Narrow screen styles */
 
 @media only screen and (max-width: 500px) {
-    #design > * {
+    #design > *, #about > * {
         max-width: 360px;
     }
 
@@ -414,7 +414,7 @@ input[type=range]:focus::-ms-fill-upper {
         width: 210px;
     }
 
-    #instructions {
+    #instructions, #about-text {
         margin: 2em;
     }
 
@@ -426,11 +426,4 @@ input[type=range]:focus::-ms-fill-upper {
         margin: 0 0 2em 0;
     }
 
-    #about > * {
-        max-width: 360px;
-    }
-
-    #about > section img {
-        max-width: 360px;
-    }
 }
