@@ -202,6 +202,8 @@ canvas {
 }
 
 #zoom-controls {
+    align-items: center;
+    display: flex;
     flex-direction: row;
 }
 
@@ -274,8 +276,8 @@ input[type=range] {
     margin: 5px 0;
     background-color: transparent;
     -webkit-appearance: none;
-    padding-bottom: 9px;
 }
+
 input[type=range]:focus {
     outline: none;
 }
