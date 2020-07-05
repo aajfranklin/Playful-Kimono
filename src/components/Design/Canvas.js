@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fabric } from 'fabric';
 import config from '../../config';
 import { saveFinishedImage, setMaxScale } from '../../actions/actionCreators';
+import UploadOverlay from './UploadOverlay';
 
 function Canvas ({ maxScale, step, userImage, saveFinishedImage, setMaxScale }) {
   
@@ -24,24 +25,30 @@ function Canvas ({ maxScale, step, userImage, saveFinishedImage, setMaxScale }) 
     }
     
     canvasRef.current = new fabric.Canvas('canvas', {
-      width: 500,
-      height: 500
+      width: getCanvasWidth(),
+      height: getCanvasWidth()
     });
 
     let overlaySrc = '/assets/Kimono_Template.png';
     
     canvasRef.current.setOverlayImage(overlaySrc, () => {
-      canvasRef.current.overlayImage && canvasRef.current.overlayImage.scaleToWidth(500)
+      canvasRef.current.overlayImage && canvasRef.current.overlayImage.scaleToWidth(getCanvasWidth())
       canvasRef.current.renderAll();
       if (userImage) addUserImage();
     });
+  }
+  
+  const getCanvasWidth = () => {
+    return window.screen.width > 500 ? 500: 360;
   }
   
   const addUserImage = () => {
     let img = new fabric.Image(userImage);
     
     // allow image to scale to twice its size or twice the size of the canvas, whichever is larger
-    let newMaxScale = (img.width >= 500 && img.height >= 500 ? 2 : 500 / Math.min(img.width, img.height) * 2);
+    let newMaxScale = img.width >= getCanvasWidth() && img.height >= getCanvasWidth()
+      ? 2
+      : getCanvasWidth() / Math.min(img.width, img.height) * 2;
     
     img.scaleToWidth(canvasRef.current.getWidth());
     canvasRef.current.add(img);
@@ -57,11 +64,19 @@ function Canvas ({ maxScale, step, userImage, saveFinishedImage, setMaxScale }) 
   };
   
   const saveImageDataToState = () => {
+    const scaleRatio = 1080 / getCanvasWidth();
+    canvasRef.current.setDimensions({ width: 1080, height: 1080});
+    canvasRef.current.setZoom(scaleRatio);
+    
     let dataUrl = canvasRef.current.toDataURL({
       format: 'png',
       quality: 1
     });
-    
+  
+    canvasRef.current.setZoom(1);
+    canvasRef.current.setDimensions({ width: getCanvasWidth(), height: getCanvasWidth()});
+    canvasRef.current.renderAll();
+  
     saveFinishedImage(dataURItoBlob(dataUrl));
   }
   
@@ -108,7 +123,7 @@ function Canvas ({ maxScale, step, userImage, saveFinishedImage, setMaxScale }) 
   
   const ZoomControls = () => {
     return(
-      <div id="zoom">
+      <div id="zoom" className={ step === config.designSteps.EMPTY || step === config.designSteps.EDITING ? '' : 'hidden' }>
         <span>ZOOM</span>
         <div id="zoom-controls">
           <button onClick={zoomOut} type="button" className="zoom-button">-</button>
@@ -121,8 +136,11 @@ function Canvas ({ maxScale, step, userImage, saveFinishedImage, setMaxScale }) 
   
   return(
     <React.Fragment>
-      <canvas id="canvas"/>
-      { step === config.designSteps.EMPTY || step === config.designSteps.EDITING ? <ZoomControls/> : null }
+      <div id="canvas-label-container">
+        <canvas id="canvas"/>
+        { step === config.designSteps.EMPTY ? <UploadOverlay/> : null }
+      </div>
+      <ZoomControls/>
     </React.Fragment>
   )
 }

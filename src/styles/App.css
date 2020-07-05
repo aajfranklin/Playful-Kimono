@@ -14,7 +14,6 @@ body {
     display: flex;
     height: 100%;
     flex-direction: column;
-    justify-content: space-between;
 }
 
 header, footer {
@@ -52,13 +51,15 @@ a.active {
 main {
     display: flex;
     flex-direction: row;
-    flex-grow: 1;
+    flex-wrap: wrap;
+    margin: auto;
     justify-content: space-around;
-    margin: 0 2em;
+    overflow: auto;
+    width: 100%;
 }
 
 section {
-    margin-bottom: 2em;
+    height: fit-content;
 }
 
 h1 {
@@ -98,11 +99,6 @@ button {
     font-size: 30px;
     outline: inherit;
     padding: 0;
-}
-
-footer {
-    position: absolute;
-    bottom: 0;
 }
 
 #footer-nav {
@@ -150,6 +146,10 @@ footer {
     width: 40%;
 }
 
+#about > section section {
+    margin-bottom: 2em;
+}
+
 /* Design styles */
 
 #design > * {
@@ -166,7 +166,9 @@ footer {
     align-items: center;
     display: flex;
     flex-direction: column;
-    height: fit-content;
+}
+
+#canvas-label-container {
     position: relative;
 }
 
@@ -174,13 +176,13 @@ footer {
     align-items: center;
     display: flex;
     flex-direction: column;
-    height: 500px;
+    height: 100%;
     justify-content: center;
     left: 0;
     position: absolute;
     text-align: center;
     top: 0;
-    width: 500px;
+    width: 100%;
 }
 
 #image-input-text {
@@ -200,6 +202,8 @@ canvas {
 }
 
 #zoom-controls {
+    align-items: center;
+    display: flex;
     flex-direction: row;
 }
 
@@ -207,12 +211,20 @@ canvas {
     width: 50px;
 }
 
+.hidden {
+    visibility: hidden;
+}
+
+#instructions {
+    margin-top: 2em;
+}
+
 .action-button {
     border: white solid 1px;
     border-radius: 50px;
     font-size: 16px;
     margin-left: calc(50% - 50px);
-    margin-top: 5em;
+    margin-top: 10%;
     pointer-events: none;
     height: 100px;
     width: 100px;
@@ -268,8 +280,8 @@ input[type=range] {
     margin: 5px 0;
     background-color: transparent;
     -webkit-appearance: none;
-    padding-bottom: 9px;
 }
+
 input[type=range]:focus {
     outline: none;
 }
@@ -351,6 +363,35 @@ input[type=range]:focus::-ms-fill-upper {
     input[type=range] {
         margin: 0;
         /*Edge starts the margin from the thumb, not the track as other browsers do*/
+    }
+}
+
+/* Small screen width styles for design tool area */
+
+@media only screen and (max-width: 500px) {
+    #design > * {
+        max-width: 360px;
+    }
+
+    canvas {
+        height: 360px;
+        width: 360px;
+    }
+
+    #zoom {
+        width: 324px;
+    }
+
+    input[type=range] {
+        width: 210px;
+    }
+
+    #instructions {
+        margin: 2em;
+    }
+
+    input[type="text"] {
+        max-width: 160px;
     }
 }
 

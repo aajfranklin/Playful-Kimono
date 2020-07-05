@@ -11,7 +11,7 @@ function About () {
       <figure>
       
       </figure>
-      <div>
+      <section>
         <section>
           <h1>ABOUT PLAYFUL KIMONO</h1>
           <p>
@@ -38,7 +38,7 @@ function About () {
           <p className='margin-bottom-zero'>info@playfulkimono.com</p>
           <p className='margin-top-zero'>instagram @playful_kimono</p>
         </section>
-      </div>
+      </section>
     </main>
 )
 }
