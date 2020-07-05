@@ -29,6 +29,10 @@ header, footer {
     font-size: 24px;
 }
 
+#home-link.active {
+    text-decoration: none;
+}
+
 #column-links {
     display: flex;
     flex-direction: column;

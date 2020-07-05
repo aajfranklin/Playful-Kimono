@@ -5,7 +5,7 @@ function Header() {
   return(
     <header>
       <nav id="header-nav">
-        <NavLink to="/home" id="home-link">PLAYFUL KIMONO</NavLink>
+        <NavLink to="" id="home-link">PLAYFUL KIMONO</NavLink>
         <div id="column-links">
           <NavLink to="/design">DESIGN A KIMONO</NavLink>
           <NavLink to="/gallery">GALLERY</NavLink>
