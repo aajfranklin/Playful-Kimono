@@ -44,18 +44,19 @@ function Canvas ({ maxScale, step, userImage, saveFinishedImage, setMaxScale }) 
   
   const addUserImage = () => {
     let img = new fabric.Image(userImage);
-    
-    // allow image to scale to twice its size or twice the size of the canvas, whichever is larger
+  
+    // allow image to scale to its own size or the size of the canvas, whichever is larger
     let newMaxScale = img.width >= getCanvasWidth() && img.height >= getCanvasWidth()
-      ? 2
-      : getCanvasWidth() / Math.min(img.width, img.height) * 2;
+      ? 1
+      : getCanvasWidth() / Math.min(img.width, img.height);
+  
+    setMaxScale(newMaxScale);
     
-    img.scaleToWidth(canvasRef.current.getWidth());
+    img.scaleToWidth(getCanvasWidth());
     canvasRef.current.add(img);
+    canvasRef.current.item(0).center();
     canvasRef.current.item(0).hasControls = canvasRef.current.item(0).hasBorders = false;
     slider.current.value = 100 * (canvasRef.current.item(0).scaleX / newMaxScale);
-    
-    setMaxScale(newMaxScale);
   };
   
   const lockImage = () => {
