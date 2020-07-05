@@ -82,14 +82,6 @@ ul {
     width: 100%;
 }
 
-ol {
-    padding-inline-start: 1em;
-}
-
-ol > li {
-    padding-left: 1.5em;
-}
-
 button {
     background: none;
     border: none;
@@ -397,17 +389,27 @@ input[type=range]:focus::-ms-fill-upper {
 
 /* Gallery styles */
 
-#gallery li {
+#kimonos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+    max-width: 1080px;
+}
+
+.kimono {
     align-items: center;
     display: flex;
     flex-direction: column;
-    max-width: 25%;
+    margin-bottom: 2em;
+    width: 360px;
 }
 
-#gallery li > img {
+.kimono > img {
     max-width: 100%;
 }
 
-#gallery li > p {
+.kimono > p {
     margin: 0;
 }

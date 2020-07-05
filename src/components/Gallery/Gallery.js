@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getKimonos } from '../../actions/actionCreators';
 import ConditionalError from '../Shared/ConditionalError';
+import Kimono from './Kimono';
 import config from '../../config'
 
 function Gallery ({ error, kimonos, loaded, getKimonos }) {
@@ -14,18 +15,9 @@ function Gallery ({ error, kimonos, loaded, getKimonos }) {
   return(
     <main id="gallery">
       <ConditionalError showError={error} message={config.errors.getKimonos}/>
-      <ul>
-        { kimonos.filter(kimono => kimono.approved).map(kimono => {
-          return(
-            <li key={kimono.uuid}>
-              <img alt={kimono.title} src={kimono.url}/>
-              <p>{kimono.title}</p>
-              <p>by {kimono.name}</p>
-              <p>@{kimono.handle}</p>
-            </li>
-          )
-        })}
-      </ul>
+      <section id="kimonos">
+        { kimonos.filter(kimono => kimono.approved).map(kimono => <Kimono key={kimono.uuid} kimono={kimono}/>) }
+      </section>
     </main>
   )
 }
