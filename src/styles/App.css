@@ -357,35 +357,6 @@ input[type=range]:focus::-ms-fill-upper {
     }
 }
 
-/* Small screen width styles for design tool area */
-
-@media only screen and (max-width: 500px) {
-    #design > * {
-        max-width: 360px;
-    }
-
-    canvas {
-        height: 360px;
-        width: 360px;
-    }
-
-    #zoom {
-        width: 324px;
-    }
-
-    input[type=range] {
-        width: 210px;
-    }
-
-    #instructions {
-        margin: 2em;
-    }
-
-    input[type="text"] {
-        max-width: 160px;
-    }
-}
-
 /* Gallery styles */
 
 #kimonos {
@@ -412,4 +383,37 @@ input[type=range]:focus::-ms-fill-upper {
 
 .kimono > p {
     margin: 0;
+}
+
+/* Narrow screen styles */
+
+@media only screen and (max-width: 500px) {
+    #design > * {
+        max-width: 360px;
+    }
+
+    canvas {
+        height: 360px;
+        width: 360px;
+    }
+
+    #zoom {
+        width: 324px;
+    }
+
+    input[type=range] {
+        width: 210px;
+    }
+
+    #instructions {
+        margin: 2em;
+    }
+
+    input[type="text"] {
+        max-width: 160px;
+    }
+
+    .kimono {
+        margin: 0 0 2em 0;
+    }
 }
