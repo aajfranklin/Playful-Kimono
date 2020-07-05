@@ -25,7 +25,7 @@ function Design({ step, userLeftDesignPage }) {
         { step === config.designSteps.EMPTY ? <UploadOverlay/> : null }
       </section>
       { step === config.designSteps.EMPTY || step === config.designSteps.EDITING ? <DesignInstructions/> : null }
-      { step === config.designSteps.SIGNING ? <SignInstructions/> : null }
+      { step === config.designSteps.SIGNING || step === config.designSteps.SUBMITTING ? <SignInstructions/> : null }
       { step === config.designSteps.SUBMITTED ? <SubmittedInstructions/> : null }
     </main>
   )

@@ -1,11 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { updateHandle, updateName, updateTitle, uploadKimono } from '../../actions/actionCreators';
+import config from '../../config';
 
-// POST IMAGE TO S3 AND POST KIMONO TO STRAPI
-// CHANGE STEP
-
-function SignInstructions({ handle, name, title, imageData, updateHandle, updateName, updateTitle, uploadKimono }) {
+function SignInstructions({ handle, name, imageData, step, title, updateHandle, updateName, updateTitle, uploadKimono }) {
   
   const handleHandleChange  = (e) => updateHandle(e.target.value);
   const handleNameChange    = (e) => updateName(e.target.value);
@@ -22,6 +20,16 @@ function SignInstructions({ handle, name, title, imageData, updateHandle, update
   }
   
   const isButtonAvailable = name && name.length > 0 && title && title.length > 0;
+  
+  const UploadButton = () => {
+    return(
+      <button type="submit"
+              onClick={handleSubmit}
+              className={`action-button ${isButtonAvailable ? 'available' : ''}`}>
+        UPLOAD
+      </button>
+    );
+  }
   
   return(
     <section id="instructions">
@@ -42,11 +50,10 @@ function SignInstructions({ handle, name, title, imageData, updateHandle, update
             <input id="instagram-input" type='text' value={handle} onChange={handleHandleChange}/>
           </div>
         </div>
-        <button type="submit"
-                onClick={handleSubmit}
-                className={`action-button ${isButtonAvailable ? 'available' : ''}`}>
-          UPLOAD
-        </button>
+        { step === config.designSteps.SUBMITTING
+          ? <button type="button" className="action-button lds-dual-ring" onClick={(e) => e.preventDefault()}/>
+          : <UploadButton/>
+        }
       </form>
     </section>
   )
@@ -55,9 +62,10 @@ function SignInstructions({ handle, name, title, imageData, updateHandle, update
 const mapStateToProps = (state) => {
   return {
     handle: state.design.form.handle,
+    imageData: state.design.imageData,
     name: state.design.form.name,
-    title: state.design.form.title,
-    imageData: state.design.imageData
+    step: state.design.step,
+    title: state.design.form.title
   };
 }
 

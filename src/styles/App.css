@@ -1,3 +1,5 @@
+/* Global styles */
+
 body {
     background: black;
     color: white;
@@ -98,39 +100,6 @@ button {
     padding: 0;
 }
 
-#go-to-gallery {
-    padding-top: 1em;
-}
-
-input[type="text"],
-select.form-control {
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid white;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    border-radius: 0;
-    color: white;
-    font-family: 'Inter', sans-serif;
-}
-
-input:focus {
-    outline: none;
-}
-
-.text-input-label-pair {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 2em;
-}
-
-#instagram-input {
-    margin-bottom: 1.5em;
-}
-#instagram-at {
-    margin-right: 1em;
-}
-
 footer {
     position: absolute;
     bottom: 0;
@@ -147,7 +116,34 @@ footer {
     margin-right: 5em;
 }
 
-/* About specific styles*/
+/* Loading animation styles from https://loading.io/css/ */
+
+.lds-dual-ring {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+}
+.lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* About styles*/
 
 #about > * {
     max-width: 740px;
@@ -226,6 +222,43 @@ canvas {
     color: black;
     background: white;
     pointer-events: all;
+}
+
+.action-button.lds-dual-ring {
+    border: none;
+}
+
+#go-to-gallery {
+    padding-top: 1em;
+}
+
+input[type="text"],
+select.form-control {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid white;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-radius: 0;
+    color: white;
+    font-family: 'Inter', sans-serif;
+}
+
+input:focus {
+    outline: none;
+}
+
+.text-input-label-pair {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2em;
+}
+
+#instagram-input {
+    margin-bottom: 1.5em;
+}
+#instagram-at {
+    margin-right: 1em;
 }
 
 /* Slider styles generated with Daniel Stern's range.css tool (http://danielstern.ca/range.css/?ref=css-tricks#/) */

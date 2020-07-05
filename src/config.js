@@ -13,6 +13,7 @@ module.exports = {
     EMPTY: 'empty',
     EDITING: 'editing',
     SIGNING: 'signing',
+    SUBMITTING: 'submitting',
     SUBMITTED: 'submitted'
   }
 }

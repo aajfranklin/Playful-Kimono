@@ -19,10 +19,6 @@ export const getKimonosSuccess = (kimonos) => ({
   kimonos
 });
 
-export const kimonoSubmitted = () => ({
-  type: types.KIMONO_SUBMITTED
-});
-
 export const saveFinishedImage = (imageData) => ({
   type: types.SAVE_FINISHED_IMAGE,
   imageData
@@ -31,6 +27,14 @@ export const saveFinishedImage = (imageData) => ({
 export const setMaxScale = (scale) => ({
   type: types.SET_MAX_SCALE,
   scale
+});
+
+export const submittingKimono = () => ({
+  type: types.SUBMITTING_KIMONO
+});
+
+export const submitKimonoSuccess = () => ({
+  type: types.SUBMIT_KIMONO_SUCCESS
 });
 
 export const updateHandle = (handle) => ({
@@ -68,6 +72,7 @@ DESIGN ACTIONS
  */
 
 export const uploadKimono = (data) => dispatch => {
+  dispatch(submittingKimono());
   let id;
   
   GET(config.api.endpoints.presignedUrl)
@@ -88,7 +93,7 @@ export const uploadKimono = (data) => dispatch => {
       return POST(config.api.endpoints.kimonos, JSON.stringify(kimono));
     })
     .then(() => {
-      dispatch(kimonoSubmitted());
+      dispatch(submitKimonoSuccess());
     })
     .catch(err => {
       console.log(err);

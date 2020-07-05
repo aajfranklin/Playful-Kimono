@@ -21,13 +21,6 @@ const reducer = (state = initialState, action) => {
         }
       })
     }
-    case types.KIMONO_SUBMITTED: {
-      return update(state, {
-        design: {
-          step: { $set: config.designSteps.SUBMITTED }
-        }
-      })
-    }
     case types.SAVE_FINISHED_IMAGE: {
       return update(state, {
         design: {
@@ -39,6 +32,20 @@ const reducer = (state = initialState, action) => {
       return update(state, {
         design: {
           maxScale: { $set: action.scale }
+        }
+      })
+    }
+    case types.SUBMITTING_KIMONO: {
+      return update(state, {
+        design: {
+          step: { $set: config.designSteps.SUBMITTING }
+        }
+      })
+    }
+    case types.SUBMIT_KIMONO_SUCCESS: {
+      return update(state, {
+        design: {
+          step: { $set: config.designSteps.SUBMITTED }
         }
       })
     }
