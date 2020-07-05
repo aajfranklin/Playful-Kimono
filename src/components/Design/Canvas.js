@@ -2,9 +2,9 @@ import React, { useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
 import { fabric } from 'fabric';
 import config from '../../config';
-import { saveFinishedImage } from '../../actions/actionCreators';
+import { saveFinishedImage, setMaxScale } from '../../actions/actionCreators';
 
-function Canvas ({ step, userImage, saveFinishedImage }) {
+function Canvas ({ maxScale, step, userImage, saveFinishedImage, setMaxScale }) {
   
   let canvasRef = useRef(null);
   let slider = useRef(null);
@@ -39,10 +39,16 @@ function Canvas ({ step, userImage, saveFinishedImage }) {
   
   const addUserImage = () => {
     let img = new fabric.Image(userImage);
+    
+    // allow image to scale to twice its size or twice the size of the canvas, whichever is larger
+    let newMaxScale = (img.width >= 500 && img.height >= 500 ? 2 : 500 / Math.min(img.width, img.height) * 2);
+    
     img.scaleToWidth(canvasRef.current.getWidth());
     canvasRef.current.add(img);
     canvasRef.current.item(0).hasControls = canvasRef.current.item(0).hasBorders = false;
-    slider.current.value = 100 * canvasRef.current.item(0).scaleX;
+    slider.current.value = 100 * (canvasRef.current.item(0).scaleX / newMaxScale);
+    
+    setMaxScale(newMaxScale);
   };
   
   const lockImage = () => {
@@ -80,8 +86,8 @@ function Canvas ({ step, userImage, saveFinishedImage }) {
   const zoomIn = () => {
     if (!userImage || step !== config.designSteps.EDITING) return;
     const img = canvasRef.current.item(0);
-    img.scaleX = img.scaleY = Math.min(img.scaleX + 0.1, 1);
-    slider.current.value = 100 * img.scaleX;
+    img.scaleX = img.scaleY = Math.min(img.scaleX + 0.1, maxScale);
+    slider.current.value = 100 * (img.scaleX / maxScale);
     canvasRef.current.renderAll();
   };
   
@@ -89,14 +95,14 @@ function Canvas ({ step, userImage, saveFinishedImage }) {
     if (!userImage || step !== config.designSteps.EDITING) return;
     const img = canvasRef.current.item(0);
     img.scaleX = img.scaleY = Math.max(img.scaleX - 0.1, 0.001); // fabricjs treats scale 0 as unscaled aka scale 1, so stop just before 0
-    slider.current.value = 100 * img.scaleX;
+    slider.current.value = 100 * (img.scaleX / maxScale);
     canvasRef.current.renderAll();
   };
   
   const handleSliderChange = () => {
     if (!userImage || step !== config.designSteps.EDITING) return;
     const img = canvasRef.current.item(0);
-    img.scaleX = img.scaleY = Math.max(slider.current.value / 100, 0.001); // fabricjs treats scale 0 as unscaled aka scale 1, so stop just before 0
+    img.scaleX = img.scaleY = Math.max(slider.current.value / 100 * maxScale, 0.001); // fabricjs treats scale 0 as unscaled aka scale 1, so stop just before 0
     canvasRef.current.renderAll();
   };
   
@@ -123,6 +129,7 @@ function Canvas ({ step, userImage, saveFinishedImage }) {
 
 const mapStateToProps = (state) => {
   return {
+    maxScale: state.design.maxScale,
     step: state.design.step,
     userImage: state.design.userImage
   }
@@ -130,7 +137,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    saveFinishedImage: (imageData) => dispatch(saveFinishedImage(imageData))
+    saveFinishedImage: (imageData) => dispatch(saveFinishedImage(imageData)),
+    setMaxScale: (scale) => dispatch(setMaxScale(scale))
   }
 }
 

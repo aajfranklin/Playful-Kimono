@@ -35,6 +35,13 @@ const reducer = (state = initialState, action) => {
         }
       })
     }
+    case types.SET_MAX_SCALE: {
+      return update(state, {
+        design: {
+          maxScale: { $set: action.scale }
+        }
+      })
+    }
     case types.USER_FINISHED_DESIGNING: {
       return update(state, {
         design: {
@@ -52,6 +59,7 @@ const reducer = (state = initialState, action) => {
             title: { $set: '' }
           },
           imageData: { $set: null },
+          maxScale: { $set: 2 },
           step: { $set: config.designSteps.EMPTY },
           userImage: { $set: null }
         }

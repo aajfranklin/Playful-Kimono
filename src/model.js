@@ -9,6 +9,7 @@ const state = {
       handle: ''
     },
     imageData: null,
+    maxScale: 2,
     step: config.designSteps.EMPTY,
     userImage: null
   },

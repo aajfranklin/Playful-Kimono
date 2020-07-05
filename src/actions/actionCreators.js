@@ -28,6 +28,11 @@ export const saveFinishedImage = (imageData) => ({
   imageData
 });
 
+export const setMaxScale = (scale) => ({
+  type: types.SET_MAX_SCALE,
+  scale
+});
+
 export const updateHandle = (handle) => ({
   type: types.UPDATE_HANDLE,
   handle
@@ -72,12 +77,12 @@ export const uploadKimono = (data) => dispatch => {
     })
     .then(() => {
       const kimono = {
+        created: moment.now(),
         handle: data.handle || '-',
         name: data.name,
         title: data.title,
         url: `https://kimono.s3-eu-west-1.amazonaws.com/${id}.png`,
-        uuid: uuidv4(),
-        created: moment.now()
+        uuid: uuidv4()
       };
       
       return POST(config.api.endpoints.kimonos, JSON.stringify(kimono));
