@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import Canvas from './Canvas';
-import UploadOverlay from './UploadOverlay';
 import DesignInstructions from './DesignInstructions';
 import SignInstructions from './SignInstructions';
 import SubmittedInstructions from './SubmittedInstructions';
@@ -23,7 +22,6 @@ function Design({ error, step, userLeftDesignPage }) {
     <main id="design">
       <section id="design-tool">
         <Canvas/>
-        { step === config.designSteps.EMPTY ? <UploadOverlay/> : null }
       </section>
       { step === config.designSteps.EMPTY || step === config.designSteps.EDITING ? <DesignInstructions/> : null }
       { step === config.designSteps.SIGNING || step === config.designSteps.SUBMITTING ? <SignInstructions/> : null }

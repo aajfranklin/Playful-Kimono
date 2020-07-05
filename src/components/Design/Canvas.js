@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fabric } from 'fabric';
 import config from '../../config';
 import { saveFinishedImage, setMaxScale } from '../../actions/actionCreators';
+import UploadOverlay from './UploadOverlay';
 
 function Canvas ({ maxScale, step, userImage, saveFinishedImage, setMaxScale }) {
   
@@ -121,7 +122,10 @@ function Canvas ({ maxScale, step, userImage, saveFinishedImage, setMaxScale }) 
   
   return(
     <React.Fragment>
-      <canvas id="canvas"/>
+      <div id="canvas-label-container">
+        <canvas id="canvas"/>
+        { step === config.designSteps.EMPTY ? <UploadOverlay/> : null }
+      </div>
       { step === config.designSteps.EMPTY || step === config.designSteps.EDITING ? <ZoomControls/> : null }
     </React.Fragment>
   )
