@@ -1,6 +1,6 @@
 module.exports = {
   api: {
-    baseUrl: 'http://localhost:1337',
+    baseUrl: 'https://kimono-server.herokuapp.com/',
     endpoints: {
       kimonos: '/kimonos',
       presignedUrl: '/presignedUrl'

@@ -15,13 +15,13 @@ function Gallery ({ error, kimonos, loaded, getKimonos }) {
     <main id="gallery">
       <ConditionalError showError={error} message={config.errors.getKimonos}/>
       <ul>
-        { kimonos.map(kimono => {
+        { kimonos.filter(kimono => kimono.approved).map(kimono => {
           return(
             <li key={kimono.uuid}>
               <img alt={kimono.title} src={kimono.url}/>
               <p>{kimono.title}</p>
               <p>by {kimono.name}</p>
-              <p>{kimono.handle}</p>
+              <p>@{kimono.handle}</p>
             </li>
           )
         })}
