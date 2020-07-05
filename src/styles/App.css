@@ -142,7 +142,7 @@ button {
 }
 
 #about-text > section {
-    margin-bottom: 2em;
+    margin: 1em 0 2em;
 }
 
 /* Design styles */
@@ -211,6 +211,10 @@ canvas {
 
 .hidden {
     visibility: hidden;
+}
+
+#instructions {
+    margin-top: 1em;
 }
 
 .action-button {
@@ -420,8 +424,12 @@ input[type=range]:focus::-ms-fill-upper {
         width: 210px;
     }
 
-    #instructions, #about-text {
+    #instructions {
         margin: 2em;
+    }
+
+    #about-text {
+        margin: 0 2em 2em 2em;
     }
 
     input[type="text"] {
@@ -448,4 +456,14 @@ input[type=range]:focus::-ms-fill-upper {
         margin: 1em;
     }
 
+}
+
+@media only screen and (max-width: 320px) {
+    #column-links {
+        font-size: 10px;
+    }
+
+    #footer-nav > a {
+        font-size: 10px;
+    }
 }
