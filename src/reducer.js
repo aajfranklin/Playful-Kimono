@@ -17,7 +17,8 @@ const reducer = (state = initialState, action) => {
       return update(state, {
         gallery: {
           kimonos: { $set: action.kimonos },
-          loaded: { $set: true }
+          loaded: { $set: true },
+          start: { $set: action.start }
         }
       })
     }

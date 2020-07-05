@@ -5,11 +5,11 @@ import ConditionalError from '../Shared/ConditionalError';
 import Kimono from './Kimono';
 import config from '../../config'
 
-function Gallery ({ error, kimonos, loaded, getKimonos }) {
+function Gallery ({ error, kimonos, loaded, start, getKimonos }) {
   
   useEffect(() => {
     document.title = `${error ? 'Error - ': ''}Playful Kimono - Gallery`
-    if (!loaded) getKimonos();
+    if (!loaded) getKimonos(start);
   }, [error, loaded, getKimonos])
   
   const Kimonos = () => {
@@ -35,13 +35,14 @@ const mapStateToProps = (state) => {
   return {
     error: state.gallery.error,
     kimonos: state.gallery.kimonos,
-    loaded: state.gallery.loaded
+    loaded: state.gallery.loaded,
+    start: state.gallery.start
   }
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getKimonos: () => dispatch(getKimonos())
+    getKimonos: (start) => dispatch(getKimonos(start))
   }
 };
 
