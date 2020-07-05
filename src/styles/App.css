@@ -82,14 +82,6 @@ ul {
     width: 100%;
 }
 
-ol {
-    padding-inline-start: 1em;
-}
-
-ol > li {
-    padding-left: 1.5em;
-}
-
 button {
     background: none;
     border: none;
@@ -116,9 +108,8 @@ button {
 
 .lds-dual-ring {
     display: inline-block;
-    width: 80px;
-    height: 80px;
 }
+
 .lds-dual-ring:after {
     content: " ";
     display: block;
@@ -366,7 +357,39 @@ input[type=range]:focus::-ms-fill-upper {
     }
 }
 
-/* Small screen width styles for design tool area */
+/* Gallery styles */
+
+#kimonos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+    max-width: 1440px;
+}
+
+.kimono {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 0 2em 2em 2em;
+    width: 360px;
+}
+
+.kimono > img {
+    height: 360px;
+    width: 360px;
+}
+
+.kimono > p {
+    margin: 0;
+}
+
+.infinite-scroll-status-area {
+    height: 40px;
+}
+
+/* Narrow screen styles */
 
 @media only screen and (max-width: 500px) {
     #design > * {
@@ -393,21 +416,8 @@ input[type=range]:focus::-ms-fill-upper {
     input[type="text"] {
         max-width: 160px;
     }
-}
 
-/* Gallery styles */
-
-#gallery li {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    max-width: 25%;
-}
-
-#gallery li > img {
-    max-width: 100%;
-}
-
-#gallery li > p {
-    margin: 0;
+    .kimono {
+        margin: 0 0 2em 0;
+    }
 }

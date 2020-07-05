@@ -10,8 +10,8 @@ const s3Headers = {
   'Origin': 'kimono'
 }
 
-export const GET = (endpoint) => {
-  return fetch(config.api.baseUrl + endpoint, { method: 'GET', headers: kimonoHeaders})
+export const GET = (endpoint, queryString) => {
+  return fetch(config.api.baseUrl + endpoint + queryString, { method: 'GET', headers: kimonoHeaders})
     .then(res => resolveApiResponse(res));
 }
 

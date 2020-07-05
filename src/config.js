@@ -16,5 +16,6 @@ module.exports = {
     SIGNING: 'signing',
     SUBMITTING: 'submitting',
     SUBMITTED: 'submitted'
-  }
+  },
+  kimonosPerPage: 30
 }
