@@ -211,6 +211,10 @@ canvas {
     width: 50px;
 }
 
+.hidden {
+    visibility: hidden;
+}
+
 #instructions {
     margin-top: 2em;
 }

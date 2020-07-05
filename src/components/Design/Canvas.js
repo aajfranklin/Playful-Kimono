@@ -123,7 +123,7 @@ function Canvas ({ maxScale, step, userImage, saveFinishedImage, setMaxScale }) 
   
   const ZoomControls = () => {
     return(
-      <div id="zoom">
+      <div id="zoom" className={ step === config.designSteps.EMPTY || step === config.designSteps.EDITING ? '' : 'hidden' }>
         <span>ZOOM</span>
         <div id="zoom-controls">
           <button onClick={zoomOut} type="button" className="zoom-button">-</button>
@@ -140,7 +140,7 @@ function Canvas ({ maxScale, step, userImage, saveFinishedImage, setMaxScale }) 
         <canvas id="canvas"/>
         { step === config.designSteps.EMPTY ? <UploadOverlay/> : null }
       </div>
-      { step === config.designSteps.EMPTY || step === config.designSteps.EDITING ? <ZoomControls/> : null }
+      <ZoomControls/>
     </React.Fragment>
   )
 }
