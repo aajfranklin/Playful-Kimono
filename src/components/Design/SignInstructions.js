@@ -37,17 +37,17 @@ function SignInstructions({ handle, name, imageData, step, title, updateHandle, 
       <form>
         <div className="text-input-label-pair">
           <label>Title of design</label>
-          <input type='text' value={title} onChange={handleTitleChange}/>
+          <input type='text' value={title} onChange={handleTitleChange} maxLength="30"/>
         </div>
         <div className="text-input-label-pair">
           <label>Your name</label>
-          <input type='text' value={name} onChange={handleNameChange}/>
+          <input type='text' value={name} onChange={handleNameChange} maxLength="30"/>
         </div>
         <div className="text-input-label-pair">
           <label>Instagram <br/>(optional)</label>
           <div>
             <span id="instagram-at">@</span>
-            <input id="instagram-input" type='text' value={handle} onChange={handleHandleChange}/>
+            <input id="instagram-input" type='text' value={handle} onChange={handleHandleChange} maxLength="30"/>
           </div>
         </div>
         { step === config.designSteps.SUBMITTING
