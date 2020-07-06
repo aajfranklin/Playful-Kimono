@@ -28,6 +28,11 @@ export const gotAllKimonos = () => ({
   type: types.GOT_ALL_KIMONOS,
 });
 
+export const kimonoLoaded = (index) => ({
+  type: types.KIMONO_LOADED,
+  index
+});
+
 export const saveFinishedImage = (imageData) => ({
   type: types.SAVE_FINISHED_IMAGE,
   imageData

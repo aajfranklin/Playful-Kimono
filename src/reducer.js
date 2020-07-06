@@ -40,6 +40,17 @@ const reducer = (state = initialState, action) => {
         }
       })
     }
+    case types.KIMONO_LOADED: {
+      return update(state, {
+        gallery: {
+          kimonos: {
+            [action.index]: {
+              loaded: { $set: true }
+            }
+          }
+        }
+      });
+    }
     case types.SAVE_FINISHED_IMAGE: {
       return update(state, {
         design: {

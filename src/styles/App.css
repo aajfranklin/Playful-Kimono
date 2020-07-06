@@ -104,6 +104,10 @@ button {
     margin-right: 5em;
 }
 
+.hidden {
+    visibility: hidden;
+}
+
 /* Loading animation styles from https://loading.io/css/ */
 
 .lds-dual-ring {
@@ -272,10 +276,6 @@ canvas {
 
 .zoom-button {
     width: 50px;
-}
-
-.hidden {
-    visibility: hidden;
 }
 
 #instructions {
@@ -455,6 +455,10 @@ input[type=range]:focus::-ms-fill-upper {
 
 .kimono > p {
     margin: 0;
+}
+
+.loading {
+    display: none;
 }
 
 .infinite-scroll-status-area {

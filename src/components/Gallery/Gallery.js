@@ -25,7 +25,7 @@ function Gallery ({ error, kimonos, loadedAll, loadedAny, loadingMore, start, ge
   const Kimonos = () => {
     return(
       <section id="kimonos">
-        { kimonos.filter(kimono => kimono.approved).map(kimono => <Kimono key={kimono.uuid} kimono={kimono}/>) }
+        { kimonos.map((kimono, index) => <Kimono key={kimono.uuid} index={index}/>) }
       </section>
     )
   };
