@@ -137,7 +137,8 @@ function Canvas ({ maxScale, step, userImage, saveFinishedImage, setMaxScale }) 
   
   return(
     <React.Fragment>
-      <div id="canvas-label-container">
+      <div id="canvas-label-container"
+           className={step === config.designSteps.EMPTY || step === config.designSteps.EDITING ? '': 'locked'}>
         <canvas id="canvas"/>
         { step === config.designSteps.EMPTY ? <UploadOverlay/> : null }
       </div>

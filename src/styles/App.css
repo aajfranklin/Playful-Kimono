@@ -238,6 +238,10 @@ button {
     width: 500px;
 }
 
+#canvas-label-container.locked {
+    pointer-events: none;
+}
+
 #image-input-label {
     align-items: center;
     cursor: pointer;
