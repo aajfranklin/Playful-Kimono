@@ -539,4 +539,12 @@ input[type=range]:focus::-ms-fill-upper {
     #footer-nav > a {
         font-size: 10px;
     }
+
+    input[type="text"] {
+        max-width: 120px;
+    }
+
+    main {
+        overflow-x: hidden;
+    }
 }
