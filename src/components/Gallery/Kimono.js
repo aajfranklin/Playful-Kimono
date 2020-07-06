@@ -3,9 +3,6 @@ import { connect } from 'react-redux';
 import { kimonoLoaded} from '../../actions/actionCreators';
 
 function Kimono({ index, kimono, kimonoLoaded }) {
-  
-  if (!kimono.approved) return null;
-  
   return(
     <div className="kimono">
       { !kimono.loaded ? <img src="assets/Kimono_Template.png" alt="Kimono template"/>: null }
