@@ -55,6 +55,12 @@ export const submitKimonoSuccess = () => ({
   type: types.SUBMIT_KIMONO_SUCCESS
 });
 
+export const updateBackgroundGradient = (bottomColour, topColour) => ({
+  type: types.UPDATE_BACKGROUND_GRADIENT,
+  bottomColour,
+  topColour
+});
+
 export const updateHandle = (handle) => ({
   type: types.UPDATE_HANDLE,
   handle

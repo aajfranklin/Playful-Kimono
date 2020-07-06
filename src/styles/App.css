@@ -133,6 +133,21 @@ button {
     }
 }
 
+#gradient-container {
+    background-color: #FC354C;
+    background-image: -webkit-linear-gradient(#FC354C, #6E48AA);
+    background-image: -webkit-linear-gradient(#FC354C, #6E48AA);
+    background-image: linear-gradient(#FC354C, #6E48AA);
+    height: 500px;
+    position: relative;
+    width: 500px;
+}
+
+#gradient-container > img {
+    height: 100%;
+    width: 100%;
+}
+
 /*
     Image fade styles modified from stack overflow user vals' answer for 'Cross fade between images with CSS in loop':
     https://stackoverflow.com/a/17976033
@@ -151,6 +166,7 @@ button {
     height: 100%;
     justify-content: center;
     position: absolute;
+    top: 0;
     width: 100%;
     z-index: 1;
 }
@@ -482,7 +498,7 @@ input[type=range]:focus::-ms-fill-upper {
         width: 360px;
     }
 
-    canvas, #canvas-label-container, .fadein {
+    canvas, #canvas-label-container, .fadein, #gradient-container {
         height: 360px;
         width: 360px;
     }
