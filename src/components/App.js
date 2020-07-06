@@ -7,7 +7,6 @@ import Design from './Design/Design';
 import Gallery from './Gallery/Gallery';
 import Home from './Home/Home';
 import Privacy from './Privacy/Privacy';
-import SiteMap from './SiteMap/SiteMap';
 import '../styles/App.css'
 
 function App() {
@@ -19,7 +18,6 @@ function App() {
         <Route path="/design" component={Design}/>
         <Route path="/gallery" component={Gallery}/>
         <Route path="/privacy-policy" component={Privacy}/>
-        <Route path="/site-map" component={SiteMap}/>
         <Route path="" component={Home}/>
       </Switch>
       <Footer/>
