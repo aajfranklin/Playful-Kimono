@@ -2,6 +2,7 @@ import React from 'react';
 import { connect} from 'react-redux';
 import config from '../../config';
 import { userFinishedDesigning } from '../../actions/actionCreators';
+import { isTouchDevice } from '../../utils';
 
 function DesignInstructions({ step, userFinishedDesigning }) {
   return(
@@ -9,8 +10,10 @@ function DesignInstructions({ step, userFinishedDesigning }) {
       <h1>TO DESIGN:</h1>
       <ol>
         <li>Place image in the template</li>
-        <li>You can click and drag to reposition the image and zoom in and out using the key below</li>
-        <li>Click FINISH to finalise to complete.</li>
+        <li>{ isTouchDevice()
+          ? 'Drag to reposition the image and pinch to zoom'
+          : 'Click and drag to reposition the image and zoom using the key below' }</li>
+        <li>Click FINISH to complete.</li>
       </ol>
       <button type="button"
               onClick={userFinishedDesigning}
