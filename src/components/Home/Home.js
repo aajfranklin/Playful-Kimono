@@ -8,33 +8,33 @@ import { isTouchDevice } from '../../utils';
 
 function Home ({ bottomColour, topColour, updateBackgroundGradient }) {
   
+  const colours = ['#FC354C', '#6E48AA', '#24FE41', '#FDFC47'];
+  
   useEffect(() => {
     document.title = 'Playful Kimono';
+  
+    const handleMouseMove = (e) => {
+      const x = e.pageX;
+      const y = e.pageY;
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+    
+      const newBottomColour = getNewColour(colours[0], colours[1], height, y);
+      const newTopColour    = getNewColour(colours[2], colours[3], width, x);
+      updateBackgroundGradient(newBottomColour, newTopColour);
+    };
     
     if (!isTouchDevice()) {
       document.body.addEventListener('mousemove', handleMouseMove);
       return () => document.body.removeEventListener('mousemove', handleMouseMove);
     }
-  }, [])
-  
-  const colours = ['#FC354C', '#6E48AA', '#24FE41', '#FDFC47'];
+  }, [colours, updateBackgroundGradient])
   
   const getNewColour = (from, to, dimension, position) => {
     const ratio = 1 - (position / dimension);
     const getNewRgb = (colour) => Math.ceil((hexRgb(from)[colour] * ratio) + (hexRgb(to)[colour] * (1 - ratio)));
     return `#${rgbHex(getNewRgb('red'),getNewRgb('green'),getNewRgb('blue'))}`;
   }
-  
-  const handleMouseMove = (e) => {
-    const x = e.pageX;
-    const y = e.pageY;
-    const width = window.innerWidth;
-    const height = window.innerHeight;
-  
-    const newBottomColour = getNewColour(colours[0], colours[1], height, y);
-    const newTopColour    = getNewColour(colours[2], colours[3], width, x);
-    updateBackgroundGradient(newBottomColour, newTopColour);
-  };
   
   return(
     <main>

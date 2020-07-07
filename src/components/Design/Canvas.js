@@ -20,7 +20,7 @@ function Canvas ({ main, maxScale, step, userImage, saveFinishedImage, setMaxSca
     if (step === config.designSteps.EMPTY)    initialiseCanvas();
     if (step === config.designSteps.EDITING)  addUserImageToCanvas();
     if (step === config.designSteps.SIGNING)  lockCanvas();
-  }, [step, userImage]);
+  });
   
   const initialiseCanvas = () => {
     canvas.current = new fabric.Canvas('canvas', {

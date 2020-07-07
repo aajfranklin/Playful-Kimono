@@ -5,6 +5,8 @@ function ScrollButton({main}) {
   const shouldScrollDown = () => main.current.scrollTop <= 180;
   
   useEffect(() => {
+    let scrollMain = main.current;
+    
     const handleScroll = () => {
       if (shouldScrollDown() && scroll.current.classList.contains('up')) {
         scroll.current.classList.remove('up');
@@ -16,8 +18,8 @@ function ScrollButton({main}) {
       }
     };
     
-    main.current.addEventListener('scroll', handleScroll);
-    return () => main.current.removeEventListener('scroll', handleScroll);
+    scrollMain.addEventListener('scroll', handleScroll);
+    return () => scrollMain.removeEventListener('scroll', handleScroll);
   });
   
   const scrollDown = () => {
