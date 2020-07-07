@@ -28,6 +28,10 @@ export const gotAllKimonos = () => ({
   type: types.GOT_ALL_KIMONOS,
 });
 
+export const homeLoaded = () => ({
+  type: types.HOME_LOADED
+})
+
 export const kimonoLoaded = (index) => ({
   type: types.KIMONO_LOADED,
   index
@@ -82,6 +86,10 @@ export const userFinishedDesigning = () => ({
 
 export const userLeftDesignPage = () => ({
   type: types.USER_LEFT_DESIGN_PAGE
+});
+
+export const userLeftHomePage = () => ({
+  type: types.USER_LEFT_HOME_PAGE
 });
 
 export const userUploadedImage = (image) => ({

@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import rgbHex from 'rgb-hex';
 import hexRgb from "hex-rgb";
-import { updateBackgroundGradient } from '../../actions/actionCreators';
+import { homeLoaded, userLeftHomePage, updateBackgroundGradient } from '../../actions/actionCreators';
 import { isTouchDevice } from '../../utils';
 
-function Home ({ bottomColour, topColour, updateBackgroundGradient }) {
+function Home ({ bottomColour, topColour, loaded, homeLoaded, userLeftHomePage, updateBackgroundGradient }) {
   
   const colours = ['#FC354C', '#6E48AA', '#24FE41', '#FDFC47'];
   
@@ -30,6 +30,8 @@ function Home ({ bottomColour, topColour, updateBackgroundGradient }) {
     }
   }, [colours, updateBackgroundGradient])
   
+  useEffect(() => userLeftHomePage, [userLeftHomePage]);
+  
   const getNewColour = (from, to, dimension, position) => {
     const ratio = 1 - (position / dimension);
     const getNewRgb = (colour) => Math.ceil((hexRgb(from)[colour] * ratio) + (hexRgb(to)[colour] * (1 - ratio)));
@@ -39,8 +41,8 @@ function Home ({ bottomColour, topColour, updateBackgroundGradient }) {
   return(
     <main>
       <section>
-        <div id="gradient-container" style={ !isTouchDevice() ? {background: `linear-gradient(45deg,${topColour},${bottomColour})`} : {}}>
-          <img src="assets/Kimono_Template.png" alt="Kimono template with variable gradient background"/>
+        <div id="gradient-container" className={loaded ? 'loaded' : ''} style={ !isTouchDevice() ? {background: `linear-gradient(45deg,${topColour},${bottomColour})`} : {}}>
+          <img src="assets/Kimono_Template.png" alt="Kimono template with variable gradient background" onLoad={homeLoaded}/>
           <Link to="/design" id="attract-link">
             <span>CLICK HERE TO START</span>
           </Link>
@@ -53,12 +55,15 @@ function Home ({ bottomColour, topColour, updateBackgroundGradient }) {
 const mapStateToProps = (state) => {
   return {
     bottomColour: state.home.bottomColour,
+    loaded: state.home.loaded,
     topColour: state.home.topColour
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    homeLoaded: () => dispatch(homeLoaded()),
+    userLeftHomePage: () => dispatch(userLeftHomePage()),
     updateBackgroundGradient: (bottomColour, topColour) => dispatch(updateBackgroundGradient(bottomColour, topColour))
   }
 }

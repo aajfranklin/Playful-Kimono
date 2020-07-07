@@ -40,6 +40,13 @@ const reducer = (state = initialState, action) => {
         }
       })
     }
+    case types.HOME_LOADED: {
+      return update(state, {
+        home: {
+          loaded: { $set: true }
+        }
+      })
+    }
     case types.KIMONO_LOADED: {
       return update(state, {
         gallery: {
@@ -107,6 +114,13 @@ const reducer = (state = initialState, action) => {
           maxScale: { $set: 1 },
           step: { $set: config.designSteps.EMPTY },
           userImage: { $set: null }
+        }
+      })
+    }
+    case types.USER_LEFT_HOME_PAGE: {
+      return update(state, {
+        home: {
+          loaded: { $set: false}
         }
       })
     }
