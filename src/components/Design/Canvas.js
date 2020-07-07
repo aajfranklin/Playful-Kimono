@@ -59,7 +59,7 @@ function Canvas ({ maxScale, step, userImage, saveFinishedImage, setMaxScale }) 
     saveImageDataToState();
   }
   
-  const getCanvasWidth = () => window.screen.width > 500 ? 500: 360;
+  const getCanvasWidth = () => Math.min(window.screen.width, window.screen.height) > 500 ? 500: 360;
   const getImg = () => canvas.current.item(0);
   const lockImageMovement = () => getImg().lockMovementX = getImg().lockMovementY = true;
   const unlockImageMovement = () => getImg().lockMovementX = getImg().lockMovementY = false;
