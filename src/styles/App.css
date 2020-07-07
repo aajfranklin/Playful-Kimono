@@ -88,7 +88,6 @@ button {
     color: inherit;
     cursor: pointer;
     font: inherit;
-    font-size: 30px;
     outline: inherit;
     padding: 0;
 }
@@ -267,6 +266,7 @@ canvas {
 }
 
 .zoom-button {
+    font-size: 30px;
     padding-bottom: 2px;
     width: 50px;
 }
@@ -512,6 +512,32 @@ input[type=range]:focus::-ms-fill-upper {
 
     footer {
         margin: 1em;
+    }
+
+    #scroll-button-overlay {
+        align-items: center;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        margin: auto;
+        position: absolute;
+        width: 100%;
+    }
+
+    #scroll-button {
+        background: white;
+        border-radius: 10px;
+        color: black;
+        height: 20px;
+        width: 20px;
+    }
+
+    .up #scroll-button:before {
+        content: '↑'
+    }
+
+    .down #scroll-button:before {
+        content: '↓'
     }
 
 }

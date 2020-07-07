@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
 import Canvas from './Canvas';
 import DesignInstructions from './DesignInstructions';
@@ -10,6 +10,8 @@ import { userLeftDesignPage } from "../../actions/actionCreators";
 
 function Design({ error, step, userLeftDesignPage }) {
   
+  const main = useRef(null);
+  
   useEffect(() => {
     document.title = 'Playful Kimono - Design A Kimono'
   }, [])
@@ -19,9 +21,9 @@ function Design({ error, step, userLeftDesignPage }) {
   }, [userLeftDesignPage])
   
   return(
-    <main id="design">
+    <main id="design" ref={main}>
       <section id="design-tool">
-        <Canvas/>
+        <Canvas main={main}/>
       </section>
       { step === config.designSteps.EMPTY || step === config.designSteps.EDITING ? <DesignInstructions/> : null }
       { step === config.designSteps.SIGNING || step === config.designSteps.SUBMITTING ? <SignInstructions/> : null }
