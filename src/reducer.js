@@ -104,7 +104,7 @@ const reducer = (state = initialState, action) => {
             title: { $set: '' }
           },
           imageData: { $set: null },
-          maxScale: { $set: 2 },
+          maxScale: { $set: 1 },
           step: { $set: config.designSteps.EMPTY },
           userImage: { $set: null }
         }
