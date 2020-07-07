@@ -56,7 +56,6 @@ function Canvas ({ maxScale, step, userImage, saveFinishedImage, setMaxScale }) 
   
   const lockCanvas = () => {
     lockImageMovement();
-    if (isTouchDevice()) removePinchHandler();
     saveImageDataToState();
   }
   
@@ -80,12 +79,6 @@ function Canvas ({ maxScale, step, userImage, saveFinishedImage, setMaxScale }) 
     });
   
     hammer.on('pinchend', unlockImageMovement);
-  };
-  
-  const removePinchHandler = () => {
-    hammer.off('pinchstart');
-    hammer.off('pinch');
-    hammer.off('pinchend');
   };
   
   const saveImageDataToState = () => {
