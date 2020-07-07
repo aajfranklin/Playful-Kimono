@@ -1,56 +1,46 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import rgbHex from 'rgb-hex';
+import hexRgb from "hex-rgb";
 import { updateBackgroundGradient } from '../../actions/actionCreators';
 
 function Home ({ bottomColour, topColour, updateBackgroundGradient }) {
   
+  const canHover = !window.matchMedia('(hover:none)').matches;
+  
   useEffect(() => {
     document.title = 'Playful Kimono';
-    document.body.addEventListener('mousemove', handleMouseMove);
-    return () => document.body.removeEventListener('mousemove', handleMouseMove);
+    
+    if (canHover) {
+      document.body.addEventListener('mousemove', handleMouseMove);
+      return () => document.body.removeEventListener('mousemove', handleMouseMove);
+    }
   }, [])
   
   const colours = ['#6E48AA', '#FDFC47', '#24FE41', '#FC354C'];
   
-  const hexStringToRgbArray = (hex) => {
-    const rgb = (string) => parseInt(string, 16);
-    return [rgb(hex.substring(1,3)),rgb(hex.substring(3,5)),rgb(hex.substring(5,7))];
-  }
-  
-  const rgbArrayToHexString = (rgb) => {
-    const hex = (int) => int.toString(16);
-    return "#" + hex(rgb[0]) + hex(rgb[1]) + hex(rgb[2]);
-  }
-  
-  const left = hexStringToRgbArray(colours[0]);
-  const right = hexStringToRgbArray(colours[1]);
-  const top = hexStringToRgbArray(colours[2]);
-  const bottom = hexStringToRgbArray(colours[3]);
-  
-  const getNewColour = (from, to, width, pos) => {
-    const m = pos / width;
-    const r = Math.ceil(from[0] * m + to[0] * (1 - m));
-    const g = Math.ceil(from[1] * m + to[1] * (1 - m));
-    const b = Math.ceil(from[2] * m + to[2] * (1 - m));
-    return rgbArrayToHexString([r,g,b]);
+  const getNewColour = (from, to, dimension, position) => {
+    const ratio = 1 - (position / dimension);
+    const getNewRgb = (colour) => Math.ceil((hexRgb(from)[colour] * ratio) + (hexRgb(to)[colour] * (1 - ratio)));
+    return `#${rgbHex(getNewRgb('red'),getNewRgb('green'),getNewRgb('blue'))}`;
   }
   
   const handleMouseMove = (e) => {
-    const xPos = e.pageX;
-    const yPos = e.pageY;
+    const x = e.pageX;
+    const y = e.pageY;
     const width = window.innerWidth;
     const height = window.innerHeight;
   
-    const newBottomColour = getNewColour(bottom, top, height, yPos);
-    const newTopColour = getNewColour(right, left, width, xPos);
+    const newBottomColour = getNewColour(colours[0], colours[1], height, y);
+    const newTopColour    = getNewColour(colours[2], colours[3], width, x);
     updateBackgroundGradient(newBottomColour, newTopColour);
   };
   
   return(
     <main>
       <section>
-        <div id="gradient-container" style={{background: `linear-gradient(${topColour},${bottomColour})`}}>
+        <div id="gradient-container" style={ canHover ? {background: `linear-gradient(${topColour},${bottomColour})`} : {}}>
           <img src="assets/Kimono_Template.png" alt="Kimono template with variable gradient background"/>
           <Link to="/design" id="attract-link">
             <span>CLICK HERE TO START</span>

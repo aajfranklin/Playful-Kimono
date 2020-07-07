@@ -134,84 +134,41 @@ button {
 }
 
 #gradient-container {
-    background-color: #FC354C;
-    background-image: -webkit-linear-gradient(#FC354C, #6E48AA);
-    background-image: -webkit-linear-gradient(#FC354C, #6E48AA);
-    background-image: linear-gradient(#FC354C, #6E48AA);
+    background-image: -webkit-linear-gradient(45deg, #FC354C, #6E48AA, #24FE41, #FDFC47);
+    background-image: linear-gradient(45deg, #FC354C, #6E48AA, #24FE41, #FDFC47);
+    background-size: 200% 100%;
     height: 500px;
     position: relative;
     width: 500px;
 }
+
+@media (hover:none) {
+    #gradient-container {
+        -webkit-animation-name: gradient;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-duration: 20s;
+        animation-name: gradient;
+        animation-iteration-count: infinite;
+        animation-duration: 20s;
+    }
+}
+
+@-webkit-keyframes gradient {
+    0% { background-position: -15% 50%; }
+    50% { background-position: 100% 50% }
+    100% { background-position: -15% 50%;}
+}
+
+@keyframes gradient {
+    0% { background-position: -15% 50%; }
+    50% { background-position: 100% 50% }
+    100% { background-position: -15% 50%;}
+}
+
 
 #gradient-container > img {
     height: 100%;
     width: 100%;
-}
-
-/*
-    Image fade styles modified from stack overflow user vals' answer for 'Cross fade between images with CSS in loop':
-    https://stackoverflow.com/a/17976033
-    Licensed under CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0/legalcode)
- */
-
-.fadein {
-    height: 500px;
-    position: relative;
-    width: 500px;
-}
-
-#attract-link {
-    align-items: center;
-    display: flex;
-    height: 100%;
-    justify-content: center;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 1;
-}
-
-#attract-link > span {
-    font-size: 20px;
-    margin-bottom: 4em;
-    /*text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;*/
-}
-
-.fadein img {
-    -webkit-animation-name: fade;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-duration: 20s;
-    animation-name: fade;
-    animation-iteration-count: infinite;
-    animation-duration: 20s;
-    height: 100%;
-    position: absolute;
-    width: 100%;
-}
-
-@-webkit-keyframes fade {
-    0% {opacity: 0;}
-    20% {opacity: 1;}
-    33% {opacity: 1;}
-    53% {opacity: 0;}
-    100% {opacity: 0;}
-}
-@keyframes fade {
-    0% {opacity: 0;}
-    20% {opacity: 1;}
-    33% {opacity: 1;}
-    53% {opacity: 0;}
-    100% {opacity: 0;}
-}
-
-#f2 {
-    -webkit-animation-delay: -15s;
-}
-#f3 {
-    -webkit-animation-delay: -10s;
-}
-#f4 {
-    -webkit-animation-delay: -5s;
 }
 
 /* About styles*/
@@ -498,7 +455,7 @@ input[type=range]:focus::-ms-fill-upper {
         width: 360px;
     }
 
-    canvas, #canvas-label-container, .fadein, #gradient-container {
+    canvas, #canvas-label-container, #gradient-container {
         height: 360px;
         width: 360px;
     }
