@@ -16,20 +16,12 @@ function Canvas ({ maxScale, step, userImage, saveFinishedImage, setMaxScale }) 
   let pinchScale; // does not need to be retained between renders
   
   useEffect(() => {
-    if (step === config.designSteps.EMPTY || step === config.designSteps.EDITING) initialiseCanvas();
-    if (step === config.designSteps.SIGNING) {
-      lockImageMovement();
-      if (isTouchDevice()) removePinchHandler();
-      saveImageDataToState();
-    }
+    if (step === config.designSteps.EMPTY)    initialiseCanvas();
+    if (step === config.designSteps.EDITING)  addUserImageToCanvas();
+    if (step === config.designSteps.SIGNING)  lockCanvas();
   }, [step, userImage]);
   
   const initialiseCanvas = () => {
-    if (canvas.current !== null) {
-      canvas.current.dispose();
-      canvas.current = null;
-    }
-    
     canvas.current = new fabric.Canvas('canvas', {
       width: getCanvasWidth(),
       height: getCanvasWidth()
@@ -40,12 +32,10 @@ function Canvas ({ maxScale, step, userImage, saveFinishedImage, setMaxScale }) 
     canvas.current.setOverlayImage(overlaySrc, () => {
       canvas.current.overlayImage.scaleToWidth(getCanvasWidth())
       canvas.current.renderAll();
-      if (userImage) addUserImage();
-      if (userImage && isTouchDevice()) addPinchHandler();
     });
   }
   
-  const addUserImage = () => {
+  const addUserImageToCanvas = () => {
     let img = new fabric.Image(userImage);
   
     // allow image to scale to its own size or the size of the canvas, whichever is larger
@@ -60,8 +50,15 @@ function Canvas ({ maxScale, step, userImage, saveFinishedImage, setMaxScale }) 
     getImg().center();
     getImg().hasControls = getImg().hasBorders = false;
     
-    if (slider.current) updateSlider(newMaxScale);
+    if (isTouchDevice()) addPinchHandler();
+    if (!isTouchDevice()) updateSlider(newMaxScale);
   };
+  
+  const lockCanvas = () => {
+    lockImageMovement();
+    if (isTouchDevice()) removePinchHandler();
+    saveImageDataToState();
+  }
   
   const getCanvasWidth = () => window.screen.width > 500 ? 500: 360;
   const getImg = () => canvas.current.item(0);
@@ -86,11 +83,9 @@ function Canvas ({ maxScale, step, userImage, saveFinishedImage, setMaxScale }) 
   };
   
   const removePinchHandler = () => {
-    if (hammer) {
-      hammer.off('pinchstart');
-      hammer.off('pinch');
-      hammer.off('pinchend');
-    }
+    hammer.off('pinchstart');
+    hammer.off('pinch');
+    hammer.off('pinchend');
   };
   
   const saveImageDataToState = () => {
