@@ -171,6 +171,22 @@ button {
     width: 100%;
 }
 
+#attract-link {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+#attract-link > span {
+    font-size: 20px;
+    margin-bottom: 4em;
+}
+
 /* About styles*/
 
 #about > * {
