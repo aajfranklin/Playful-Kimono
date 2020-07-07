@@ -118,6 +118,14 @@ const reducer = (state = initialState, action) => {
         }
       })
     }
+    case types.UPDATE_BACKGROUND_GRADIENT: {
+      return update(state, {
+        home: {
+          bottomColour: { $set: action.bottomColour },
+          topColour: { $set: action.topColour }
+        }
+      })
+    }
     case types.UPDATE_HANDLE: {
       return update(state, {
         design: {

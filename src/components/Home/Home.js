@@ -1,20 +1,47 @@
 import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import rgbHex from 'rgb-hex';
+import hexRgb from "hex-rgb";
+import { updateBackgroundGradient } from '../../actions/actionCreators';
 
-function Home () {
+function Home ({ bottomColour, topColour, updateBackgroundGradient }) {
+  
+  const canHover = !window.matchMedia('(hover:none)').matches;
   
   useEffect(() => {
-    document.title = 'Playful Kimono'
+    document.title = 'Playful Kimono';
+    
+    if (canHover) {
+      document.body.addEventListener('mousemove', handleMouseMove);
+      return () => document.body.removeEventListener('mousemove', handleMouseMove);
+    }
   }, [])
+  
+  const colours = ['#6E48AA', '#FDFC47', '#24FE41', '#FC354C'];
+  
+  const getNewColour = (from, to, dimension, position) => {
+    const ratio = 1 - (position / dimension);
+    const getNewRgb = (colour) => Math.ceil((hexRgb(from)[colour] * ratio) + (hexRgb(to)[colour] * (1 - ratio)));
+    return `#${rgbHex(getNewRgb('red'),getNewRgb('green'),getNewRgb('blue'))}`;
+  }
+  
+  const handleMouseMove = (e) => {
+    const x = e.pageX;
+    const y = e.pageY;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+  
+    const newBottomColour = getNewColour(colours[0], colours[1], height, y);
+    const newTopColour    = getNewColour(colours[2], colours[3], width, x);
+    updateBackgroundGradient(newBottomColour, newTopColour);
+  };
   
   return(
     <main>
       <section>
-        <div className="fadein">
-          <img id="f1" src="assets/fade1.png" alt="Mountain kimono design"/>
-          <img id="f2" src="assets/fade2.png" alt="Desert cactus kimono design"/>
-          <img id="f3" src="assets/fade3.png" alt="Space shuttle kimono design"/>
-          <img id="f4" src="assets/fade4.png" alt="Torii gate kimono design"/>
+        <div id="gradient-container" style={ canHover ? {background: `linear-gradient(${topColour},${bottomColour})`} : {}}>
+          <img src="assets/Kimono_Template.png" alt="Kimono template with variable gradient background"/>
           <Link to="/design" id="attract-link">
             <span>CLICK HERE TO START</span>
           </Link>
@@ -24,4 +51,17 @@ function Home () {
   )
 }
 
-export default Home;
+const mapStateToProps = (state) => {
+  return {
+    bottomColour: state.home.bottomColour,
+    topColour: state.home.topColour
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    updateBackgroundGradient: (bottomColour, topColour) => dispatch(updateBackgroundGradient(bottomColour, topColour))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

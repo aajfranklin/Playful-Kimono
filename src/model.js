@@ -1,6 +1,10 @@
 import config from './config';
 
 const state = {
+  home: {
+    bottomColour: '#FC354C',
+    topColour: '#6E48AA'
+  },
   design: {
     error: false,
     form: {
