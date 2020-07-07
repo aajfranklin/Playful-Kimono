@@ -1,48 +1,41 @@
 import React, { useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
 import { fabric } from 'fabric';
+import Hammer from 'hammerjs';
 import config from '../../config';
 import { saveFinishedImage, setMaxScale } from '../../actions/actionCreators';
 import UploadOverlay from './UploadOverlay';
+import { isTouchDevice } from '../../utils';
 
 function Canvas ({ maxScale, step, userImage, saveFinishedImage, setMaxScale }) {
   
-  let canvasRef = useRef(null);
+  let canvas = useRef(null);
+  let container = useRef(null);
   let slider = useRef(null);
+  let hammer;     // does not need to be retained between renders
+  let pinchScale; // does not need to be retained between renders
   
   useEffect(() => {
-    if (step === config.designSteps.EMPTY || step === config.designSteps.EDITING) initialiseCanvas();
-    if (step === config.designSteps.SIGNING) {
-      lockImage();
-      saveImageDataToState();
-    }
+    if (step === config.designSteps.EMPTY)    initialiseCanvas();
+    if (step === config.designSteps.EDITING)  addUserImageToCanvas();
+    if (step === config.designSteps.SIGNING)  lockCanvas();
   }, [step, userImage]);
   
   const initialiseCanvas = () => {
-    if (canvasRef.current !== null) {
-      canvasRef.current.dispose();
-      canvasRef.current = null;
-    }
-    
-    canvasRef.current = new fabric.Canvas('canvas', {
+    canvas.current = new fabric.Canvas('canvas', {
       width: getCanvasWidth(),
       height: getCanvasWidth()
     });
 
     let overlaySrc = '/assets/Kimono_Template.png';
     
-    canvasRef.current.setOverlayImage(overlaySrc, () => {
-      canvasRef.current.overlayImage && canvasRef.current.overlayImage.scaleToWidth(getCanvasWidth())
-      canvasRef.current.renderAll();
-      if (userImage) addUserImage();
+    canvas.current.setOverlayImage(overlaySrc, () => {
+      canvas.current.overlayImage.scaleToWidth(getCanvasWidth())
+      canvas.current.renderAll();
     });
   }
   
-  const getCanvasWidth = () => {
-    return window.screen.width > 500 ? 500: 360;
-  }
-  
-  const addUserImage = () => {
+  const addUserImageToCanvas = () => {
     let img = new fabric.Image(userImage);
   
     // allow image to scale to its own size or the size of the canvas, whichever is larger
@@ -51,32 +44,63 @@ function Canvas ({ maxScale, step, userImage, saveFinishedImage, setMaxScale }) 
       : getCanvasWidth() / Math.min(img.width, img.height);
   
     setMaxScale(newMaxScale);
-    
     img.scaleToWidth(getCanvasWidth());
-    canvasRef.current.add(img);
-    canvasRef.current.item(0).center();
-    canvasRef.current.item(0).hasControls = canvasRef.current.item(0).hasBorders = false;
-    slider.current.value = 100 * (canvasRef.current.item(0).scaleX / newMaxScale);
+    canvas.current.add(img);
+    
+    getImg().center();
+    getImg().hasControls = getImg().hasBorders = false;
+    
+    if (isTouchDevice()) addPinchHandler();
+    if (!isTouchDevice()) updateSlider(newMaxScale);
   };
   
-  const lockImage = () => {
-    const img = canvasRef.current.item(0);
-    img.lockMovementX = img.lockMovementY = true;
+  const lockCanvas = () => {
+    lockImageMovement();
+    if (isTouchDevice()) removePinchHandler();
+    saveImageDataToState();
+  }
+  
+  const getCanvasWidth = () => window.screen.width > 500 ? 500: 360;
+  const getImg = () => canvas.current.item(0);
+  const lockImageMovement = () => getImg().lockMovementX = getImg().lockMovementY = true;
+  const unlockImageMovement = () => getImg().lockMovementX = getImg().lockMovementY = false;
+  
+  const addPinchHandler = () => {
+    hammer = new Hammer(container.current);
+    hammer.get('pinch').set({ enable: true });
+  
+    hammer.on('pinchstart', () => {
+      lockImageMovement();
+      pinchScale = getImg().scaleX;
+    });
+    
+    hammer.on('pinch', (e) => {
+      getImg().scaleX = getImg().scaleY = Math.max(Math.min(pinchScale * e.scale, 1), 0.001);
+      canvas.current.renderAll();
+    });
+  
+    hammer.on('pinchend', unlockImageMovement);
+  };
+  
+  const removePinchHandler = () => {
+    hammer.off('pinchstart');
+    hammer.off('pinch');
+    hammer.off('pinchend');
   };
   
   const saveImageDataToState = () => {
     const scaleRatio = 1080 / getCanvasWidth();
-    canvasRef.current.setDimensions({ width: 1080, height: 1080});
-    canvasRef.current.setZoom(scaleRatio);
+    canvas.current.setDimensions({ width: 1080, height: 1080});
+    canvas.current.setZoom(scaleRatio);
     
-    let dataUrl = canvasRef.current.toDataURL({
+    let dataUrl = canvas.current.toDataURL({
       format: 'png',
       quality: 1
     });
   
-    canvasRef.current.setZoom(1);
-    canvasRef.current.setDimensions({ width: getCanvasWidth(), height: getCanvasWidth()});
-    canvasRef.current.renderAll();
+    canvas.current.setZoom(1);
+    canvas.current.setDimensions({ width: getCanvasWidth(), height: getCanvasWidth()});
+    canvas.current.renderAll();
   
     saveFinishedImage(dataURItoBlob(dataUrl));
   }
@@ -99,37 +123,29 @@ function Canvas ({ maxScale, step, userImage, saveFinishedImage, setMaxScale }) 
     return new Blob([arrayBuffer], {type: mimeString});
   }
   
-  const zoomIn = () => {
+  const zoom = (out) => {
     if (!userImage || step !== config.designSteps.EDITING) return;
-    const img = canvasRef.current.item(0);
-    img.scaleX = img.scaleY = Math.min(img.scaleX + 0.1, maxScale);
-    slider.current.value = 100 * (img.scaleX / maxScale);
-    canvasRef.current.renderAll();
-  };
-  
-  const zoomOut = () => {
-    if (!userImage || step !== config.designSteps.EDITING) return;
-    const img = canvasRef.current.item(0);
-    img.scaleX = img.scaleY = Math.max(img.scaleX - 0.1, 0.001); // fabricjs treats scale 0 as unscaled aka scale 1, so stop just before 0
-    slider.current.value = 100 * (img.scaleX / maxScale);
-    canvasRef.current.renderAll();
+    getImg().scaleX = getImg().scaleY = Math[out ? 'max' : 'min'](getImg().scaleX + (out ? - 0.1 : 0.1), out ? 0.001 : maxScale);
+    updateSlider(maxScale);
+    canvas.current.renderAll();
   };
   
   const handleSliderChange = () => {
     if (!userImage || step !== config.designSteps.EDITING) return;
-    const img = canvasRef.current.item(0);
-    img.scaleX = img.scaleY = Math.max(slider.current.value / 100 * maxScale, 0.001); // fabricjs treats scale 0 as unscaled aka scale 1, so stop just before 0
-    canvasRef.current.renderAll();
+    getImg().scaleX = getImg().scaleY = Math.max(slider.current.value / 100 * maxScale, 0.001);
+    canvas.current.renderAll();
   };
+  
+  const updateSlider = (scale) => slider.current.value = 100 * (getImg().scaleX / scale)
   
   const ZoomControls = () => {
     return(
       <div id="zoom" className={ step === config.designSteps.EMPTY || step === config.designSteps.EDITING ? '' : 'hidden' }>
         <span>ZOOM</span>
         <div id="zoom-controls">
-          <button onClick={zoomOut} type="button" className="zoom-button">-</button>
+          <button onClick={() => zoom(true)} type="button" className="zoom-button">-</button>
           <input onChange={handleSliderChange} ref={slider} type="range" className="zoom-slider" disabled={step !== config.designSteps.EDITING}/>
-          <button onClick={zoomIn} type="button" className="zoom-button">+</button>
+          <button onClick={() => zoom(false)} type="button" className="zoom-button">+</button>
         </div>
       </div>
     )
@@ -138,11 +154,12 @@ function Canvas ({ maxScale, step, userImage, saveFinishedImage, setMaxScale }) 
   return(
     <React.Fragment>
       <div id="canvas-label-container"
+           ref={container}
            className={step === config.designSteps.EMPTY || step === config.designSteps.EDITING ? '': 'locked'}>
         <canvas id="canvas"/>
         { step === config.designSteps.EMPTY ? <UploadOverlay/> : null }
       </div>
-      <ZoomControls/>
+      { !isTouchDevice() ? <ZoomControls/> : null }
     </React.Fragment>
   )
 }

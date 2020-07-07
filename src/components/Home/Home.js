@@ -4,15 +4,14 @@ import { Link } from 'react-router-dom';
 import rgbHex from 'rgb-hex';
 import hexRgb from "hex-rgb";
 import { updateBackgroundGradient } from '../../actions/actionCreators';
+import { isTouchDevice } from '../../utils';
 
 function Home ({ bottomColour, topColour, updateBackgroundGradient }) {
-  
-  const canHover = !window.matchMedia('(pointer:coarse)').matches;
   
   useEffect(() => {
     document.title = 'Playful Kimono';
     
-    if (canHover) {
+    if (!isTouchDevice()) {
       document.body.addEventListener('mousemove', handleMouseMove);
       return () => document.body.removeEventListener('mousemove', handleMouseMove);
     }
@@ -40,7 +39,7 @@ function Home ({ bottomColour, topColour, updateBackgroundGradient }) {
   return(
     <main>
       <section>
-        <div id="gradient-container" style={ canHover ? {background: `linear-gradient(45deg,${topColour},${bottomColour})`} : {}}>
+        <div id="gradient-container" style={ !isTouchDevice() ? {background: `linear-gradient(45deg,${topColour},${bottomColour})`} : {}}>
           <img src="assets/Kimono_Template.png" alt="Kimono template with variable gradient background"/>
           <Link to="/design" id="attract-link">
             <span>CLICK HERE TO START</span>

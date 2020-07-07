@@ -1,5 +1,7 @@
 import config from './config';
 
+export const isTouchDevice = () => window.matchMedia('(pointer:coarse)').matches;
+
 const kimonoHeaders = {
   'Content-Type': 'application/json',
   'Origin': 'kimono'
