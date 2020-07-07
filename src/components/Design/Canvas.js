@@ -6,13 +6,13 @@ import config from '../../config';
 import { saveFinishedImage, setMaxScale } from '../../actions/actionCreators';
 import UploadOverlay from './UploadOverlay';
 import { isTouchDevice } from '../../utils';
+import ScrollButton from "./ScrollButton";
 
 function Canvas ({ main, maxScale, step, userImage, saveFinishedImage, setMaxScale }) {
   
   let canvas = useRef(null);
   let container = useRef(null);
   let slider = useRef(null);
-  let scroll = useRef(null);
   let hammer;     // does not need to be retained between renders
   let pinchScale; // does not need to be retained between renders
   
@@ -145,35 +145,6 @@ function Canvas ({ main, maxScale, step, userImage, saveFinishedImage, setMaxSca
     )
   };
   
-  const ScrollToInstructionsButton = () => {
-    const shouldScrollDown = () => main.current.scrollTop <= 180;
-    
-    main.current.addEventListener('scroll', () => {
-      if (shouldScrollDown() && scroll.current.classList.contains('up')) {
-        scroll.current.classList.remove('up');
-        scroll.current.classList.add('down');
-      }
-      if (!shouldScrollDown() && scroll.current.classList.contains('down')) {
-        scroll.current.classList.remove('down');
-        scroll.current.classList.add('up');
-      }
-    });
-    
-    const scrollDown = () => {
-      main.current.scrollTo({
-        left: 0,
-        top: shouldScrollDown() ? scroll.current.offsetTop : 0,
-        behaviour: 'smooth'
-      })
-    };
-    
-    return(
-      <div ref={scroll} className="down" id="scroll-button-overlay">
-        <button type="button" id="scroll-button" onClick={scrollDown}/>
-      </div>
-    )
-  }
-  
   return(
     <React.Fragment>
       <div id="canvas-label-container"
@@ -181,7 +152,7 @@ function Canvas ({ main, maxScale, step, userImage, saveFinishedImage, setMaxSca
            className={step === config.designSteps.EMPTY || step === config.designSteps.EDITING ? '': 'locked'}>
         <canvas id="canvas"/>
         { step === config.designSteps.EMPTY ? <UploadOverlay/> : null }
-        { step === config.designSteps.EDITING && window.screen.height <= 500 && window.screen.width <= 400 ? <ScrollToInstructionsButton/> : null}
+        { step === config.designSteps.EDITING && window.screen.height <= 500 && window.screen.width <= 400 ? <ScrollButton main={main}/> : null}
       </div>
       { !isTouchDevice() ? <ZoomControls/> : null }
     </React.Fragment>
