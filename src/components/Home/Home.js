@@ -7,7 +7,7 @@ import { updateBackgroundGradient } from '../../actions/actionCreators';
 
 function Home ({ bottomColour, topColour, updateBackgroundGradient }) {
   
-  const canHover = !window.matchMedia('(hover:none)').matches;
+  const canHover = !window.matchMedia('(pointer:coarse)').matches;
   
   useEffect(() => {
     document.title = 'Playful Kimono';

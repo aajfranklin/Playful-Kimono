@@ -142,7 +142,7 @@ button {
     width: 500px;
 }
 
-@media (hover:none) {
+@media (pointer:coarse) {
     #gradient-container {
         -webkit-animation-name: gradient;
         -webkit-animation-iteration-count: infinite;
