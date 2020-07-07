@@ -18,7 +18,7 @@ function Home ({ bottomColour, topColour, updateBackgroundGradient }) {
     }
   }, [])
   
-  const colours = ['#6E48AA', '#FDFC47', '#24FE41', '#FC354C'];
+  const colours = ['#FC354C', '#6E48AA', '#24FE41', '#FDFC47'];
   
   const getNewColour = (from, to, dimension, position) => {
     const ratio = 1 - (position / dimension);
@@ -40,7 +40,7 @@ function Home ({ bottomColour, topColour, updateBackgroundGradient }) {
   return(
     <main>
       <section>
-        <div id="gradient-container" style={ canHover ? {background: `linear-gradient(${topColour},${bottomColour})`} : {}}>
+        <div id="gradient-container" style={ canHover ? {background: `linear-gradient(45deg,${topColour},${bottomColour})`} : {}}>
           <img src="assets/Kimono_Template.png" alt="Kimono template with variable gradient background"/>
           <Link to="/design" id="attract-link">
             <span>CLICK HERE TO START</span>

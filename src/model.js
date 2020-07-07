@@ -3,7 +3,7 @@ import config from './config';
 const state = {
   home: {
     bottomColour: '#FC354C',
-    topColour: '#6E48AA'
+    topColour: '#24FE41'
   },
   design: {
     error: false,
