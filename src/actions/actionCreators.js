@@ -37,6 +37,20 @@ export const kimonoLoaded = (index) => ({
   index
 });
 
+export const maximiseKimono = (index) => ({
+  type: types.MAXIMISE_KIMONO,
+  index
+})
+
+export const minimiseGallery = () => ({
+  type: types.MINIMISE_GALLERY
+})
+
+export const minimiseKimono = (index) => ({
+  type: types.MINIMISE_KIMONO,
+  index
+})
+
 export const saveFinishedImage = (imageData) => ({
   type: types.SAVE_FINISHED_IMAGE,
   imageData

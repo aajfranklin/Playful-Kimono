@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 import { getKimonos } from '../../actions/actionCreators';
 import ConditionalError from '../Shared/ConditionalError';
 import Kimono from './Kimono';
+import GalleryControls from './GalleryControls';
 import config from '../../config'
 
-function Gallery ({ error, kimonos, loadedAll, loadedAny, loadingMore, start, getKimonos }) {
+function Gallery ({ error, kimonos, loadedAll, loadedAny, loadingMore, maximised, start, getKimonos }) {
   
   const mainRef = useRef(null);
   
@@ -24,8 +25,13 @@ function Gallery ({ error, kimonos, loadedAll, loadedAny, loadingMore, start, ge
   
   const Kimonos = () => {
     return(
-      <section id="kimonos">
-        { kimonos.map((kimono, index) => <Kimono key={kimono.uuid} index={index}/>) }
+      <section id="kimonos" className={maximised ? 'maximised' : ''}>
+        { maximised
+          ? <React.Fragment>
+              <Kimono index={kimonos.findIndex(kimono => kimono.maximised)}/>
+              <GalleryControls/>
+            </React.Fragment>
+          :  kimonos.map((kimono, index) => <Kimono key={kimono.uuid} index={index}/>) }
       </section>
     )
   };
@@ -35,10 +41,9 @@ function Gallery ({ error, kimonos, loadedAll, loadedAny, loadingMore, start, ge
       <ConditionalError showError={error} message={config.errors.getKimonos}/>
       { loadedAny
         ? <Kimonos/>
-        : <div className="lds-dual-ring"/>
-      }
-      { loadedAny && loadingMore ? <div className="infinite-scroll-status-area"><div className="lds-dual-ring"/></div>: null }
-      { loadedAll ? <p className="infinite-scroll-status-area">All kimonos loaded. Check back for more soon!</p> : null }
+        : <div className="lds-dual-ring"/> }
+      {/*{ loadedAny && loadingMore ? <div className="infinite-scroll-status-area"><div className="lds-dual-ring"/></div>: null }*/}
+      {/*{ loadedAll ? <p className="infinite-scroll-status-area">All kimonos loaded. Check back for more soon!</p> : null }*/}
     </main>
   )
 }
@@ -50,13 +55,14 @@ const mapStateToProps = (state) => {
     loadedAll: state.gallery.loadedAll,
     loadedAny: state.gallery.loadedAny,
     loadingMore: state.gallery.loadingMore,
+    maximised: state.gallery.maximised,
     start: state.gallery.start
   }
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getKimonos: (start) => dispatch(getKimonos(start))
+    getKimonos: (start) => dispatch(getKimonos(start)),
   }
 };
 

@@ -451,6 +451,45 @@ input[type=range]:focus::-ms-fill-upper {
     margin: 0;
 }
 
+#kimonos.maximised {
+    display: block;
+    position: relative;
+}
+
+.kimono.maximised {
+    margin: 0;
+    width: auto;
+}
+
+.kimono.maximised > img {
+    height: 500px;
+    width: 500px;
+}
+
+#gallery-controls {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+#gallery-controls > button {
+    text-align: right;
+}
+
+#chevron-container {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    justify-content: space-between;
+}
+
+#chevron-container > button {
+    margin-bottom: 28%;
+}
+
 .loading {
     display: none;
 }

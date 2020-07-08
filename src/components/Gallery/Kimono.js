@@ -1,10 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { kimonoLoaded} from '../../actions/actionCreators';
+import { kimonoLoaded, maximiseKimono, minimiseGallery, minimiseKimono } from '../../actions/actionCreators';
 
-function Kimono({ index, kimono, kimonoLoaded }) {
+function Kimono({ index, kimono, maximised, kimonoLoaded, maximise }) {
+  const handleClick = () => {
+    if (!maximised) maximise(index);
+  };
+  
   return(
-    <div className="kimono">
+    <div className={`kimono ${maximised ? 'maximised' : null}`} onClick={handleClick}>
       { !kimono.loaded ? <img src="assets/Kimono_Template.png" alt="Kimono template"/>: null }
       <img alt={kimono.title}
            src={kimono.url}
@@ -19,13 +23,18 @@ function Kimono({ index, kimono, kimonoLoaded }) {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    kimono: state.gallery.kimonos[ownProps.index]
+    index: ownProps.index,
+    kimono: state.gallery.kimonos[ownProps.index],
+    maximised: state.gallery.maximised
   }
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    kimonoLoaded: (index) => dispatch(kimonoLoaded(index))
+    kimonoLoaded: (index) => dispatch(kimonoLoaded(index)),
+    maximise: (index) => dispatch(maximiseKimono(index)),
+    minimise: (index) => dispatch(minimiseKimono(index)),
+    minimiseGallery: () => dispatch(minimiseGallery())
   }
 };
 
