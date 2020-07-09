@@ -1,5 +1,3 @@
-import { v4 as uuidv4 } from 'uuid';
-import moment from 'moment';
 import { GET, POST, S3PUT } from '../utils';
 import * as types from './actionTypes';
 import config from '../config';
@@ -128,12 +126,10 @@ export const uploadKimono = (data) => dispatch => {
     })
     .then(() => {
       const kimono = {
-        created: moment.now(),
         handle: data.handle || '-',
         name: data.name,
         title: data.title,
         url: `https://kimono.s3-eu-west-1.amazonaws.com/${id}.png`,
-        uuid: uuidv4()
       };
       
       return POST(config.api.endpoints.kimonos, JSON.stringify(kimono));
@@ -150,10 +146,10 @@ GALLERY ACTIONS
 
 export const getKimonos = (start) => dispatch => {
   dispatch(gettingMoreKimonos());
-  GET(config.api.endpoints.kimonos, `?_start=${start}&_limit=${config.kimonosPerPage}&_sort=created:DESC`)
-    .then(kimonos => {
-      if (kimonos.length === 0) return dispatch(gotAllKimonos());
-      dispatch(getKimonosSuccess(kimonos, start + config.kimonosPerPage))
+  GET(config.api.endpoints.kimonos, `?_start=${start}&_limit=${config.kimonosPerPage}&_sort=createdAt:DESC`)
+    .then(res => {
+      if (res.hasNext === false) return dispatch(gotAllKimonos());
+      dispatch(getKimonosSuccess(res.kimonos, start + config.kimonosPerPage))
     })
     .catch(() => dispatch(getKimonosFailure()));
 };

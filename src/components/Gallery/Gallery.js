@@ -31,7 +31,7 @@ function Gallery ({ error, kimonos, loadedAll, loadedAny, loadingMore, maximised
               <Kimono index={kimonos.findIndex(kimono => kimono.maximised)}/>
               <GalleryControls/>
             </React.Fragment>
-          :  kimonos.map((kimono, index) => <Kimono key={kimono.uuid} index={index}/>) }
+          :  kimonos.map((kimono, index) => <Kimono key={kimono.id} index={index}/>) }
       </section>
     )
   };
