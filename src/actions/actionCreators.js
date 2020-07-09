@@ -151,9 +151,9 @@ GALLERY ACTIONS
 export const getKimonos = (start) => dispatch => {
   dispatch(gettingMoreKimonos());
   GET(config.api.endpoints.kimonos, `?_start=${start}&_limit=${config.kimonosPerPage}&_sort=created:DESC`)
-    .then(kimonos => {
-      if (kimonos.length === 0) return dispatch(gotAllKimonos());
-      dispatch(getKimonosSuccess(kimonos, start + config.kimonosPerPage))
+    .then(res => {
+      if (res.hasNext === false) return dispatch(gotAllKimonos());
+      dispatch(getKimonosSuccess(res.kimonos, start + config.kimonosPerPage))
     })
     .catch(() => dispatch(getKimonosFailure()));
 };
