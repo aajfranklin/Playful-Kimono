@@ -41,9 +41,15 @@ function Gallery ({ error, kimonos, loadedAll, loadedAny, loadingMore, maximised
       <ConditionalError showError={error} message={config.errors.getKimonos}/>
       { loadedAny
         ? <Kimonos/>
-        : <div className="lds-dual-ring"/> }
-      {/*{ loadedAny && loadingMore ? <div className="infinite-scroll-status-area"><div className="lds-dual-ring"/></div>: null }*/}
-      {/*{ loadedAll ? <p className="infinite-scroll-status-area">All kimonos loaded. Check back for more soon!</p> : null }*/}
+        : <div className="lds-dual-ring"/>
+      }
+      {!maximised
+          ? <React.Fragment>
+              { loadedAny && loadingMore ? <div className="infinite-scroll-status-area"><div className="lds-dual-ring"/></div>: null }
+              { loadedAll ? <p className="infinite-scroll-status-area">All kimonos loaded. Check back for more soon!</p> : null }
+            </React.Fragment>
+          : null
+      }
     </main>
   )
 }
