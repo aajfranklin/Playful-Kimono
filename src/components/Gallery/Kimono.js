@@ -8,7 +8,7 @@ function Kimono({ index, kimono, maximised, kimonoLoaded, maximise }) {
   };
   
   return(
-    <div className={`kimono ${maximised ? 'maximised' : null}`} onClick={Math.min(window.screen.height, window.screen.width) > 550 ? handleClick : null}>
+    <div className={`kimono ${maximised ? 'maximised' : null}`} onClick={Math.min(window.screen.height, window.screen.width) >= 600 ? handleClick : null}>
       { !kimono.loaded ? <img src="assets/Kimono_Template.png" alt="Kimono template"/>: null }
       <img alt={kimono.title}
            src={kimono.url}
