@@ -24,6 +24,7 @@ const state = {
     loadedAll: false,
     loadedAny: false,
     loadingMore: false,
+    maximised: false,
     start: 0
   }
 };

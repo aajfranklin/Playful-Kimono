@@ -58,6 +58,36 @@ const reducer = (state = initialState, action) => {
         }
       });
     }
+    case types.MAXIMISE_KIMONO: {
+      return update(state, {
+        gallery: {
+          kimonos: {
+            [action.index]: {
+              maximised: { $set: true }
+            }
+          },
+          maximised: { $set: true }
+        }
+      })
+    }
+    case types.MINIMISE_GALLERY: {
+      return update(state, {
+        gallery: {
+          maximised: { $set: false }
+        }
+      })
+    }
+    case types.MINIMISE_KIMONO: {
+      return update(state, {
+        gallery: {
+          kimonos: {
+            [action.index]: {
+              maximised: { $set: false }
+            }
+          }
+        }
+      })
+    }
     case types.SAVE_FINISHED_IMAGE: {
       return update(state, {
         design: {
