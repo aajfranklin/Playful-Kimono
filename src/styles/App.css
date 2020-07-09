@@ -483,7 +483,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 #gallery-controls button:hover {
-    opacity: 50%;
+    opacity: 0.5;
 }
 
 #gallery-controls > button {
