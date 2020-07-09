@@ -478,7 +478,12 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 #gallery-controls button {
+    display: flex;
     font-size: 30px;
+}
+
+#gallery-controls button:hover {
+    opacity: 50%;
 }
 
 #gallery-controls > button {
@@ -496,7 +501,7 @@ input[type=range]:focus::-ms-fill-upper {
 
 #chevron-container > button {
     height: fit-content;
-    margin-top: 27%;
+    margin-top: 29%;
 }
 
 .loading {
