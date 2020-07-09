@@ -436,6 +436,7 @@ input[type=range]:focus::-ms-fill-upper {
 
 .kimono {
     align-items: center;
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     margin: 0 2em 2em 2em;
@@ -509,6 +510,12 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 /* Narrow screen styles */
+
+@media screen and (max-width: 600px), screen and (max-height: 600px) {
+    .kimono {
+        cursor: auto;
+    }
+}
 
 @media screen and (max-width: 500px), screen and (max-height: 500px) {
     #design > * {
