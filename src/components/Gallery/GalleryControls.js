@@ -18,7 +18,7 @@ function GalleryControls({ kimonos, loadedAll, loadingMore, maximisedKimonoIndex
   
   const closeGallery = () => {
     minimiseKimono(maximisedKimonoIndex);
-    minimiseGallery();
+    minimiseGallery(kimonos[maximisedKimonoIndex].id);
   }
   
   return(
@@ -55,7 +55,7 @@ const mapDispatchToProps = (dispatch) => {
     getKimonos: (start) => dispatch(getKimonos(start)),
     maximiseKimono: (index) => dispatch(maximiseKimono(index)),
     minimiseKimono: (index) => dispatch(minimiseKimono(index)),
-    minimiseGallery: () => dispatch(minimiseGallery())
+    minimiseGallery: (lastMaximisedKimonoId) => dispatch(minimiseGallery(lastMaximisedKimonoId))
   }
 };
 

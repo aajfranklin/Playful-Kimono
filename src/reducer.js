@@ -5,6 +5,13 @@ import config from './config';
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case types.CLEAR_LAST_MAXIMISED: {
+      return update(state, {
+        gallery: {
+          lastMaximised: { $set: false }
+        }
+      })
+    }
     case types.GETTING_MORE_KIMONOS: {
       return update(state, {
         gallery: {
@@ -73,6 +80,7 @@ const reducer = (state = initialState, action) => {
     case types.MINIMISE_GALLERY: {
       return update(state, {
         gallery: {
+          lastMaximised: { $set: action.lastMaximisedKimonoId },
           maximised: { $set: false }
         }
       })

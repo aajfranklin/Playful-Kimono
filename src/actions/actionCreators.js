@@ -8,6 +8,10 @@ ACTIONS
 ------------------------------------------------------------------------------------------------------------------------
  */
 
+export const clearLastMaximised = () => ({
+  type: types.CLEAR_LAST_MAXIMISED
+})
+
 export const gettingMoreKimonos = () => ({
   type: types.GETTING_MORE_KIMONOS
 });
@@ -40,8 +44,9 @@ export const maximiseKimono = (index) => ({
   index
 })
 
-export const minimiseGallery = () => ({
-  type: types.MINIMISE_GALLERY
+export const minimiseGallery = (lastMaximisedKimonoId) => ({
+  type: types.MINIMISE_GALLERY,
+  lastMaximisedKimonoId
 })
 
 export const minimiseKimono = (index) => ({

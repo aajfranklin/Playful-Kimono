@@ -22,6 +22,7 @@ const state = {
   gallery: {
     error: false,
     kimonos: [],
+    lastMaximised: false,
     loadedAll: false,
     loadedAny: false,
     loadingMore: false,

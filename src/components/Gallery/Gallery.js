@@ -1,20 +1,28 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useLayoutEffect, useRef } from 'react';
 import { connect } from 'react-redux';
-import { getKimonos } from '../../actions/actionCreators';
+import { clearLastMaximised, getKimonos } from '../../actions/actionCreators';
 import ConditionalError from '../Shared/ConditionalError';
 import Kimono from './Kimono';
 import GalleryControls from './GalleryControls';
 import config from '../../config'
 
-function Gallery ({ error, kimonos, loadedAll, loadedAny, loadingMore, maximised, start, getKimonos }) {
+function Gallery ({ error, kimonos, lastMaximised, loadedAll, loadedAny, loadingMore, maximised, start, clearLastMaximised, getKimonos }) {
   
   const mainRef = useRef(null);
+  const kimonoRefs = {};
   
   useEffect(() => {
     document.title = `${error ? 'Error - ': ''}Playful Kimono - Gallery`;
     const canLoadMoreWithinScreenDimensions = loadedAny && !loadedAll && mainRef.current.offsetHeight === mainRef.current.scrollHeight;
     if (!loadedAny || canLoadMoreWithinScreenDimensions) getKimonos(start);
   }, [error, loadedAny, loadedAll, getKimonos, start]);
+  
+  useLayoutEffect(() => {
+    if (lastMaximised) {
+      mainRef.current.scrollTo({ top: kimonoRefs[lastMaximised].current.offsetTop - 150 });
+      clearLastMaximised();
+    }
+  }, [lastMaximised, kimonoRefs, clearLastMaximised]);
   
   const handleScroll = (e) => {
     const isNearBottom = e.target.offsetHeight + e.target.scrollTop + 20 > e.target.scrollHeight;
@@ -31,7 +39,7 @@ function Gallery ({ error, kimonos, loadedAll, loadedAny, loadingMore, maximised
               <Kimono index={kimonos.findIndex(kimono => kimono.maximised)}/>
               <GalleryControls/>
             </React.Fragment>
-          :  kimonos.map((kimono, index) => <Kimono key={kimono.id} index={index}/>) }
+          : kimonos.map((kimono, index) => <Kimono key={kimono.id} linkRef={ref => kimonoRefs[kimono.id] = ref} index={index}/>) }
       </section>
     )
   };
@@ -58,6 +66,7 @@ const mapStateToProps = (state) => {
   return {
     error: state.gallery.error,
     kimonos: state.gallery.kimonos,
+    lastMaximised: state.gallery.lastMaximised,
     loadedAll: state.gallery.loadedAll,
     loadedAny: state.gallery.loadedAny,
     loadingMore: state.gallery.loadingMore,
@@ -68,7 +77,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getKimonos: (start) => dispatch(getKimonos(start)),
+    clearLastMaximised: () => dispatch(clearLastMaximised()),
+    getKimonos: (start) => dispatch(getKimonos(start))
   }
 };
 
