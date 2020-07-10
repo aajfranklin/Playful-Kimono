@@ -87,6 +87,11 @@ export const updateName = (name) => ({
   name
 });
 
+export const updateScrollDown = (scrollDown) => ({
+  type: types.UPDATE_SCROLL_DOWN,
+  scrollDown
+})
+
 export const updateTitle = (title) => ({
   type: types.UPDATE_TITLE,
   title

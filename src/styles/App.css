@@ -593,16 +593,14 @@ input[type=range]:focus::-ms-fill-upper {
         background: white;
         border-radius: 10px;
         color: black;
+        display: flex;
         height: 20px;
         width: 20px;
     }
 
-    .up #scroll-button:before {
-        content: '↑'
-    }
-
-    .down #scroll-button:before {
-        content: '↓'
+    #scroll-button > * {
+        height: 100%;
+        width: 100%;
     }
 
 }

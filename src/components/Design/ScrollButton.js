@@ -1,40 +1,48 @@
 import React, { useEffect, useRef } from 'react';
+import { connect } from 'react-redux';
+import { updateScrollDown } from '../../actions/actionCreators';
+import { Icon } from '@iconify/react';
+import arrowDown from '@iconify/icons-bi/arrow-down';
+import arrowUp from '@iconify/icons-bi/arrow-up';
 
-function ScrollButton({main}) {
+function ScrollButton({ main, shouldScrollDown, updateScrollDown }) {
   const scroll = useRef(null);
-  const shouldScrollDown = () => main.current.scrollTop <= 180;
   
   useEffect(() => {
     let scrollMain = main.current;
-    
-    const handleScroll = () => {
-      if (shouldScrollDown() && scroll.current.classList.contains('up')) {
-        scroll.current.classList.remove('up');
-        scroll.current.classList.add('down');
-      }
-      if (!shouldScrollDown() && scroll.current.classList.contains('down')) {
-        scroll.current.classList.remove('down');
-        scroll.current.classList.add('up');
-      }
-    };
-    
+    const handleScroll = () => updateScrollDown(main.current.scrollTop <= 180);
     scrollMain.addEventListener('scroll', handleScroll);
     return () => scrollMain.removeEventListener('scroll', handleScroll);
   });
   
-  const scrollDown = () => {
+  const handleClick = () => {
     main.current.scrollTo({
       left: 0,
-      top: shouldScrollDown() ? scroll.current.offsetTop : 0,
+      top: shouldScrollDown ? scroll.current.offsetTop : 0,
       behaviour: 'smooth'
     })
   };
   
   return(
     <div ref={scroll} className="down" id="scroll-button-overlay">
-      <button type="button" id="scroll-button" onClick={scrollDown}/>
+      <button type="button" id="scroll-button" onClick={handleClick}>
+        <Icon icon={shouldScrollDown ? arrowDown : arrowUp}/>
+      </button>
     </div>
   )
 }
 
-export default ScrollButton;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    main: ownProps.main,
+    shouldScrollDown: state.gallery.scrollDown
+  }
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    updateScrollDown: (scrollDown) => dispatch(updateScrollDown(scrollDown))
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ScrollButton);

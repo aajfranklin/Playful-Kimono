@@ -25,6 +25,7 @@ const state = {
     loadedAny: false,
     loadingMore: false,
     maximised: false,
+    scrollDown: true,
     start: 0
   }
 };

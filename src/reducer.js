@@ -188,6 +188,13 @@ const reducer = (state = initialState, action) => {
         }
       })
     }
+    case types.UPDATE_SCROLL_DOWN: {
+      return update(state, {
+        gallery: {
+          scrollDown: { $set: action.scrollDown }
+        }
+      })
+    }
     case types.UPDATE_TITLE: {
       return update(state, {
         design: {
