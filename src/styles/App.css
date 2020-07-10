@@ -44,7 +44,7 @@ main {
     flex-direction: row;
     flex-wrap: wrap;
     margin: auto;
-    justify-content: space-evenly;
+    justify-content: center;
     overflow: auto;
     width: 100%;
 }
