@@ -16,6 +16,11 @@ function Canvas ({ main, maxScale, step, userImage, saveFinishedImage, setMaxSca
   let hammer;     // does not need to be retained between renders
   let pinchScale; // does not need to be retained between renders
   
+  const getCanvasWidth = () => Math.min(window.screen.width, window.screen.height) > 500 ? 500: 360;
+  const getImg = () => canvas.current.item(0);
+  const lockImageMovement = () => getImg().lockMovementX = getImg().lockMovementY = true;
+  const unlockImageMovement = () => getImg().lockMovementX = getImg().lockMovementY = false;
+  
   useEffect(() => {
     if (step === config.designSteps.EMPTY)    initialiseCanvas();
     if (step === config.designSteps.EDITING)  addUserImageToCanvas();
@@ -59,11 +64,6 @@ function Canvas ({ main, maxScale, step, userImage, saveFinishedImage, setMaxSca
     lockImageMovement();
     saveImageDataToState();
   }
-  
-  const getCanvasWidth = () => Math.min(window.screen.width, window.screen.height) > 500 ? 500: 360;
-  const getImg = () => canvas.current.item(0);
-  const lockImageMovement = () => getImg().lockMovementX = getImg().lockMovementY = true;
-  const unlockImageMovement = () => getImg().lockMovementX = getImg().lockMovementY = false;
   
   const addPinchHandler = () => {
     hammer = new Hammer(container.current);
@@ -117,13 +117,6 @@ function Canvas ({ main, maxScale, step, userImage, saveFinishedImage, setMaxSca
     return new Blob([arrayBuffer], {type: mimeString});
   }
   
-  const zoom = (out) => {
-    if (!userImage || step !== config.designSteps.EDITING) return;
-    getImg().scaleX = getImg().scaleY = Math[out ? 'max' : 'min'](getImg().scaleX + (out ? - 0.1 : 0.1), out ? 0.001 : maxScale);
-    updateSlider(maxScale);
-    canvas.current.renderAll();
-  };
-  
   const handleSliderChange = () => {
     if (!userImage || step !== config.designSteps.EDITING) return;
     getImg().scaleX = getImg().scaleY = Math.max(slider.current.value / 100 * maxScale, 0.001);
@@ -131,6 +124,13 @@ function Canvas ({ main, maxScale, step, userImage, saveFinishedImage, setMaxSca
   };
   
   const updateSlider = (scale) => slider.current.value = 100 * (getImg().scaleX / scale)
+  
+  const zoom = (out) => {
+    if (!userImage || step !== config.designSteps.EDITING) return;
+    getImg().scaleX = getImg().scaleY = Math[out ? 'max' : 'min'](getImg().scaleX + (out ? - 0.1 : 0.1), out ? 0.001 : maxScale);
+    updateSlider(maxScale);
+    canvas.current.renderAll();
+  };
   
   const ZoomControls = () => {
     return(
