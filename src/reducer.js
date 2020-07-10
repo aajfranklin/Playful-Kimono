@@ -190,7 +190,7 @@ const reducer = (state = initialState, action) => {
     }
     case types.UPDATE_SCROLL_DOWN: {
       return update(state, {
-        gallery: {
+        design: {
           scrollDown: { $set: action.scrollDown }
         }
       })

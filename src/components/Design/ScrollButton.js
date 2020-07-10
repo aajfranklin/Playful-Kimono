@@ -35,7 +35,7 @@ function ScrollButton({ main, shouldScrollDown, updateScrollDown }) {
 const mapStateToProps = (state, ownProps) => {
   return {
     main: ownProps.main,
-    shouldScrollDown: state.gallery.scrollDown
+    shouldScrollDown: state.design.scrollDown
   }
 };
 

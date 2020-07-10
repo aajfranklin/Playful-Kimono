@@ -15,6 +15,7 @@ const state = {
     },
     imageData: null,
     maxScale: 1,
+    scrollDown: true,
     step: config.designSteps.EMPTY,
     userImage: null
   },
@@ -25,7 +26,6 @@ const state = {
     loadedAny: false,
     loadingMore: false,
     maximised: false,
-    scrollDown: true,
     start: 0
   }
 };
