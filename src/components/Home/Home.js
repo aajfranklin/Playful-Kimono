@@ -7,20 +7,19 @@ import { homeLoaded, userLeftHomePage, updateBackgroundGradient } from '../../ac
 import { isTouchDevice } from '../../utils';
 
 function Home ({ bottomColour, topColour, loaded, homeLoaded, userLeftHomePage, updateBackgroundGradient }) {
-  
-  const colours = ['#FC354C', '#6E48AA', '#24FE41', '#FDFC47'];
+  //                TOP        BOTTOM
+  const colours = ['#FF0000', '#FFFFFF'];
   
   useEffect(() => {
     document.title = 'Playful Kimono';
   
     const handleMouseMove = (e) => {
-      const x = e.pageX;
       const y = e.pageY;
       const width = window.innerWidth;
       const height = window.innerHeight;
     
       const newBottomColour = getNewColour(colours[0], colours[1], height, y);
-      const newTopColour    = getNewColour(colours[2], colours[3], width, x);
+      const newTopColour    = getNewColour(colours[1], colours[0], width, y);
       updateBackgroundGradient(newBottomColour, newTopColour);
     };
     
@@ -41,7 +40,7 @@ function Home ({ bottomColour, topColour, loaded, homeLoaded, userLeftHomePage, 
   return(
     <main>
       <section>
-        <div id="gradient-container" className={loaded ? 'loaded' : ''} style={ !isTouchDevice() ? {background: `linear-gradient(45deg,${topColour},${bottomColour})`} : {}}>
+        <div id="gradient-container" className={loaded ? 'loaded' : ''} style={ !isTouchDevice() ? {background: `linear-gradient(${topColour},${bottomColour})`} : {}}>
           <img src="assets/Kimono_Template.png" alt="Kimono template with variable gradient background" onLoad={homeLoaded}/>
           <Link to="/design" id="attract-link">
             <span>CLICK HERE TO START</span>

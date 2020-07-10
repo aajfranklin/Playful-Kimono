@@ -2,8 +2,8 @@ import config from './config';
 
 const state = {
   home: {
-    bottomColour: '#FC354C',
-    topColour: '#24FE41',
+    bottomColour: '#FF0000',
+    topColour: '#FFFFFF',
     loaded: false
   },
   design: {
