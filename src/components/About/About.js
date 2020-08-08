@@ -31,10 +31,10 @@ function About () {
             chain of activity created a unique relationship between publishers and craftspeople.
           </p>
           <p>
-            In contrast to early kimono sample books, Playful Kimono enables anyone to design a kimono in a matter
-            of seconds. The template was created in March 2020 during the height of the lockdown period, when people
-            around the world were spending increasing amounts of time at home. Playful Kimono aims to provide a simple
-            and satisfying activity, encouraging creativity at home.
+            Playful Kimono enables anyone to design a kimono in a matter of seconds. The template was created in March
+            2020 during the height of the lockdown period, when people around the world were spending increasing amounts
+            of time at home. Playful Kimono aims to provide a simple and satisfying activity, encouraging creativity at
+            home.
           </p>
           <p>
             This project has been promoted by the Victoria and Albert Museum and is supported by the Kingston University
@@ -53,8 +53,8 @@ function About () {
             Euphemia Franklin is a Japanese/English graphic designer and producer based in London. Her essay, <i>Hosoo,
             Nishijin and the World: Balancing Tradition and Innovation at the House of Hosoo</i> (2020) explored the future
             of Nishijin-ori, a form of Japanese silk weaving dating back over a millennium. This essay was researched
-            Euphemia’s time in Kyoto, where she gained hands-on experience of weaving and formed relationships with some
-            of Japan’s oldest kimono manufacturers.
+            during Euphemia’s time in Kyoto, where she gained hands-on experience of weaving and formed relationships
+            with some of Japan’s oldest kimono manufacturers.
           </p>
           <p>
             Since returning to London, Euphemia has continued to conduct research on Japanese craftsmanship and
