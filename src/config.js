@@ -17,5 +17,6 @@ module.exports = {
     SUBMITTING: 'submitting',
     SUBMITTED: 'submitted'
   },
-  kimonosPerPage: 30
+  kimonosPerPage: 30,
+  gaKey: 'UA-174959968-2'
 }

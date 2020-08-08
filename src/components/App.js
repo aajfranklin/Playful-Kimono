@@ -12,6 +12,7 @@ import Gallery from './Gallery/Gallery';
 import Home from './Home/Home';
 import Privacy from './Privacy/Privacy';
 import '../styles/App.css'
+import config from '../config';
 import { initialisedGoogleAnalytics } from '../actions/actionCreators';
 
 function App({ isGoogleAnalyticsInitialised, initialisedGoogleAnalytics }) {
@@ -20,7 +21,7 @@ function App({ isGoogleAnalyticsInitialised, initialisedGoogleAnalytics }) {
   };
   
   const initialiseAnalytics = useCallback(() => {
-    ReactGA.initialize('UA-174959968-1');
+    ReactGA.initialize(config.gaKey);
     initialisedGoogleAnalytics();
     ReactGA.pageview(window.location.pathname)
   }, [initialisedGoogleAnalytics]);
