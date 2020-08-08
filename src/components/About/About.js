@@ -44,7 +44,7 @@ function About () {
             Concept and design by Euphemia Franklin.
           </p>
           <p>
-            Web development by Alex Franklin.
+            Web development by <a href="https://github.com/aajfranklin">Alex Franklin</a>.
           </p>
           <p>
             This project has been promoted by the Victoria and Albert Museum and is supported by the Kingston University
