@@ -19,7 +19,17 @@ function UploadOverlay({ userUploadedImage }) {
   });
   
   const handleFileInput = (e) => {
-    loadImage(e.target.files[0], (img) => userUploadedImage(img), { orientation: true });
+    let reader = new FileReader();
+  
+    reader.onload = event => {
+      let img = new Image();
+      img.src = event.target.result;
+      img.onload = () => {
+        userUploadedImage(img);
+      }
+    }
+  
+    reader.readAsDataURL(e.target.files[0]);
   }
   
   return(
