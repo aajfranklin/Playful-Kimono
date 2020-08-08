@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect} from 'react-redux';
+import { Link } from 'react-router-dom';
 import config from '../../config';
 import { userFinishedDesigning } from '../../actions/actionCreators';
 import { isTouchDevice } from '../../utils';
@@ -13,8 +14,9 @@ function DesignInstructions({ step, userFinishedDesigning }) {
         <li>{ isTouchDevice()
           ? 'Drag to reposition the image and pinch to zoom'
           : 'Click and drag to reposition the image and zoom using the key below' }</li>
-        <li>Click FINISH to complete.</li>
+        <li>Click FINISH to complete</li>
       </ol>
+      <p>By clicking FINISH you agree to the <Link to={'/privacy-policy'}>terms of use</Link>.</p>
       <button type="button"
               onClick={userFinishedDesigning}
               className={`action-button ${ step === config.designSteps.EDITING ? 'available' : '' }`}>

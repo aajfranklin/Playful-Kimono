@@ -321,6 +321,10 @@ select.form-control {
     margin-top: 1em;
 }
 
+#instructions a {
+    text-decoration: underline;
+}
+
 #zoom {
     align-items: center;
     display: flex;

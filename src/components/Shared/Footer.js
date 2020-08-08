@@ -5,7 +5,7 @@ function Footer() {
   return(
     <footer>
       <nav id="footer-nav">
-        <NavLink to="/privacy-policy">PRIVACY POLICY</NavLink>
+        <NavLink to="/privacy-policy">PRIVACY POLICY AND TERMS OF USE</NavLink>
       </nav>
     </footer>
   )
