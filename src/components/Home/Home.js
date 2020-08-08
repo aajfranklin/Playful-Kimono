@@ -15,11 +15,10 @@ function Home ({ bottomColour, topColour, loaded, homeLoaded, userLeftHomePage, 
   
     const handleMouseMove = (e) => {
       const y = e.pageY;
-      const width = window.innerWidth;
       const height = window.innerHeight;
     
       const newBottomColour = getNewColour(colours[0], colours[1], height, y);
-      const newTopColour    = getNewColour(colours[1], colours[0], width, y);
+      const newTopColour    = getNewColour(colours[1], colours[0], height, y);
       updateBackgroundGradient(newBottomColour, newTopColour);
     };
     
