@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect} from 'react-redux';
-import { Link } from 'react-router-dom';
 import config from '../../config';
 import { userFinishedDesigning } from '../../actions/actionCreators';
 import { isTouchDevice } from '../../utils';
@@ -17,7 +16,6 @@ function DesignInstructions({ step, userFinishedDesigning }) {
         <li>Click FINISH to complete</li>
       </ol>
       <p>Refresh the page to discard the image and start again.</p>
-      <p>By clicking FINISH you agree to the <Link to={'/terms'}>terms of use</Link>.</p>
       <button type="button"
               onClick={userFinishedDesigning}
               className={`action-button ${ step === config.designSteps.EDITING ? 'available' : '' }`}>

@@ -279,6 +279,10 @@ select.form-control {
     pointer-events: none;
 }
 
+#confirm-terms-of-use {
+    margin-top: 2em;
+}
+
 #design > * {
     width: 500px;
 }

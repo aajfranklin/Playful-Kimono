@@ -25,14 +25,10 @@ function About () {
           </p>
           <p>
             The earliest known kimono sample book, <i>Kosode On-Hinakata</i>, was published in 1667. These books were
-            typically used as catalogues to showcase the latest kimono designs. A customer would leaf through a sample
-            book to gain inspiration for a kimono commission.
-          </p>
-          <p>
-            Before this stage, however, intricate designs were drawn by artists (usually anonymously) then printed and
-            bound by a publisher. The books were sent to kimono manufacturers in Kyoto, including spinners, weavers,
-            dyers and tailors, who were able to realise the sample book designs as wearable kimonos. This long chain of
-            activity created a unique relationship between publishers and craftspeople.
+            typically used as catalogues to showcase the latest kimono designs. Intricate designs were drawn by artists
+            then printed and bound by a publisher. The books were sent to kimono manufacturers in Kyoto, including
+            spinners, weavers, dyers and tailors, who were able to realise the designs as wearable kimonos. This long
+            chain of activity created a unique relationship between publishers and craftspeople.
           </p>
           <p>
             In contrast to early kimono sample books, Playful Kimono enables anyone to design a kimono in a matter
@@ -41,24 +37,24 @@ function About () {
             and satisfying activity, encouraging creativity at home.
           </p>
           <p>
+            This project has been promoted by the Victoria and Albert Museum and is supported by the Kingston University
+            Business School.
+          </p>
+          <p>
             Concept and design by Euphemia Franklin.
           </p>
           <p>
             Web development by <a href="https://github.com/aajfranklin">Alex Franklin</a>.
           </p>
-          <p>
-            This project has been promoted by the Victoria and Albert Museum and is supported by the Kingston University
-            Business School.
-          </p>
         </section>
         <section>
           <h1>ABOUT EUPHEMIA FRANKLIN</h1>
           <p>
-            Euphemia Franklin is a Japanese/English graphic designer and producer based in London. Her final-year
-            dissertation, <i>Hosoo, Nishijin and the World: Balancing Tradition and Innovation at the House of Hosoo </i>
-            (2020) explored the future of Nishijin-ori, a form of Japanese silk weaving dating back over a millennium.
-            This essay was researched during a study-abroad year in Kyoto, where Euphemia gained hands-on experience of
-            weaving and formed relationships with some of Japan’s oldest kimono manufacturers.
+            Euphemia Franklin is a Japanese/English graphic designer and producer based in London. Her essay, <i>Hosoo,
+            Nishijin and the World: Balancing Tradition and Innovation at the House of Hosoo</i> (2020) explored the future
+            of Nishijin-ori, a form of Japanese silk weaving dating back over a millennium. This essay was researched
+            Euphemia’s time in Kyoto, where she gained hands-on experience of weaving and formed relationships with some
+            of Japan’s oldest kimono manufacturers.
           </p>
           <p>
             Since returning to London, Euphemia has continued to conduct research on Japanese craftsmanship and
@@ -72,7 +68,7 @@ function About () {
         </section>
       </section>
     </main>
-)
+  )
 }
 
 export default About;

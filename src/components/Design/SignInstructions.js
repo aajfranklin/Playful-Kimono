@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import ReactGA from 'react-ga';
 import { updateHandle, updateName, updateTitle, uploadKimono } from '../../actions/actionCreators';
 import config from '../../config';
@@ -57,6 +58,7 @@ function SignInstructions({ handle, name, imageData, step, title, isGoogleAnalyt
             <input id="instagram-input" type='text' value={handle} onChange={handleHandleChange} maxLength="30"/>
           </div>
         </div>
+        <p id="confirm-terms-of-use">By clicking UPLOAD you agree to the <Link to={'/terms'}>terms of use</Link>.</p>
         { step === config.designSteps.SUBMITTING
           ?
             <button className="loading-container action-button" onClick={(e) => e.preventDefault()}>
