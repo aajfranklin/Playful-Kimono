@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
-import loadImage from 'blueimp-load-image';
 import { userUploadedImage } from '../../actions/actionCreators';
 
 function UploadOverlay({ userUploadedImage }) {
