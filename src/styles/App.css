@@ -39,6 +39,17 @@ header, footer {
     margin: 2em;
 }
 
+footer {
+    display: flex;
+    flex-direction: row;
+    font-size: 12px;
+    justify-content: space-between;
+}
+
+footer a {
+    margin-right: 1em;
+}
+
 main {
     display: flex;
     flex-direction: row;
@@ -68,10 +79,6 @@ ul {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-}
-
-#footer-nav > a {
-    font-size: 12px;
 }
 
 #header-nav {
@@ -640,6 +647,10 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 @media only screen and (max-width: 320px) {
+    footer{
+        font-size: 10px;
+    }
+
     input[type="text"] {
         max-width: 120px;
     }
@@ -649,10 +660,6 @@ input[type=range]:focus::-ms-fill-upper {
     }
 
     #column-links {
-        font-size: 10px;
-    }
-
-    #footer-nav > a {
         font-size: 10px;
     }
 

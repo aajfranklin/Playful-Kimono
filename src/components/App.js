@@ -11,6 +11,7 @@ import Design from './Design/Design';
 import Gallery from './Gallery/Gallery';
 import Home from './Home/Home';
 import Privacy from './Privacy/Privacy';
+import Terms from './Terms/Terms';
 import '../styles/App.css'
 import config from '../config';
 import { initialisedGoogleAnalytics } from '../actions/actionCreators';
@@ -46,6 +47,7 @@ function App({ isGoogleAnalyticsInitialised, initialisedGoogleAnalytics }) {
         <Route path="/design" component={Design}/>
         <Route path="/gallery" component={Gallery}/>
         <Route path="/privacy-policy" component={Privacy}/>
+        <Route path="/terms" component={Terms}/>
         <Route path="" component={Home}/>
       </Switch>
       <Footer/>
@@ -60,7 +62,7 @@ function App({ isGoogleAnalyticsInitialised, initialisedGoogleAnalytics }) {
                            expires={30}
                            sameSite={'lax'}
                            onAccept={handleAcceptCookies}>
-              We use cookies to measure site readership. Read the <Link to={"/privacy-policy"}>privacy policy and terms of use</Link> for more details.
+              We use cookies to measure site readership. Read our <Link to={"/privacy-policy"}>privacy policy</Link> for more details.
             </CookieConsent>
       }
     </React.Fragment>
