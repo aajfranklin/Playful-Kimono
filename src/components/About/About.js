@@ -40,10 +40,10 @@ function About () {
             This project has been promoted by the Victoria and Albert Museum and is supported by the Kingston University
             Business School.
           </p>
-          <p>
+          <p className="margin-bottom-zero">
             Concept and design by Euphemia Franklin.
           </p>
-          <p>
+          <p className="margin-top-zero">
             Web development by <a href="https://github.com/aajfranklin">Alex Franklin</a>.
           </p>
         </section>
