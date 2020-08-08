@@ -2,7 +2,7 @@ import React, { useEffect, useCallback } from 'react';
 import { connect } from 'react-redux';
 import { Switch, Route, Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
-import CookieConsent, { Cookies }  from 'react-cookie-consent';
+import CookieConsent, { Cookies } from 'react-cookie-consent';
 import ReactGA from 'react-ga';
 import Header from './Shared/Header';
 import Footer from './Shared/Footer';
@@ -16,13 +16,8 @@ import { initialisedGoogleAnalytics } from '../actions/actionCreators';
 
 function App({ isGoogleAnalyticsInitialised, initialisedGoogleAnalytics }) {
   const handleAcceptCookies = () => {
-    Cookies.set('kimono-cookie-permission', 'true', { expires: 30, SameSite: 'lax' });
     initialiseAnalytics();
   };
-  
-  const handleDeclineCookies = () => {
-    Cookies.set('kimono-cookie-permission', 'false', { expires: 30, SameSite: 'lax' });
-  }
   
   const initialiseAnalytics = useCallback(() => {
     ReactGA.initialize('UA-174959968-1');
@@ -33,7 +28,7 @@ function App({ isGoogleAnalyticsInitialised, initialisedGoogleAnalytics }) {
   let history = useHistory();
   
   useEffect(() => {
-    if (Cookies.get('kimono-cookie-permission') === 'true') initialiseAnalytics();
+    if (Cookies.get('KimonoCookieConsent') === 'true') initialiseAnalytics();
   }, [initialiseAnalytics]);
   
   useEffect(() => {
@@ -53,15 +48,17 @@ function App({ isGoogleAnalyticsInitialised, initialisedGoogleAnalytics }) {
         <Route path="" component={Home}/>
       </Switch>
       <Footer/>
-      { Cookies.get('kimono-cookie-permission')
+      { Cookies.get('KimonoCookieConsent')
           ? null
           : <CookieConsent location={'bottom'}
                            buttonText={'Accept'}
                            enableDeclineButton={true}
                            declineButtonText={'Decline'}
                            flipButtons={true}
-                           onAccept={handleAcceptCookies}
-                           onDecline={handleDeclineCookies}>
+                           cookieName={'KimonoCookieConsent'}
+                           expires={30}
+                           sameSite={'lax'}
+                           onAccept={handleAcceptCookies}>
               We use cookies to measure site readership. View the <Link to={"/privacy-policy"}>privacy policy</Link> to read more.
             </CookieConsent>
       }
