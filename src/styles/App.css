@@ -370,6 +370,18 @@ select.form-control {
     border: none;
 }
 
+.button-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 10% auto;
+    width: 50%;
+}
+
+.button-group .action-button {
+    margin: 0;
+}
+
 .text-input-label-pair {
     display: flex;
     justify-content: space-between;

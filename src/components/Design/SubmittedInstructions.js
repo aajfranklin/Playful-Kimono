@@ -9,11 +9,16 @@ function SubmittedInstructions() {
       <p>Thank you for submitting your playful kimono!</p>
       <p>Your design is currently being processed and may take a while before it appears on the gallery.</p>
       <p>Thank you for your patience :)</p>
+      <div className="button-group">
+        <a href="/design">
+          <button type="button" className="action-button available">DESIGN ANOTHER KIMONO</button>
+        </a>
         <Link to="/gallery">
           <button type="button" id="go-to-gallery" className="action-button available">
             GO TO GALLERY<br/><Icon icon={arrowRight}/>
           </button>
         </Link>
+      </div>
     </section>
   )
 }
