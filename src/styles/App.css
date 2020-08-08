@@ -127,22 +127,21 @@ ul {
 
 /* Loading animation from https://loading.io/css/ */
 
-.lds-dual-ring {
-    display: inline-block;
+.loading-container {
+    align-items: center;
+    display: flex;
+    height: 75px;
+    justify-content: center;
+    width: 75px;
 }
 
-.lds-dual-ring:after {
-    content: " ";
-    display: block;
-    width: 64px;
-    height: 64px;
-    margin: 8px;
-    border-radius: 50%;
-    border: 6px solid #fff;
-    border-color: #fff transparent #fff transparent;
-    animation: lds-dual-ring 1.2s linear infinite;
+.loading-spinner {
+    animation: spin 1.2s linear infinite;
+    height: 50px;
+    width: 50px;
 }
-@keyframes lds-dual-ring {
+
+@keyframes spin {
     0% {
         transform: rotate(0deg);
     }
@@ -355,7 +354,7 @@ select.form-control {
     pointer-events: all;
 }
 
-.action-button.lds-dual-ring {
+.action-button.loading-container {
     border: none;
 }
 

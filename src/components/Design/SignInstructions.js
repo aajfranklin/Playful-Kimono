@@ -58,7 +58,10 @@ function SignInstructions({ handle, name, imageData, step, title, isGoogleAnalyt
           </div>
         </div>
         { step === config.designSteps.SUBMITTING
-          ? <button type="button" className="action-button lds-dual-ring" onClick={(e) => e.preventDefault()}/>
+          ?
+            <button className="loading-container action-button" onClick={(e) => e.preventDefault()}>
+              <img className="loading-spinner" src="assets/loading.png" alt="Spinning kimono loading graphic"/>
+            </button>
           : <UploadButton/>
         }
       </form>

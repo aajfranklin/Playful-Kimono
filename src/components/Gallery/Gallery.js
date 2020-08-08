@@ -44,16 +44,24 @@ function Gallery ({ error, kimonos, lastMaximised, loadedAll, loadedAny, loading
     )
   };
   
+  const LoadingGraphic = () => {
+    return(
+      <div className="loading-container">
+        <img className="loading-spinner" src="assets/loading.png" alt="Spinning kimono loading graphic"/>
+      </div>
+    );
+  };
+  
   return(
     <main id="gallery" onScroll={handleScroll} ref={mainRef}>
       <ConditionalError showError={error} message={config.errors.getKimonos}/>
       { loadedAny
         ? <Kimonos/>
-        : <div className="lds-dual-ring"/>
+        : <LoadingGraphic/>
       }
       {!maximised
           ? <React.Fragment>
-              { loadedAny && loadingMore ? <div className="infinite-scroll-status-area"><div className="lds-dual-ring"/></div>: null }
+              { loadedAny && loadingMore ? <div className="infinite-scroll-status-area"><LoadingGraphic/></div>: null }
               { loadedAll ? <p className="infinite-scroll-status-area">All kimonos loaded. Check back for more soon!</p> : null }
             </React.Fragment>
           : null
