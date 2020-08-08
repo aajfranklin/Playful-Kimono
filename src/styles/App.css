@@ -35,6 +35,11 @@ h1 {
     margin-block-start: 0;
 }
 
+h2 {
+    font-size: 16px;
+    text-decoration: underline;
+}
+
 header, footer {
     margin: 2em;
 }
@@ -556,6 +561,26 @@ input[type=range]:focus::-ms-fill-upper {
 
 .loading {
     display: none;
+}
+
+/* Privacy and terms styles */
+
+#privacy, #terms {
+    min-width: 247px;
+    width: 80%;
+}
+
+#privacy ul, #terms ul {
+    list-style: disc;
+    padding-inline-start: 1em;
+}
+
+#privacy p, #privacy li, #terms p, #terms li {
+    word-break: break-word;
+}
+
+#privacy a, #terms a {
+    text-decoration: underline;
 }
 
 /* Narrow screen styles */
