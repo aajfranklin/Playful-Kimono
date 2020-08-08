@@ -106,6 +106,25 @@ ul {
     margin-top: 0;
 }
 
+.CookieConsent {
+    background: white !important;
+    color: black !important;
+    font-size: 12px;
+}
+
+.CookieConsent a {
+    color: black;
+    text-decoration: underline;
+}
+
+.CookieConsent button {
+    background: none !important;
+    color: black !important;
+    margin: 0 15px 15px !important;
+    padding: 0 !important;
+    text-decoration: underline;
+}
+
 /* Loading animation from https://loading.io/css/ */
 
 .lds-dual-ring {
@@ -620,6 +639,10 @@ input[type=range]:focus::-ms-fill-upper {
     }
 
     #footer-nav > a {
+        font-size: 10px;
+    }
+
+    .CookieConsent {
         font-size: 10px;
     }
 }

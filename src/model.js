@@ -28,7 +28,8 @@ const state = {
     loadingMore: false,
     maximised: false,
     start: 0
-  }
+  },
+  isGoogleAnalyticsInitialised: false
 };
 
 export default state;

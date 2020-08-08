@@ -54,6 +54,11 @@ const reducer = (state = initialState, action) => {
         }
       })
     }
+    case types.INITIALISED_GOOGLE_ANALYTICS: {
+      return update(state, {
+        isGoogleAnalyticsInitialised: { $set: true }
+      })
+    }
     case types.KIMONO_LOADED: {
       return update(state, {
         gallery: {

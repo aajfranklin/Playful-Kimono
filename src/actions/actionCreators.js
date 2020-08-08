@@ -34,6 +34,10 @@ export const homeLoaded = () => ({
   type: types.HOME_LOADED
 })
 
+export const initialisedGoogleAnalytics = () => ({
+  type: types.INITIALISED_GOOGLE_ANALYTICS
+})
+
 export const kimonoLoaded = (index) => ({
   type: types.KIMONO_LOADED,
   index
