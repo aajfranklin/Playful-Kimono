@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import ReactGA from 'react-ga';
 import { updateHandle, updateName, updateTitle, uploadKimono } from '../../actions/actionCreators';
 import config from '../../config';
 
-function SignInstructions({ handle, name, imageData, step, title, updateHandle, updateName, updateTitle, uploadKimono }) {
+function SignInstructions({ handle, name, imageData, step, title, isGoogleAnalyticsInitialised, updateHandle, updateName, updateTitle, uploadKimono }) {
   
   const handleHandleChange  = (e) => updateHandle(e.target.value);
   const handleNameChange    = (e) => updateName(e.target.value);
@@ -11,6 +12,12 @@ function SignInstructions({ handle, name, imageData, step, title, updateHandle, 
   
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (isGoogleAnalyticsInitialised) {
+      ReactGA.event({
+        category: 'Design',
+        action: 'Submitted a kimono'
+      });
+    }
     uploadKimono({
       handle,
       name,
@@ -65,7 +72,8 @@ const mapStateToProps = (state) => {
     imageData: state.design.imageData,
     name: state.design.form.name,
     step: state.design.step,
-    title: state.design.form.title
+    title: state.design.form.title,
+    isGoogleAnalyticsInitialised: state.isGoogleAnalyticsInitialised
   };
 }
 
