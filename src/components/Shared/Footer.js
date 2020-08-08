@@ -5,8 +5,10 @@ function Footer() {
   return(
     <footer>
       <nav id="footer-nav">
-        <NavLink to="/privacy-policy">PRIVACY POLICY AND TERMS OF USE</NavLink>
+        <NavLink to="/privacy-policy">PRIVACY POLICY</NavLink>
+        <NavLink to="/terms">TERMS AND CONDITIONS</NavLink>
       </nav>
+      <span>© EUPHEMIA FRANKLIN 2020</span>
     </footer>
   )
 }

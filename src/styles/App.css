@@ -35,8 +35,24 @@ h1 {
     margin-block-start: 0;
 }
 
+h2 {
+    font-size: 16px;
+    text-decoration: underline;
+}
+
 header, footer {
     margin: 2em;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    font-size: 12px;
+    justify-content: space-between;
+}
+
+footer a {
+    margin-right: 1em;
 }
 
 main {
@@ -68,10 +84,6 @@ ul {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-}
-
-#footer-nav > a {
-    font-size: 12px;
 }
 
 #header-nav {
@@ -358,6 +370,18 @@ select.form-control {
     border: none;
 }
 
+.button-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 10% auto;
+    width: 50%;
+}
+
+.button-group .action-button {
+    margin: 0;
+}
+
 .text-input-label-pair {
     display: flex;
     justify-content: space-between;
@@ -551,6 +575,26 @@ input[type=range]:focus::-ms-fill-upper {
     display: none;
 }
 
+/* Privacy and terms styles */
+
+#privacy, #terms {
+    min-width: 247px;
+    width: 80%;
+}
+
+#privacy ul, #terms ul {
+    list-style: disc;
+    padding-inline-start: 1em;
+}
+
+#privacy p, #privacy li, #terms p, #terms li {
+    word-break: break-word;
+}
+
+#privacy a, #terms a {
+    text-decoration: underline;
+}
+
 /* Narrow screen styles */
 
 @media screen and (max-width: 600px), screen and (max-height: 600px) {
@@ -640,6 +684,10 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 @media only screen and (max-width: 320px) {
+    footer{
+        font-size: 10px;
+    }
+
     input[type="text"] {
         max-width: 120px;
     }
@@ -649,10 +697,6 @@ input[type=range]:focus::-ms-fill-upper {
     }
 
     #column-links {
-        font-size: 10px;
-    }
-
-    #footer-nav > a {
         font-size: 10px;
     }
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
+import loadImage from 'blueimp-load-image';
 import { userUploadedImage } from '../../actions/actionCreators';
 
 function UploadOverlay({ userUploadedImage }) {
@@ -18,17 +19,7 @@ function UploadOverlay({ userUploadedImage }) {
   });
   
   const handleFileInput = (e) => {
-    let reader = new FileReader();
-    
-    reader.onload = event => {
-      let img = new Image();
-      img.src = event.target.result;
-      img.onload = () => {
-        userUploadedImage(img);
-      }
-    }
-    
-    reader.readAsDataURL(e.target.files[0]);
+    loadImage(e.target.files[0], (img) => userUploadedImage(img), { orientation: true });
   }
   
   return(
