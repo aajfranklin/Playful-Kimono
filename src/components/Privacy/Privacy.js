@@ -13,7 +13,7 @@ function Privacy () {
         <h1>PRIVACY POLICY</h1>
         <h2>Our contact details</h2>
         <p className="margin-bottom-zero">Name: Euphemia Franklin</p>
-        <p className="margin-top-zero">Email: <a href="mailto:hello@playfulkimono.com">hello@playfulkimono.com</a></p>
+        <p className="margin-top-zero">Email: <a target="_blank" href="mailto:hello@playfulkimono.com">hello@playfulkimono.com</a></p>
         <h2>The type of personal information we collect</h2>
         <p>We currently collect and process the following information:</p>
         <ul>
@@ -28,7 +28,7 @@ function Privacy () {
         <p>We may share this information with certain organisations or individuals who have an expressed or reasonable interest in the given design and/or contribution.</p>
         <p>Under the General Data Protection Regulation (GDPR), the lawful bases we rely on for processing this information are:</p>
         <ol type="a">
-          <li>Your consent. You are able to remove your consent at any time. You can do this by contacting Euphemia Franklin at <a href="mailto:hello@playfulkimono.com">hello@playfulkimono.com</a></li>
+          <li>Your consent. You are able to remove your consent at any time. You can do this by contacting Euphemia Franklin at <a target="_blank" href="mailto:hello@playfulkimono.com">hello@playfulkimono.com</a></li>
           <li>We have a contractual obligation.</li>
           <li>We have a legal obligation.</li>
           <li>We have a vital interest.</li>
@@ -49,7 +49,7 @@ function Privacy () {
           <li>Your right to data portability - You have the right to ask that we transfer the personal information you gave us to another organisation, or to you, in certain circumstances.</li>
         </ul>
         <p>You are not required to pay any charge for exercising your rights. If you make a request, we have one month to respond to you.</p>
-        <p>Please contact us at <a href="mailto:hello@playfulkimono.com">hello@playfulkimono.com</a> if you wish to make a request.</p>
+        <p>Please contact us at <a target="_blank" href="mailto:hello@playfulkimono.com">hello@playfulkimono.com</a> if you wish to make a request.</p>
         <h2>Cookies</h2>
         <p>
           We use Google Analytics to analyse the use of our website and create reports about such
@@ -59,11 +59,11 @@ function Privacy () {
         </p>
         <p>A cookie is a file containing an identifier (a string of letters and numbers) that is sent by a web server to a web browser and is stored by the browser. The identifier is then sent back to the server each time the browser requests a page from the server.</p>
         <p>Further information on the cookies and how they work can be found here:</p>
-        <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/cookie-usage">https://developers.google.com/analytics/devguides/collection/analyticsjs/cookie-usage</a>
+        <a target="_blank" href="https://developers.google.com/analytics/devguides/collection/analyticsjs/cookie-usage">https://developers.google.com/analytics/devguides/collection/analyticsjs/cookie-usage</a>
         <p>You can prevent these cookies by installing the Google Analytics opt-out browser extension here:</p>
-        <a href="https://chrome.google.com/webstore/detail/google-analytics-opt-out/fllaojicojecljbmefodhfapmkghcbnh?hl=en">https://chrome.google.com/webstore/detail/google-analytics-opt-out/fllaojicojecljbmefodhfapmkghcbnh?hl=en</a>
+        <a target="_blank" href="https://chrome.google.com/webstore/detail/google-analytics-opt-out/fllaojicojecljbmefodhfapmkghcbnh?hl=en">https://chrome.google.com/webstore/detail/google-analytics-opt-out/fllaojicojecljbmefodhfapmkghcbnh?hl=en</a>
         <h2>How to complain</h2>
-        <p>If you have any concerns about our use of your personal information, you can make a complaint to us at <a href="mailto:hello@playfulkimono.com">hello@playfulkimono.com</a>.</p>
+        <p>If you have any concerns about our use of your personal information, you can make a complaint to us at <a target="_blank" href="mailto:hello@playfulkimono.com">hello@playfulkimono.com</a>.</p>
         <p>You can also complain to the ICO if you are unhappy with how we have used your data.</p>
         <p>The ICO’s address:</p>
         <p className="margin-bottom-zero">Information Commissioner’s Office</p>
@@ -73,7 +73,7 @@ function Privacy () {
         <p className="margin-top-zero margin-bottom-zero">Cheshire</p>
         <p className="margin-top-zero">SK9 5AF</p>
         <p>Helpline number: 0303 123 1113</p>
-        <p>ICO website: <a href="https://www.ico.org.uk">https://www.ico.org.uk</a></p>
+        <p>ICO website: <a target="_blank" href="https://www.ico.org.uk">https://www.ico.org.uk</a></p>
       </section>
     </main>
   )
