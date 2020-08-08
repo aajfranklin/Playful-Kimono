@@ -55,9 +55,9 @@ function About () {
           <h1>ABOUT EUPHEMIA FRANKLIN</h1>
           <p>
             Euphemia Franklin is a Japanese/English graphic designer and producer based in London. Her final-year
-            dissertation, Hosoo, Nishijin and the World: Balancing Tradition and Innovation at the House of Hosoo (2020)
-            explored the future of Nishijin-ori, a form of Japanese silk weaving dating back over a millennium. This
-            essay was researched during a study-abroad year in Kyoto, where Euphemia gained hands-on experience of
+            dissertation, <i>Hosoo, Nishijin and the World: Balancing Tradition and Innovation at the House of Hosoo </i>
+            (2020) explored the future of Nishijin-ori, a form of Japanese silk weaving dating back over a millennium.
+            This essay was researched during a study-abroad year in Kyoto, where Euphemia gained hands-on experience of
             weaving and formed relationships with some of Japan’s oldest kimono manufacturers.
           </p>
           <p>
