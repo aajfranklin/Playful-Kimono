@@ -220,6 +220,17 @@ ul {
     width: 100%;
 }
 
+#about a {
+    text-decoration: underline;
+}
+
+@media screen and (min-width: 1000px) {
+
+    #about-text {
+        overflow: scroll;
+    }
+}
+
 #about-text > section {
     margin: 1em 0 2em;
 }

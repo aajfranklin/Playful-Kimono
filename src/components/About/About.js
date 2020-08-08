@@ -9,7 +9,7 @@ function About () {
   return(
     <main id="about">
       <section>
-        <img src="assets/Forest_Path.png" alt="Forest path Kimono design."/>
+        <img src="assets/About.png" alt="Forest path Kimono design."/>
       </section>
       <section id="about-text">
         <section>
@@ -18,13 +18,27 @@ function About () {
             Playful Kimono asks the question, what would your kimono look like?
           </p>
           <p>
-            This project stems from my dissertation on Nishijn weaving and the future of Japanese textiles.
-            Drawing inspiration from kimono sample books, or <i>hinagata-bon</i> from the Edo and Meiji periods,
-            the aim of this project was to see how people today would understand the abstracted kimono shape.
+            Drawing inspiration from kimono sample books, or <i>hinagata-bon</i> from the Edo and Meiji periods, the
+            project reinterprets the kimono-design process through a simple digital template. Using the outline of a
+            flat kimono, Playful Kimono encourages anyone to place an image inside the template to see their unique
+            design come to life.
           </p>
           <p>
-            Playful kimonos have been designed by participants from the UK, Japan and as far as Colombia, and has been
-            supported by the Victoria and Albert Museum as well as Lewisham Council.
+            The earliest known kimono sample book, <i>Kosode On-Hinakata</i>, was published in 1667. These books were
+            typically used as catalogues to showcase the latest kimono designs. A customer would leaf through a sample
+            book to gain inspiration for a kimono commission.
+          </p>
+          <p>
+            Before this stage, however, intricate designs were drawn by artists (usually anonymously) then printed and
+            bound by a publisher. The books were sent to kimono manufacturers in Kyoto, including spinners, weavers,
+            dyers and tailors, who were able to realise the sample book designs as wearable kimonos. This long chain of
+            activity created a unique relationship between publishers and craftspeople.
+          </p>
+          <p>
+            In contrast to early kimono sample books, Playful Kimono enables anyone to design a kimono in a matter
+            of seconds. The template was created in March 2020 during the height of the lockdown period, when people
+            around the world were spending increasing amounts of time at home. Playful Kimono aims to provide a simple
+            and satisfying activity, encouraging creativity at home.
           </p>
           <p>
             Concept and design by Euphemia Franklin.
@@ -32,11 +46,29 @@ function About () {
           <p>
             Web development by Alex Franklin.
           </p>
+          <p>
+            This project has been promoted by the Victoria and Albert Museum and is supported by the Kingston University
+            Business School.
+          </p>
+        </section>
+        <section>
+          <h1>ABOUT EUPHEMIA FRANKLIN</h1>
+          <p>
+            Euphemia Franklin is a Japanese/English graphic designer and producer based in London. Her final-year
+            dissertation, Hosoo, Nishijin and the World: Balancing Tradition and Innovation at the House of Hosoo (2020)
+            explored the future of Nishijin-ori, a form of Japanese silk weaving dating back over a millennium. This
+            essay was researched during a study-abroad year in Kyoto, where Euphemia gained hands-on experience of
+            weaving and formed relationships with some of Japan’s oldest kimono manufacturers.
+          </p>
+          <p>
+            Since returning to London, Euphemia has continued to conduct research on Japanese craftsmanship and
+            sensibilities. To get in touch, please visit <a href="http://www.euphemiafranklin.com">www.euphemiafranklin.com</a>.
+          </p>
         </section>
         <section>
           <h1>CONTACT</h1>
-          <p className='margin-bottom-zero'>info@playfulkimono.com</p>
-          <p className='margin-top-zero'>instagram @playful_kimono</p>
+          <a href="mailto: hello@playfulkimono.com"><p className="margin-bottom-zero">hello@playfulkimono.com</p></a>
+          <a href="https://www.instagram.com/playful_kimono/"><p className="margin-top-zero">@playful_kimono</p></a>
         </section>
       </section>
     </main>
