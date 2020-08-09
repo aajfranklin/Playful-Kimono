@@ -19,7 +19,7 @@ function Gallery ({ error, kimonos, lastMaximised, loadedAll, loadedAny, loading
   
   useLayoutEffect(() => {
     if (lastMaximised) {
-      mainRef.current.scrollTo({ top: kimonoRefs[lastMaximised].current.offsetTop - 150 });
+      kimonoRefs[lastMaximised].current.focus();
       clearLastMaximised();
     }
   }, [lastMaximised, kimonoRefs, clearLastMaximised]);
@@ -37,7 +37,6 @@ function Gallery ({ error, kimonos, lastMaximised, loadedAll, loadedAny, loading
         { maximised
           ? <React.Fragment>
               <Kimono index={kimonos.findIndex(kimono => kimono.maximised)}/>
-              <GalleryControls/>
             </React.Fragment>
           : kimonos.map((kimono, index) => <Kimono key={kimono.id} linkRef={ref => kimonoRefs[kimono.id] = ref} index={index}/>) }
       </section>
@@ -59,6 +58,7 @@ function Gallery ({ error, kimonos, lastMaximised, loadedAll, loadedAny, loading
         ? <Kimonos/>
         : <LoadingGraphic/>
       }
+      { loadedAny && maximised ? <GalleryControls key={"controls"}/> : null }
       {!maximised
           ? <React.Fragment>
               { loadedAny && loadingMore ? <div className="infinite-scroll-status-area"><LoadingGraphic/></div>: null }

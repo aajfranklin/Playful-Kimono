@@ -18,7 +18,8 @@ function DesignInstructions({ step, userFinishedDesigning }) {
       <p>Refresh the page to discard the image and start again.</p>
       <button type="button"
               onClick={userFinishedDesigning}
-              className={`action-button ${ step === config.designSteps.EDITING ? 'available' : '' }`}>
+              className={`action-button ${ step === config.designSteps.EDITING ? 'available' : '' }`}
+              tabIndex={step === config.designSteps.EDITING ? 0 : -1}>
         FINISH
       </button>
     </section>

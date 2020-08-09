@@ -137,9 +137,9 @@ function Canvas ({ main, maxScale, step, userImage, saveFinishedImage, setMaxSca
       <div id="zoom" className={ step === config.designSteps.EMPTY || step === config.designSteps.EDITING ? '' : 'hidden' }>
         <span>ZOOM</span>
         <div id="zoom-controls">
-          <button onClick={() => zoom(true)} type="button" className="zoom-button">-</button>
+          <button onClick={() => zoom(true)} type="button" className="zoom-button" tabIndex={step === config.designSteps.EDITING ? 0 : -1}>-</button>
           <input onChange={handleSliderChange} ref={slider} type="range" className="zoom-slider" disabled={step !== config.designSteps.EDITING}/>
-          <button onClick={() => zoom(false)} type="button" className="zoom-button">+</button>
+          <button onClick={() => zoom(false)} type="button" className="zoom-button" tabIndex={step === config.designSteps.EDITING ? 0 : -1}>+</button>
         </div>
       </div>
     )

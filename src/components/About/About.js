@@ -63,8 +63,8 @@ function About () {
         </section>
         <section>
           <h1>CONTACT</h1>
-          <a target="_blank" href="mailto: hello@playfulkimono.com"><p className="margin-bottom-zero">hello@playfulkimono.com</p></a>
-          <a target="_blank" href="https://www.instagram.com/playful_kimono/"><p className="margin-top-zero">@playful_kimono</p></a>
+          <p className="margin-bottom-zero"><a target="_blank" href="mailto: hello@playfulkimono.com">hello@playfulkimono.com</a></p>
+          <p className="margin-top-zero"><a target="_blank" href="https://www.instagram.com/playful_kimono/">@playful_kimono</a></p>
         </section>
       </section>
     </main>

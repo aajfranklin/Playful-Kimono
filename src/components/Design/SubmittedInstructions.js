@@ -11,10 +11,10 @@ function SubmittedInstructions() {
       <p>Thank you for your patience :)</p>
       <div className="button-group">
         <a href="/design">
-          <button type="button" className="action-button available">DESIGN ANOTHER KIMONO</button>
+          <button type="button" tabIndex={-1} className="action-button available">DESIGN ANOTHER KIMONO</button>
         </a>
         <Link to="/gallery">
-          <button type="button" id="go-to-gallery" className="action-button available">
+          <button type="button" id="go-to-gallery" tabIndex={-1} className="action-button available">
             GO TO GALLERY<br/><Icon icon={arrowRight}/>
           </button>
         </Link>

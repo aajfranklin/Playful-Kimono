@@ -33,7 +33,8 @@ function SignInstructions({ handle, name, imageData, step, title, isGoogleAnalyt
     return(
       <button type="submit"
               onClick={handleSubmit}
-              className={`action-button ${isButtonAvailable ? 'available' : ''}`}>
+              className={`action-button ${isButtonAvailable ? 'available' : ''}`}
+              tabIndex={isButtonAvailable ? 0 : -1}>
         UPLOAD
       </button>
     );

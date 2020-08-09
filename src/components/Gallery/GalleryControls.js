@@ -8,6 +8,11 @@ import { getKimonos, maximiseKimono, minimiseKimono, minimiseGallery } from '../
 
 function GalleryControls({ kimonos, loadedAll, loadingMore, maximisedKimonoIndex, start, getKimonos, maximiseKimono, minimiseKimono, minimiseGallery }) {
   useEffect(() => {
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  })
+  
+  useEffect(() => {
     if (maximisedKimonoIndex === kimonos.length - 1 && !loadedAll &&!loadingMore) getKimonos(start);
   }, [maximisedKimonoIndex, kimonos, loadedAll, loadingMore, getKimonos, start]);
   
@@ -17,8 +22,14 @@ function GalleryControls({ kimonos, loadedAll, loadingMore, maximisedKimonoIndex
   };
   
   const closeGallery = () => {
-    minimiseKimono(maximisedKimonoIndex);
     minimiseGallery(kimonos[maximisedKimonoIndex].id);
+    minimiseKimono(maximisedKimonoIndex);
+  }
+  
+  const handleKeyDown = (e) => {
+    if (e.which === 37 && maximisedKimonoIndex !== 0) changeKimono(); // left key
+    if (e.which === 39 && maximisedKimonoIndex !== kimonos.length - 1) changeKimono(true); // right key
+    if (e.which === 27) closeGallery(); // esc key
   }
   
   return(

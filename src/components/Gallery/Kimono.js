@@ -14,7 +14,9 @@ function Kimono({ index, kimono, linkRef, maximised, kimonoLoaded, maximise }) {
   };
   
   return(
-    <div className={`kimono ${maximised ? 'maximised' : ''}`}
+    <figure className={`kimono ${maximised ? 'maximised' : ''}`}
+         tabIndex={maximised ? -1 : 0}
+         onKeyDown={(e) => e.which === 13 ? handleClick() : null}
          onClick={Math.min(window.screen.height, window.screen.width) >= 600 ? handleClick : null}
          ref={kimonoRef}>
       { !kimono.loaded ? <img src="assets/Kimono_Template.png" alt="Kimono template"/>: null }
@@ -25,7 +27,7 @@ function Kimono({ index, kimono, linkRef, maximised, kimonoLoaded, maximise }) {
       <p>{kimono.title}</p>
       <p>by {kimono.name}</p>
       <p>{kimono.handle !== '-' ? '@' : ''}{kimono.handle}</p>
-    </div>
+    </figure>
   );
 }
 
