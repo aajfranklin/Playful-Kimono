@@ -15,7 +15,7 @@ function Kimono({ index, kimono, linkRef, maximised, kimonoLoaded, maximise }) {
   
   return(
     <figure className={`kimono ${maximised ? 'maximised' : ''}`}
-         tabIndex={maximised ? -1 : 0}
+         tabIndex={!maximised && Math.min(window.screen.height, window.screen.width) >= 600 ? 0 : null}
          onKeyDown={(e) => e.which === 13 ? handleClick() : null}
          onClick={Math.min(window.screen.height, window.screen.width) >= 600 ? handleClick : null}
          ref={kimonoRef}>
