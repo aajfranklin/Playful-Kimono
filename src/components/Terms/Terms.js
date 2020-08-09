@@ -39,7 +39,7 @@ function Terms () {
         </ul>
         <h2 id="who-we-are">Who we are and how to contact us</h2>
         <p><Link to={'/'}>www.playfulkimono.com</Link> is a site operated by Euphemia Franklin ("We").</p>
-        <p>To contact us, please email <a target="_blank" href="mailto:hello@playfulkimono.com">hello@playfulkimono.com</a></p>
+        <p>To contact us, please email <a target="_blank" rel="noopener noreferrer" href="mailto:hello@playfulkimono.com">hello@playfulkimono.com</a></p>
         <h2 id="accept-terms">By using our site you accept these terms</h2>
         <p>By using our site, you confirm that you accept these terms of use and that you agree to comply with them.</p>
         <p>If you do not agree to these terms, you must not use our site.</p>
@@ -64,7 +64,7 @@ function Terms () {
         <h2 id="account-details">You must keep your account details safe</h2>
         <p>If you choose, or you are provided with, a user identification code, password or any other piece of information as part of our security procedures, you must treat such information as confidential. You must not disclose it to any third party.</p>
         <p>We have the right to disable any user identification code or password, whether chosen by you or allocated by us, at any time, if in our reasonable opinion you have failed to comply with any of the provisions of these terms of use.</p>
-        <p>If you know or suspect that anyone other than you knows your user identification code or password, you must promptly notify us at <a target="_blank" href="mailto:hello@playfulkimono.com">hello@playfulkimono.com</a>.</p>
+        <p>If you know or suspect that anyone other than you knows your user identification code or password, you must promptly notify us at <a target="_blank" rel="noopener noreferrer" href="mailto:hello@playfulkimono.com">hello@playfulkimono.com</a>.</p>
         <h2 id="material">How you may use material on our site</h2>
         <p>We are the owner or the licensee of all intellectual property rights in our site, and in the material published on it.  Those works are protected by copyright laws and treaties around the world. All such rights are reserved.</p>
         <p>You may print off one copy, and may download extracts, of any page(s) from our site for your personal use and you may draw the attention of others within your organisation to content posted on our site.</p>
@@ -81,7 +81,7 @@ function Terms () {
         <h2 id="user-content">User-generated content is not approved by us</h2>
         <p>This website may include information and materials uploaded by other users of the site, including to bulletin boards and chat rooms. This information and these materials have not been verified or approved by us. The views expressed by other users on our site do not represent our views or values.</p>
         <h2 id="complain">How to complain about content uploaded by other users</h2>
-        <p>If you wish to complain about content uploaded by other users, please contact us on <a target="_blank" href="mailto:hello@playfulkimono.com">hello@playfulkimono.com</a>.</p>
+        <p>If you wish to complain about content uploaded by other users, please contact us on <a target="_blank" rel="noopener noreferrer" href="mailto:hello@playfulkimono.com">hello@playfulkimono.com</a>.</p>
         <h2 id="loss-or-damage">Our responsibility for loss or damage suffered by you</h2>
         <p>Whether you are a consumer or a business user:</p>
         <ul>
@@ -139,7 +139,7 @@ function Terms () {
         <p>Our site must not be framed on any other site, nor may you create a link to any part of our site other than the home page.</p>
         <p>We reserve the right to withdraw linking permission without notice.</p>
         <p>The website in which you are linking must comply in all respects with the content standards set out in our Acceptable Use Policy (see below)</p>
-        <p>If you wish to link to or make any use of content on our site other than that set out above, please contact <a target="_blank" href="mailto:hello@playfulkimono.com">hello@playfulkimono.com</a>.</p>
+        <p>If you wish to link to or make any use of content on our site other than that set out above, please contact <a target="_blank" rel="noopener noreferrer" href="mailto:hello@playfulkimono.com">hello@playfulkimono.com</a>.</p>
         <h2 id="country">Which country's laws apply to any disputes?</h2>
         <p>If you are a consumer, please note that these terms of use, their subject matter and their formation, are governed by English law. You and we both agree that the courts of England and Wales will have exclusive jurisdiction except that if you are a resident of Northern Ireland you may also bring proceedings in Northern Ireland, and if you are resident of Scotland, you may also bring proceedings in Scotland.</p>
         <p>If you are a business, these terms of use, their subject matter and their formation (and any non-contractual disputes or claims) are governed by English law. We both agree to the exclusive jurisdiction of the courts of England and Wales.</p>
@@ -150,7 +150,7 @@ function Terms () {
         <p>This acceptable use policy sets out the content standards that apply when you upload content to our site, make contact with other users on our site, link to our site, or interact with our site in any other way.</p>
         <h2>Who we are and how to contact us</h2>
         <p><Link to={'/'}>www.playfulkimono.com</Link> is a site operated by Euphemia Franklin ("We").</p>
-        <p>To contact us, please email <a target="_blank" href="mailto:hello@playfulkimono.com">hello@playfulkimono.com</a></p>
+        <p>To contact us, please email <a target="_blank" rel="noopener noreferrer" href="mailto:hello@playfulkimono.com">hello@playfulkimono.com</a></p>
         <h2>By using our site you accept these terms</h2>
         <p>By using our site, you confirm that you accept the terms of this policy and that you agree to comply with them.</p>
         <p>If you do not agree to these terms, you must not use our site.</p>

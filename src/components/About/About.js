@@ -44,7 +44,7 @@ function About () {
             Concept and design by Euphemia Franklin.
           </p>
           <p className="margin-top-zero">
-            Web development by <a target="_blank" href="https://github.com/aajfranklin">Alex Franklin</a>.
+            Web development by <a target="_blank" rel="noopener noreferrer" href="https://github.com/aajfranklin">Alex Franklin</a>.
           </p>
         </section>
         <section>
@@ -58,13 +58,13 @@ function About () {
           </p>
           <p>
             Since returning to London, Euphemia has continued to conduct research on Japanese craftsmanship and
-            sensibilities. To get in touch, please visit <a target="_blank" href="http://www.euphemiafranklin.com">www.euphemiafranklin.com</a>.
+            sensibilities. To get in touch, please visit <a target="_blank" rel="noopener noreferrer" href="http://www.euphemiafranklin.com">www.euphemiafranklin.com</a>.
           </p>
         </section>
         <section>
           <h1>CONTACT</h1>
-          <p className="margin-bottom-zero"><a target="_blank" href="mailto: hello@playfulkimono.com">hello@playfulkimono.com</a></p>
-          <p className="margin-top-zero"><a target="_blank" href="https://www.instagram.com/playful_kimono/">@playful_kimono</a></p>
+          <p className="margin-bottom-zero"><a target="_blank" rel="noopener noreferrer" href="mailto: hello@playfulkimono.com">hello@playfulkimono.com</a></p>
+          <p className="margin-top-zero"><a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/playful_kimono/">@playful_kimono</a></p>
         </section>
       </section>
     </main>
