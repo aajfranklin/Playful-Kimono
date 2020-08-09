@@ -16,7 +16,12 @@ function Canvas ({ main, maxScale, step, userImage, saveFinishedImage, setMaxSca
   let hammer;     // does not need to be retained between renders
   let pinchScale; // does not need to be retained between renders
   
-  const getCanvasWidth = () => Math.min(window.screen.width, window.screen.height) > 500 ? 500: 360;
+  const getCanvasWidth = () => {
+    if (Math.min(window.screen.width, window.screen.height) >= 1600) return 1080;
+    if (Math.min(window.screen.width, window.screen.height) >= 1440) return 900;
+    if (Math.min(window.screen.width, window.screen.height) > 500) return 500;
+    return 360;
+  }
   const getImg = () => canvas.current.item(0);
   const lockImageMovement = () => getImg().lockMovementX = getImg().lockMovementY = true;
   const unlockImageMovement = () => getImg().lockMovementX = getImg().lockMovementY = false;
@@ -42,6 +47,7 @@ function Canvas ({ main, maxScale, step, userImage, saveFinishedImage, setMaxSca
   }
   
   const addUserImageToCanvas = () => {
+    if (getImg()) return;
     let img = new fabric.Image(userImage);
   
     // allow image to scale to its own size or the size of the canvas, whichever is larger

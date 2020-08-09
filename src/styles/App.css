@@ -138,8 +138,6 @@ ul {
     text-decoration: underline;
 }
 
-/* Loading animation from https://loading.io/css/ */
-
 .loading-container {
     align-items: center;
     display: flex;
@@ -224,7 +222,7 @@ ul {
 /* About styles*/
 
 #about > * {
-    height: 555px;
+    height: 500px;
     width: 500px;
 }
 
@@ -339,6 +337,7 @@ select.form-control {
 
 #instructions {
     margin-top: 1em;
+    max-width: fit-content;
 }
 
 #instructions a {
@@ -384,6 +383,7 @@ select.form-control {
     flex-direction: row;
     justify-content: space-around;
     margin: 10% auto;
+    min-width: 225px;
     width: 50%;
 }
 
@@ -562,7 +562,6 @@ input[type=range]:focus::-ms-fill-upper {
     flex-wrap: wrap;
     justify-content: center;
     margin: auto;
-    max-width: 1440px;
 }
 
 #kimonos.maximised {
@@ -611,8 +610,7 @@ input[type=range]:focus::-ms-fill-upper {
 /* Privacy and terms styles */
 
 #privacy, #terms {
-    min-width: 247px;
-    width: 80%;
+    max-width: 50vw;
 }
 
 #privacy ul, #terms ul {
@@ -620,7 +618,7 @@ input[type=range]:focus::-ms-fill-upper {
     padding-inline-start: 1em;
 }
 
-#privacy p, #privacy li, #terms p, #terms li {
+#privacy * {
     word-break: break-word;
 }
 
@@ -633,6 +631,11 @@ input[type=range]:focus::-ms-fill-upper {
 @media screen and (max-width: 600px), screen and (max-height: 600px) {
     .kimono {
         cursor: auto;
+    }
+
+    #privacy, #terms {
+        margin: 2em;
+        max-width: 100%;
     }
 }
 
@@ -736,4 +739,125 @@ input[type=range]:focus::-ms-fill-upper {
     .CookieConsent {
         font-size: 10px;
     }
+}
+
+/* Large screen styles */
+
+@media screen and (min-width: 1440px) and (min-height: 1440px) {
+    body, h1, h2, input[type="text"], .action-button {
+        font-size: 32px;
+    }
+
+    canvas, #canvas-label-container, #about > *, .kimono.maximised > img {
+        height: 900px;
+        width: 900px;
+    }
+
+    footer {
+        font-size: 24px;
+    }
+
+    input[type=range] {
+        width: 720px;
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+        width: 24px;
+        height: 24px;
+        border-radius: 12px;
+        margin-top: -10px;
+    }
+
+    input[type=range]::-moz-range-thumb {
+        width: 24px;
+        height: 24px;
+        border-radius: 12px;
+        margin-top: -10px;
+    }
+    input[type=range]::-ms-thumb {
+        width: 24px;
+        height: 24px;
+        border-radius: 12px;
+        margin-top: -10px;
+    }
+
+    #attract-link > span {
+        font-size: 40px;
+    }
+
+    #chevron-container {
+        height: 1080px;
+    }
+
+    #design > * {
+        width: 1080px;
+    }
+
+    #gallery-controls {
+        width: 1080px;
+    }
+
+    #gallery-controls button {
+        font-size: 60px;
+    }
+
+    #gradient-container {
+        height: 1080px;
+        width: 1080px;
+    }
+
+    #home-link {
+        font-size: 40px;
+    }
+
+    #zoom {
+        width: 920px;
+    }
+
+    .action-button {
+        border-radius: 100px;
+        margin-left: calc(50% - 100px);
+        height: 200px;
+        width: 200px;
+    }
+
+    .CookieConsent {
+        font-size: 20px;
+    }
+
+    .CookieConsent button {
+        margin: 30px !important;
+    }
+
+    .kimono {
+        width: 500px;
+    }
+
+    .kimono > img {
+        height: 500px;
+        width: 500px;
+    }
+
+    .loading-container {
+        height: 150px;
+        width: 150px;
+    }
+
+    .loading-spinner {
+        height: 100px;
+        width: 100px;
+    }
+
+    .zoom-button {
+        font-size: 60px;
+    }
+}
+
+@media screen and (min-height: 1600px) and (min-width: 1660px) {
+
+    canvas, #canvas-label-container, #about > *, .kimono.maximised > img {
+        height: 1080px;
+        width: 1080px;
+    }
+
 }
