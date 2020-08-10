@@ -50,7 +50,7 @@ function Privacy () {
         </ul>
         <p>You are not required to pay any charge for exercising your rights. If you make a request, we have one month to respond to you.</p>
         <p>Please contact us at <a target="_blank" rel="noopener noreferrer" href="mailto:hello@playfulkimono.com">hello@playfulkimono.com</a> if you wish to make a request.</p>
-        <h2>Cookies</h2>
+        <h2 id="cookies">Cookies</h2>
         <p>
           We use Google Analytics to analyse the use of our website and create reports about such
           usage. Google Analytics gathers information about website use by means of cookies. Such

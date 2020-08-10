@@ -62,7 +62,7 @@ function Gallery ({ error, kimonos, lastMaximised, loadedAll, loadedAny, loading
       {!maximised
           ? <React.Fragment>
               { loadedAny && loadingMore ? <div className="infinite-scroll-status-area"><LoadingGraphic/></div>: null }
-              { loadedAll ? <p className="infinite-scroll-status-area">All kimonos loaded. Check back for more soon!</p> : null }
+              { loadedAll ? <p className="infinite-scroll-status-area">More designs coming soon.</p> : null }
             </React.Fragment>
           : null
       }

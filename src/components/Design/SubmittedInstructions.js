@@ -7,7 +7,7 @@ function SubmittedInstructions() {
   return(
     <section id="instructions">
       <p>Thank you for submitting your playful kimono!</p>
-      <p>Your design is currently being processed and may take a while before it appears on the gallery.</p>
+      <p>Your design is currently being processed and may take a while before it appears on the gallery, subject to approval.</p>
       <p>Thank you for your patience :)</p>
       <div className="button-group">
         <a href="/design">

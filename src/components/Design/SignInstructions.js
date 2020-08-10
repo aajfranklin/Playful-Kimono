@@ -59,7 +59,7 @@ function SignInstructions({ handle, name, imageData, step, title, isGoogleAnalyt
             <input id="instagram-input" type='text' value={handle} onChange={handleHandleChange} maxLength="30"/>
           </div>
         </div>
-        <p id="confirm-terms-of-use">By clicking UPLOAD you agree to the <Link to={'/terms'}>terms of use</Link>.</p>
+        <p id="confirm-terms">By clicking UPLOAD you agree to the <Link to={'/terms'}>terms and conditions</Link>.</p>
         { step === config.designSteps.SUBMITTING
           ?
             <button className="loading-container action-button" onClick={(e) => e.preventDefault()}>

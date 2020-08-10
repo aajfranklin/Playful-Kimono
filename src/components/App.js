@@ -62,7 +62,7 @@ function App({ isGoogleAnalyticsInitialised, initialisedGoogleAnalytics }) {
                            expires={30}
                            sameSite={'lax'}
                            onAccept={handleAcceptCookies}>
-              We use cookies to measure site readership. Read our <Link to={"/privacy-policy"}>privacy policy</Link> for more details.
+              We use cookies to measure site readership. Please refer to the <a href={"/privacy-policy#cookies"}>cookie policy</a> for details.
             </CookieConsent>
       }
     </React.Fragment>
