@@ -36,6 +36,7 @@ function Terms () {
           <li><a href="#viruses">We are not responsible for viruses and you must not introduce them.</a></li>
           <li><a href="#rules">Rules about linking to our site.</a></li>
           <li><a href="#country">Which country's laws apply to any disputes?</a></li>
+          <li><a href="#acceptable-use">Acceptable use policy</a></li>
         </ul>
         <h2 id="who-we-are">Who we are and how to contact us</h2>
         <p><Link to={'/'}>www.playfulkimono.com</Link> is a site operated by Euphemia Franklin ("We").</p>
@@ -144,8 +145,8 @@ function Terms () {
         <p>If you are a consumer, please note that these terms of use, their subject matter and their formation, are governed by English law. You and we both agree that the courts of England and Wales will have exclusive jurisdiction except that if you are a resident of Northern Ireland you may also bring proceedings in Northern Ireland, and if you are resident of Scotland, you may also bring proceedings in Scotland.</p>
         <p>If you are a business, these terms of use, their subject matter and their formation (and any non-contractual disputes or claims) are governed by English law. We both agree to the exclusive jurisdiction of the courts of England and Wales.</p>
         
-        <h1 id="acceptable-use">Playful Kimono Acceptable Use Policy</h1>
-        PLEASE READ THE TERMS OF THIS POLICY CAREFULLY BEFORE USING THE SITE
+        <h1 id="acceptable-use">PLAYFUL KIMONO ACCEPTABLE USE POLICY</h1>
+        <p>Please read the terms of this policy carefully before using this site.</p>
         <h2>What's in these terms?</h2>
         <p>This acceptable use policy sets out the content standards that apply when you upload content to our site, make contact with other users on our site, link to our site, or interact with our site in any other way.</p>
         <h2>Who we are and how to contact us</h2>
