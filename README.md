@@ -29,7 +29,7 @@ This stack allows for complete control of the front-end visual design and image 
 
 ## Features
 
-###Upload, edit, and submit a kimono design:
+### Upload, edit, and submit a kimono design:
 
 ![Playful Kimono image upload screen](./readme-assets/Upload.png)
 
@@ -39,11 +39,11 @@ This stack allows for complete control of the front-end visual design and image 
 
 ![Playful Kimono gallery screen](./readme-assets/Gallery.png)
 
-###Expanded gallery view:
+### Expanded gallery view:
 
 ![Playful Kimono expanded gallery screen](./readme-assets/Expanded.png)
 
-###Responsive design and touch support:
+### Responsive design and touch support:
 
 ![Playful Kimono responsive design view 1](./readme-assets/Responsive1.png) ![Playful Kimono responsive design view 2](./readme-assets/Responsive2.png) ![Playful Kimono image upload screen with touch instructions](./readme-assets/Touch.png)
 
