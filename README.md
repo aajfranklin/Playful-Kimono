@@ -35,7 +35,7 @@ This stack allows for complete control of the front-end visual design and image 
 
 ![Playful Kimono design screen](./readme-assets/Design.png)
 
-###'Infinite' gallery loads more designs as you scroll:
+### 'Infinite' gallery loads more designs as you scroll:
 
 ![Playful Kimono gallery screen](./readme-assets/Gallery.png)
 
