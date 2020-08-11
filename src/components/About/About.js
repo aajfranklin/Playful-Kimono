@@ -19,22 +19,19 @@ function About () {
           </p>
           <p>
             Drawing inspiration from kimono sample books, or <i>hinagata-bon</i> from the Edo and Meiji periods, the
-            project reinterprets the kimono-design process through a simple digital template. Using the outline of a
+            project reinterprets the kimono-design process through a digital template. Using the outline of a
             flat kimono, Playful Kimono encourages anyone to place an image inside the template to see their unique
-            design come to life.
+            design instantly come to life.
           </p>
           <p>
-            The earliest known kimono sample book, <i>Kosode On-Hinakata</i>, was published in 1667. These books were
-            typically used as catalogues to showcase the latest kimono designs. Intricate designs were drawn by artists
-            then printed and bound by a publisher. The books were sent to kimono manufacturers in Kyoto, including
-            spinners, weavers, dyers and tailors, who were able to realise the designs as wearable kimonos. This long
-            chain of activity created a unique relationship between publishers and craftspeople.
+            Sample books were typically used as catalogues to showcase the latest kimono designs and the earliest known
+            example, <i>Kosode On-Hinakata</i>, was published in 1667. Intricate designs were drawn and hand-printed
+            by artists before being bound and distributed by a publisher.
           </p>
           <p>
-            Playful Kimono enables anyone to design a kimono in a matter of seconds. The template was created in March
-            2020 during the height of the lockdown period, when people around the world were spending increasing amounts
-            of time at home. Playful Kimono aims to provide a simple and satisfying activity, encouraging creativity at
-            home.
+            The template was created in March 2020 during the height of the lockdown period, when people around the
+            world were spending increasing amounts of time in isolation. Playful Kimono aims to provide a simple and
+            satisfying activity, encouraging creativity at home.
           </p>
           <p>
             This project has been promoted by the Victoria and Albert Museum and is supported by the Kingston University
@@ -54,11 +51,11 @@ function About () {
             Nishijin and the World: Balancing Tradition and Innovation at the House of Hosoo</i> (2020) explored the future
             of Nishijin-ori, a form of Japanese silk weaving dating back over a millennium. This essay was researched
             during Euphemia’s time in Kyoto, where she gained hands-on experience of weaving and formed relationships
-            with some of Japan’s oldest kimono manufacturers.
+            with some of Japan’s oldest kimono manufacturers. Since returning to London, Euphemia has continued to
+            conduct research on Japanese craftsmanship and sensibilities.
           </p>
           <p>
-            Since returning to London, Euphemia has continued to conduct research on Japanese craftsmanship and
-            sensibilities. To get in touch, please visit <a target="_blank" rel="noopener noreferrer" href="http://www.euphemiafranklin.com">www.euphemiafranklin.com</a>.
+            To get in touch, please visit <a target="_blank" rel="noopener noreferrer" href="http://www.euphemiafranklin.com">www.euphemiafranklin.com</a>.
           </p>
         </section>
         <section>
