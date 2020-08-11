@@ -11,7 +11,7 @@
 
 ## Background
 
-Drawing inspiration from kimono sample books, or hinagata-bon from the Edo and Meiji periods, the project reinterprets the kimono design process through a simple digital template and invites users to bring their own unique designs to life.
+Drawing inspiration from kimono sample books, or hinagata-bon from the Edo and Meiji periods, the project reinterprets the kimono design process through a digital template and invites users to bring their own unique designs to life.
 
 Playful Kimono has been promoted by the Victoria and Albert Museum and is supported by the Kingston University Business School.
 
