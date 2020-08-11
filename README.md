@@ -1,4 +1,4 @@
-#Playful Kimono
+# Playful Kimono
 
 <a href="http://www.playfulkimono.com">Playful Kimono</a> asks the question, what would your kimono look like?
 
