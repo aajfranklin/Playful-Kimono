@@ -31,9 +31,9 @@ This stack allows for complete control of the front-end visual design and image 
 
 ### Upload, edit, and submit a kimono design:
 
-![Playful Kimono image upload screen](./readme-assets/Upload.png)
+Click the image below for a video demo:
 
-![Playful Kimono design screen](./readme-assets/Design.png)
+[![Playful Kimono video demo](./readme-assets/Upload.png)](https://vimeo.com/447087046)
 
 ### 'Infinite' gallery loads more designs as you scroll:
 
