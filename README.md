@@ -13,7 +13,7 @@
 
 Drawing inspiration from kimono sample books, or hinagata-bon from the Edo and Meiji periods, the project reinterprets the kimono design process through a digital template and invites users to bring their own unique designs to life.
 
-Playful Kimono has been promoted by the [Victoria and Albert Museum](https://www.vam.ac.uk/blog/museum-life/letsmakewednesdays-kimono) and is supported by the Kingston University Business School.
+Playful Kimono has been promoted by the [Victoria and Albert Museum](https://www.vam.ac.uk/blog/digital/playful-kimono) and is supported by the Kingston University Business School.
 
 Concept and design by <a href="https://www.instagram.com/euphemia.work/?hl=en">Euphemia Franklin</a>.
 

@@ -34,7 +34,7 @@ function About () {
             satisfying activity, encouraging creativity at home.
           </p>
           <p>
-            This project has been promoted by the <a href="https://www.vam.ac.uk/blog/museum-life/letsmakewednesdays-kimono">Victoria and Albert Museum</a> and is supported by the Kingston University
+            This project has been promoted by the <a href="https://www.vam.ac.uk/blog/digital/playful-kimono">Victoria and Albert Museum</a> and is supported by the Kingston University
             Business School.
           </p>
           <p className="margin-bottom-zero">
